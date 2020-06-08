@@ -5,7 +5,6 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
 
 var app = express();
 
@@ -13,7 +12,8 @@ var app = express();
 
 //Set up mongoose connection
 var mongoose = require("mongoose");
-var mongoDB = "mongodb+srv://Aman:Bittoo@1998@cluster0-kf9m8.mongodb.net/local_library?retryWrites=true&w=majority";
+var mongoDB = process.env.mongoDBConnectionString;
+ 
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
@@ -25,7 +25,6 @@ app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -44,7 +43,5 @@ app.use(function (err, req, res, next) {
 });
 
 app.listen(3000, () => {
-  console.log("Listening on Port 3000");
+  console.log("Listening on Port 3000 ");
 });
-
-// https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose for more
