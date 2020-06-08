@@ -6,7 +6,7 @@
 * The file dbDataInsertionMethod contains diff methods to perform operation on Database.
 * I have setup script in package.json to start the server via nodemon inserting .env file data (In case this doesn't make sense just use 
 ```
-npm start not node app.js)
+npm start not node app.js
 ```
 
 * Before running the server create a .env file in root directory and inside the file write 
