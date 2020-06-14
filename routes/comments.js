@@ -1,8 +1,12 @@
 var express = require("express");
 var router = express.Router();
+var requireJwtAuth = require("../middleware/requireJwtAuth");
 
 // Require controller modules.
 var commentsController = require("../Controller/commentsController");
+
+router.get("/public", commentsController.edit_comments);
+router.get("/private", requireJwtAuth, commentsController.edit_comments);
 
 //Add new function by using commentssController.<function's name>
 
