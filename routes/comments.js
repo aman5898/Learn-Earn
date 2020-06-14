@@ -5,8 +5,8 @@ var requireJwtAuth = require("../middleware/requireJwtAuth");
 // Require controller modules.
 var commentsController = require("../Controller/commentsController");
 
-router.get("/public", commentsController.edit_comments);
-router.get("/private", requireJwtAuth, commentsController.edit_comments);
+router.get("/public", commentsController.edit_comments_public);
+router.get("/private", requireJwtAuth, commentsController.edit_comments_private);
 
 //Add new function by using commentssController.<function's name>
 
