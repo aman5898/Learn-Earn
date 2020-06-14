@@ -15,6 +15,4 @@ router.get("/book/create", demoController.demo_detail);
 // POST request for creating Book.
 router.post("/book/create", demoController.demo_create_post);
 
-
-
 module.exports = router;
