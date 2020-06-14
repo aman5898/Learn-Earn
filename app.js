@@ -3,17 +3,16 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+var passport = require("passport");
 
 var indexRouter = require("./routes/index");
 
 var app = express();
 
-// mongodb+srv://Aman:Bittoo@1998@cluster0-kf9m8.mongodb.net/local_library?retryWrites=true&w=majority
-
 //Set up mongoose connection
 var mongoose = require("mongoose");
 var mongoDB = process.env.mongoDBConnectionString;
- 
+
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
@@ -23,6 +22,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(passport.initialize());
+require("./services/jwtStrategy");
+require("./services/googleStrategy");
 
 app.use("/", indexRouter);
 
@@ -42,6 +45,6 @@ app.use(function (err, req, res, next) {
   res.send("error");
 });
 
-app.listen(3000, () => {
-  console.log("Listening on Port 3000 ");
+app.listen(5000, () => {
+  console.log("Listening on Port 5000 ");
 });
