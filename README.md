@@ -16,7 +16,7 @@ npm start
 mongoDBConnectionString="secret"
 ```
 
-(No let or const anything)(secret will be shared to you via whatsapp as github gives warning and email both while uploading secrets.)
+( No let or const anything)(secret will be shared to you via whatsapp as github gives warning and email both while uploading secrets.)
 
 - To get Auth token visit '/api/auth/google' then login your self and you will get token.
 - Now to access protected api's pass in header x-auth-token as key and token as value.
