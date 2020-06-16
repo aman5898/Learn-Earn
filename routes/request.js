@@ -9,7 +9,7 @@ var requestController = require("../Controller/requestController");
 router.get("/:reqId", requireJwtAuth, requestController.get_request);
 router.post("/comments", requestController.comments);
 router.post("/create", requireJwtAuth, requestController.create_request);
-router.put("/:reqId", requestController.edit_request);
+router.put("/:reqId", requireJwtAuth, requestController.edit_request);
 router.delete("/:reqId", requestController.delete_request);
 //router.use("/like", like);
 

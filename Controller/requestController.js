@@ -11,10 +11,11 @@ exports.get_request = async function (req, res) {
 	const req_id = req.params.reqId;
 	const me = req.user.toJSON();
 	let user_id = me._id;
-	
-	try {
-		let request = await Requests.findOne({ _id: req_id }).exec();
-		res.send({
+
+	Requests.findOne({
+		_id: req_id
+	}).then(request => {
+		res.status(200).send({
 			"comments": request.comments,
 			"likes": request.likes,
 			"interested": request.interested,
@@ -27,14 +28,12 @@ exports.get_request = async function (req, res) {
 			"created_at": request.created_at,
 			"updated_at": request.updated_at,
 		});
-		// Flag is not sent, to be implemented later
-	}
-	catch(err) {
+		return;
+	}).catch(err => {
 		console.log(err);
 		res.status(400).send({message: 'Error Occured while fetching the request'});
-	}
-
-    res.send("NOT IMPLEMENTED:  default my requests fetching");
+		return;
+	})
 };
 
 
@@ -47,38 +46,122 @@ exports.create_request = async function (req, res) {
     const me = req.user.toJSON();
     let user_id = me._id;
 
-	try {
-		let request = await new Requests({
-			created_by: user_id,
-			title: req.body.title,
-			description: req.body.description,
-			tags: JSON.parse(req.body.tags),
-			validity: req.body.validity,
-		}).save();
+	if(!req.body.title) {
+		res.status(400).send({ message: 'Invalid Title' });
+		return;
+	}
 
+	if(!req.body.description) {
+		res.status(400).send({ message: 'Invalid Description' });
+		return;
+	}
 
-		JSON.parse(req.body.tags).map(async (tag_id) => {
-			try {
-				let tag = await Tags.findByIdAndUpdate(tag_id, { $inc: { tag_count: 1 } }, { new: true }).exec();
+	if(!req.body.validity || new Date() > new Date(req.body.validity)) {
+		res.status(400).send({ message: 'Invalid Date' });
+		return;
+	}
+
+	if(JSON.parse(req.body.tags).length === 0 ){
+		res.status(400).send({ message: 'Invalid Tags' });
+		return;
+	} 
+
+	Requests.create({
+		created_by: user_id,
+		title: req.body.title,
+		description: req.body.description,
+		tags: JSON.parse(req.body.tags),
+		validity: req.body.validity,
+	}).then(request => {
+
+		Tags.bulkWrite([{
+				updateMany: {
+					"filter": { '_id': { $in: JSON.parse(req.body.tags) } },
+					"update": { $inc: { tag_count: 1 }}
+				}
 			}
-			catch(err) {
-				console.log(err);
-			}
+		]).then(result => {
+			res.status(200).send({message: 'Request Created Successfuly'});
+			return;
+		}).catch(err => {
+			console.log(err);
+			res.status(400).send({ message: 'Could not update tag count' });
+			return;
 		})
 
-		res.send({message: 'Request Created Successfuly'});
-
-	}
-	catch(err) {
+	}).catch(err => {
 		console.log(err);
 		res.status(400).send({message: 'Error Occured while creating a request'});
-	}
+		return;
+	})
 
 };
 
 exports.edit_request = function (req, res) {
-    res.send("NOT IMPLEMENTED:  edit requests fetching");
-  };
+	
+	if(!req.body.title) {
+		res.status(400).send({ message: 'Invalid Title' });
+		return;
+	}
+
+	if(!req.body.description) {
+		res.status(400).send({ message: 'Invalid Description' });
+		return;
+	}
+
+	if(!req.body.validity || new Date() > new Date(req.body.validity)) {
+		res.status(400).send({ message: 'Invalid Date' });
+		return;
+	}
+
+	if(JSON.parse(req.body.tags).length === 0 ){
+		res.status(400).send({ message: 'Invalid Tags' });
+		return;
+	} 
+
+	Requests.findOne({ "_id": req.params.reqId }).then(async (request) => {
+		request.title = req.body.title;
+		request.validity = req.body.validity;
+		request.description = req.body.description;
+
+		try {
+			// Decrease old tags count
+			let old_tags = await Tags.bulkWrite([{
+					updateMany: {
+						"filter": { '_id': { $in: request.tags } },
+						"update": { $inc: { tag_count: -1 }}
+					}
+				}
+			]);
+
+			// Increase new tags count
+			let new_tags = await Tags.bulkWrite([{
+					updateMany: {
+						"filter": { '_id': { $in: JSON.parse(req.body.tags) } },
+						"update": { $inc: { tag_count: 1 }}
+					}
+				}
+			]);
+
+			request.tags = JSON.parse(req.body.tags);
+			await request.save();
+			res.status(200).send({message: 'Request Updated Successfuly'});
+			return;
+
+		}
+		catch(err) {
+			console.log(err);
+			res.status(400).send({message: 'Error Occured while updating the request'});
+			return;
+		}
+
+	}).catch(err => {
+		console.log(err);
+		res.status(400).send({message: 'Error Occured while updating the request'});
+		return;
+	})
+
+};
 
 exports.delete_request = function (req, res) {
     res.send("NOT IMPLEMENTED:  delete requests fetching");

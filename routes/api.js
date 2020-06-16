@@ -10,6 +10,7 @@ var request = require("./request");
 var event = require("./event");
 var feed = require("./feed");
 var tag = require("./tag");
+var notifications = require("./notifications");
 var googleAuthRoutes = require("./googleAuth");
 
 var router = express.Router();
@@ -26,5 +27,6 @@ router.use("/request", request);
 router.use("/event", event);
 router.use("/feed", feed);
 router.use("/tag", tag);
+router.use("/notifications", notifications);
 
 module.exports = router;

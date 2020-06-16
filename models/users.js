@@ -56,6 +56,7 @@ var UserSchema = new mongoose.Schema({
   notifications: {
     notification_count: {
       type: Number,
+      default: 0
     },
     notification_ids: [
       {
