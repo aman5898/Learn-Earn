@@ -70,18 +70,13 @@ var UserSchema = new mongoose.Schema({
       ref: "Requests",
     },
   ],
-  followers: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Users",
-    },
-  ],
-  following: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Users",
-    },
-  ],
+  followers_count: {
+    type: Number,
+  },
+
+  following_count: {
+    type: Number,
+  },
   rating: {
     rating_count: {
       type: Number,
