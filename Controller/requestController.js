@@ -14,7 +14,12 @@ exports.get_request = async function (req, res) {
 
 	Requests.findOne({
 		_id: req_id
-	}).then(request => {
+	}).populate('tags').exec((err, request) => {
+		if(err) {
+			console.log(err);
+			res.status(400).send({message: 'Error Occured while fetching the request'});
+			return;
+		}
 		res.status(200).send({
 			"comments": request.comments,
 			"likes": request.likes,
@@ -28,10 +33,6 @@ exports.get_request = async function (req, res) {
 			"created_at": request.created_at,
 			"updated_at": request.updated_at,
 		});
-		return;
-	}).catch(err => {
-		console.log(err);
-		res.status(400).send({message: 'Error Occured while fetching the request'});
 		return;
 	})
 };
