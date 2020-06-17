@@ -1,7 +1,8 @@
 var mongoose = require("mongoose");
 
 var followerFollowingSchema = new mongoose.Schema({
-  user_id: [
+  user_id : { type: mongoose.Schema.Types.ObjectId, ref: "Users" },
+  connection_array: [
     {
       user_id: { type: mongoose.Schema.Types.ObjectId, ref: "Users" },
       name: { type: String, required: true, trim: true },
