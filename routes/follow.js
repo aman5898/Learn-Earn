@@ -6,6 +6,6 @@ var followController = require("../Controller/followController");
 
 //Add new function by using followsController.<function's name>
 
-router.post("/", followController.follow);
+router.post("/:followerId/:followingId", followController.follow);
 
 module.exports = router;
