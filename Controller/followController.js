@@ -12,8 +12,13 @@ exports.follow = async function (req, res) {
         user_id: new mongoose.mongo.ObjectId(req.params.followingId),
         name: followingUsername
       }
-      user.connection_array.indexOf(userData) === -1  ? user.connection_array.push(followingUserData) : console.log("Item already present");
       
+      if(user.connection_array.some( array => array['user_id'] == req.params.followingId )){
+        res.send("Item already present")
+      } else {
+        user.connection_array.push(followingUserData)
+      }
+
       await user.save()
  
       //saving User's data in followinguser's followers list
@@ -24,13 +29,17 @@ exports.follow = async function (req, res) {
         user_id: new mongoose.mongo.ObjectId(req.params.followerId),
         name: username
       }
-      followingUser.connection_array.indexOf(userData) === -1  ? followingUser.connection_array.push(userData) : console.log("Item already present")
-      
+
+      if(followingUser.connection_array.some( array => array['user_id'] == req.params.followerId )){
+        res.send("Item already present")
+      } else {
+        followingUser.connection_array.push(userData)
+      }
+
       await followingUser.save()
 
       res.send(user)
     } catch {
       res.status(404)
-      res.send({ error: "Could not complete follow request!" })
     }
   };
