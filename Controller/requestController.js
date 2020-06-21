@@ -14,19 +14,20 @@ exports.get_request = async function (req, res) {
 
 	Requests.findOne({
 		_id: req_id
-	}).populate('tags').exec((err, request) => {
+	}).populate('tags').populate('created_by').exec((err, request) => {
 		if(err) {
 			console.log(err);
 			res.status(400).send({message: 'Error Occured while fetching the request'});
 			return;
 		}
 		res.status(200).send({
-			"comments": request.comments,
-			"likes": request.likes,
-			"interested": request.interested,
+			"comments": request.comments.length,
+			"likes": request.likes.length,
+			"interested": request.interested.length,
 			"tags": request.tags,
 			"events": request.events,
-			"created_by": request.created_by,
+			"created_by_name": request.created_by.name,
+			"created_by": request.created_by._id,
 			"title": request.title,
 			"description": request.description,
 			"validity": request.validity,
