@@ -2,6 +2,31 @@ var Requests = require('../models/requests');
 var Events = require('../models/events')
 var mongoose = require('mongoose');
 
+exports.likecounts = async function(req, res){
+    try {
+        const type = req.params.type
+        const ReqEvnId = req.params.er_id
+        if (type == 'req') {
+            var Req = await Requests.findOne({ _id : ReqEvnId })
+            var count = Req.interested.length
+            res.send({ count })
+            res.status(204)
+        } else if (type == 'evn') {
+            var Evn = await Events.findOne({ _id : ReqEvnId })
+            var count = Evn.interested.length
+            res.send({ count })
+            res.status(204)
+        } else {
+            res.send("Type not found")
+            res.status(404)
+        }
+
+    } catch {
+        res.status(404)
+        res.send({ error: "Request/Event doesn't exist!" })
+    }
+}
+
 exports.likeReqEvn = async function(req, res){
     try {
         const type = req.params.type
@@ -46,6 +71,6 @@ exports.likeReqEvn = async function(req, res){
         res.status(204)
     } catch {
         res.status(404)
-        res.send({ error: "Request doesn't exist!" })
+        res.send({ error: "Request/Event doesn't exist!" })
     }
 }
