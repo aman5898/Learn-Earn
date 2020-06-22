@@ -12,6 +12,8 @@ var feed = require("./feed");
 var tag = require("./tag");
 var notifications = require("./notifications");
 var googleAuthRoutes = require("./googleAuth");
+var like = require("./like")
+var interested = require("./interested")
 
 var router = express.Router();
 
@@ -28,5 +30,7 @@ router.use("/event", event);
 router.use("/feed", feed);
 router.use("/tag", tag);
 router.use("/notifications", notifications);
+router.use("/like", like);
+router.use("/interested", interested)
 
 module.exports = router;
