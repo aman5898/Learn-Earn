@@ -39,7 +39,12 @@ exports.likeReqEvn = async function(req, res){
             var likedReq = await Requests.findOne({ _id : ReqEvnId })
 
             if(action == "like"){
-                likedReq.likes.push(new mongoose.mongo.ObjectId(userId))
+                if ( likedReq.interested.includes(userId) ){
+                    res.send("Already liked")
+                    return
+                } else {
+                    likedReq.likes.push(new mongoose.mongo.ObjectId(userId))
+                }
             } else {
                 var index = likedReq.likes.indexOf(userId);  
                 if (index !== -1) {
@@ -53,7 +58,12 @@ exports.likeReqEvn = async function(req, res){
             var likedEvn = await Events.findOne({ _id : ReqEvnId })
 
             if(action == "like"){
-                likedEvn.likes.push(new mongoose.mongo.ObjectId(userId))
+                if ( likedEnv.interested.includes(userId) ){
+                    res.send("Already liked")
+                    return
+                } else {
+                    likedEnv.interested.push(new mongoose.mongo.ObjectId(userId))
+                }
             } else {
                 var index = likedEvn.likes.indexOf(userId);  
                 if (index !== -1) {
