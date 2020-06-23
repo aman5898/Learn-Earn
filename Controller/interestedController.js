@@ -49,7 +49,6 @@ exports.intReqEvn = async function(req, res){
             } else {
                 interestedReqEvn.interested.push(new mongoose.mongo.ObjectId(userId))
                 if(type == 'evn'){
-                    console.log(ReqEvnId + " --- " + userId) 
                     var interest = new Interested()
                     interest.eventId = new mongoose.Types.ObjectId(ReqEvnId)
                     interest.userId = new mongoose.Types.ObjectId(userId) 
@@ -61,7 +60,7 @@ exports.intReqEvn = async function(req, res){
             if (index !== -1) {
                 interestedReqEvn.interested.splice(index, 1);
                 if( type == 'evn' ){
-                    await Interested.deleteOne({ eventId: ReqEvnId })
+                    await Interested.deleteMany({ eventId: ReqEvnId, userId: userId })
                 }
             }
         }
