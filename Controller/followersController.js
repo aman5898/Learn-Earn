@@ -1,9 +1,13 @@
-//Add your model by inserting file in models folder and then import it here like the example given below
-//var Demo = require("../models/demo");
+var Follower_Following = require("../models/follower_following");
+var Followers = Follower_Following.Followers
 
-
-//If redirection is needed use 'next'
-
-exports.get_followers = function (req, res) {
-    res.send("NOT IMPLEMENTED:  followers fetching");
-  };
+exports.get_followers = async function (req, res) {
+  try{
+    var user_follower = await Followers.findOne({ user_id: req.params.userId })
+    res.send(user_follower.connection_array)
+    res.status(204)
+  } catch {
+    res.status(404)
+    res.send({ error: "Could not fetch follow list!" })
+  }
+};
