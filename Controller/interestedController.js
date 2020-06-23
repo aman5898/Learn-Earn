@@ -4,22 +4,20 @@ var mongoose = require('mongoose');
 
 exports.interestcounts = async function(req, res){
     try {
-        const type = req.params.type
-        const ReqEvnId = req.params.er_id
+        const type = req.body.type
+        const ReqEvnId = req.body.er_id
         if (type == 'req') {
-            var Req = await Requests.findOne({ _id : ReqEvnId })
-            var count = Req.interested.length
-            res.send({ count })
-            res.status(204)
+            var ReqEvn = await Requests.findOne({ _id : ReqEvnId })
         } else if (type == 'evn') {
-            var Evn = await Events.findOne({ _id : ReqEvnId })
-            var count = Evn.interested.length
-            res.send({ count })
-            res.status(204)
+            var ReqEvn = await Events.findOne({ _id : ReqEvnId })
         } else {
             res.send("Type not found")
             res.status(404)
         }
+
+        var count = ReqEvn.interested.length
+        res.send({ count })
+        res.status(204)
 
     } catch {
         res.status(404)
@@ -29,54 +27,35 @@ exports.interestcounts = async function(req, res){
 
 exports.intReqEvn = async function(req, res){
     try {
-        const type = req.params.type
-        const action = req.params.action
-        const ReqEvnId = req.params.er_id
+        const type = req.body.type
+        const action = req.body.action
+        const ReqEvnId = req.body.er_id
         const userId = req.user._id
 
         if (type == 'req') {
-           
-            var likedReq = await Requests.findOne({ _id : ReqEvnId })
-
-            if(action == "like"){
-                if ( likedReq.interested.includes(userId) ){
-                    res.send("Already Interested")
-                    return
-                } else {
-                    likedReq.interested.push(new mongoose.mongo.ObjectId(userId))
-                }
-            } else {
-                var index = likedReq.interested.indexOf(userId);  
-                if (index !== -1) {
-                    likedReq.interested.splice(index, 1);
-                }
-            }
-            await likedReq.save()
-
+            var interestedReqEvn = await Requests.findOne({ _id : ReqEvnId })
         } else if (type == 'evn') {
-           
-            var likedEvn = await Events.findOne({ _id : ReqEvnId })
-
-            if(action == "like"){
-                if ( likedEnv.interested.includes(userId) ){
-                    res.send("Already Interested")
-                    return
-                } else {
-                    likedEnv.interested.push(new mongoose.mongo.ObjectId(userId))
-                }
-            } else {
-                var index = likedEvn.interested.indexOf(userId);  
-                if (index !== -1) {
-                    likedEvn.interested.splice(index, 1);
-                }
-            }
-            await linkedEvn.save()
-
+            var interestedReqEvn = await Events.findOne({ _id : ReqEvnId })
         } else {
             res.send("Type not found")
             res.status(404)
         }
         
+        if(action == "like"){
+            if ( interestedReqEvn.interested.includes(userId) ){
+                res.send("Already Interested")
+                return
+            } else {
+                interestedReqEvn.interested.push(new mongoose.mongo.ObjectId(userId))
+            }
+        } else {
+            var index = interestedReqEvn.interested.indexOf(userId);  
+            if (index !== -1) {
+                interestedReqEvn.interested.splice(index, 1);
+            }
+        }
+        await interestedReqEvn.save()
+
         res.send("Interest in Request/Event has been registered successfully!!")
         res.status(204)
     } catch {
