@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var InterestedSchema = new mongoose.Schema({
     eventId: {
         type: mongoose.Schema.Types.ObjectId,
-        default: 'Events'
+        ref: 'Events'
     },
     userId: {
         type: mongoose.Schema.Types.ObjectId, 
@@ -11,4 +11,4 @@ var InterestedSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Interested', TagSchema);
+module.exports = mongoose.model('Interested', InterestedSchema);

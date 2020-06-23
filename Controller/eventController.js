@@ -1,11 +1,11 @@
 //Add your model by inserting file in models folder and then import it here like the example given below
 var Events = require("../models/events");
-
+var Interested = require("../models/interested");
+const mongoose = require("mongoose");
 
 //If redirection is needed use 'next'
 
 exports.create_event = async function (req, res) {
-  console.log(req.body);
   const me = req.user.toJSON();
   let user_id = me._id;
 try {
@@ -22,6 +22,13 @@ try {
     "prerequisites" : JSON.parse(req.body.prerequisites),
   }).save();
 
+  eventId = event._id
+
+  let interest = await new Interested({
+    "eventId": new mongoose.Types.ObjectId(eventId),
+    "userId": new mongoose.Types.ObjectId(user_id)
+  }).save();
+
   JSON.parse(req.body.tags).map(async (tag_id) => {
     try {
       let tag = await Tags.findByIdAndUpdate(tag_id, { $inc: { tag_count: 1 } }, { new: true }).exec();
@@ -31,8 +38,9 @@ try {
     }
     
   })
-  res.send(200);
 
+  res.send("Event has been created");
+  res.status(200)
 }
 catch(err) {
   console.log(err);

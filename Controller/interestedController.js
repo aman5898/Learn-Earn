@@ -1,5 +1,6 @@
 var Requests = require('../models/requests');
-var Events = require('../models/events')
+var Events = require('../models/events');
+var Interested = require('../models/interested')
 var mongoose = require('mongoose');
 
 exports.interestcounts = async function(req, res){
@@ -31,7 +32,7 @@ exports.intReqEvn = async function(req, res){
         const action = req.body.action
         const ReqEvnId = req.body.er_id
         const userId = req.user._id
-
+        
         if (type == 'req') {
             var interestedReqEvn = await Requests.findOne({ _id : ReqEvnId })
         } else if (type == 'evn') {
@@ -47,14 +48,24 @@ exports.intReqEvn = async function(req, res){
                 return
             } else {
                 interestedReqEvn.interested.push(new mongoose.mongo.ObjectId(userId))
+                if(type == 'evn'){
+                    console.log(ReqEvnId + " --- " + userId) 
+                    var interest = new Interested()
+                    interest.eventId = new mongoose.Types.ObjectId(ReqEvnId)
+                    interest.userId = new mongoose.Types.ObjectId(userId) 
+                    await interest.save()
+                }
             }
         } else {
-            var index = interestedReqEvn.interested.indexOf(userId);  
+            var index = interestedReqEvn.interested.indexOf(userId);       
             if (index !== -1) {
                 interestedReqEvn.interested.splice(index, 1);
+                if( type == 'evn' ){
+                    await Interested.deleteOne({ eventId: ReqEvnId })
+                }
             }
         }
-        await interestedReqEvn.save()
+       await interestedReqEvn.save()
 
         res.send("Interest in Request/Event has been registered successfully!!")
         res.status(204)
