@@ -4,6 +4,7 @@ var { Strategy } = require("passport-google-oauth2");
 var GoogleStrategy = Strategy;
 
 var User = require("../models/users");
+var {Followers,Following}  = require("../models/follower_following");
 
 const serverUrl = process.env.SERVER_URL;
 
@@ -34,7 +35,33 @@ const googleLogin = new GoogleStrategy(
         name: profile.displayName,
         avatar: profile.picture,
       }).save();
+
+      // follower schema creation -- bittoo
+      const follower = new Followers({
+        user_id : newUser.id,
+        connection_array : []
+      })
+
+      follower.save(function (err, follow) {
+        if (err) return console.error(err);
+        console.log(follow);
+      });
+
+      // following is creating -- bittoo
+      const following = new Following({
+        user_id : newUser.id,
+        connection_array : []
+      });
+
+      following.save(function (err, follow) {
+        if (err) return console.error(err);
+        console.log(follow);
+      });
+
+      console.log(follower);
+      console.log(following);
       done(null, newUser);
+
     } catch (err) {
       console.log(err);
     }
