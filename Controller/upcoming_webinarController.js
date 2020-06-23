@@ -18,7 +18,7 @@ exports.get_webinars = async function (req, res) {
           }
         } 
       }
-
+      res.status(204)
       res.send(upcoming_webinar_array)
     } catch {
       res.status(404)
