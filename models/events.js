@@ -54,6 +54,9 @@ var EventSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Tags'
     }],
+    validity: {
+        type: Date
+    },
     prerequisites: {
         tags: [{
             type: mongoose.Schema.Types.ObjectId, 
