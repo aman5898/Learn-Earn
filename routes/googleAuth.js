@@ -36,9 +36,8 @@ router.get(
     // just another api to send token for server side work, we will redirect to a
     // client page with token in cookies so the below written two lines will be removed and
     // the res.redirect(clientUrl); will be uncommented
-    token = tokenGenerated;
     res.redirect("/api/auth/tokenPage");
-    // The above written two lines will be replaced by the below line once client side is ready
+    // The above written line will be replaced by the below line once client side is ready
     // -> res.redirect(clientUrl);
   }
 );
