@@ -98,7 +98,7 @@ exports.update_comments = function (req, res) {
       { $set: { text: req.body.text } },
       (err, document) => {
         if (err) {
-          res.status(500)(err);
+          res.status(500).send(err);
           return;
         }
         res.send("Comment has been updated");
