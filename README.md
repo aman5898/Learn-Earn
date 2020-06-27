@@ -45,3 +45,9 @@ npm run start:api_backend
 ```
 npm run start:api_frontend
 ```
+## Instructions regarding styling
+
++ Make .scss files in styles folder for components
++ Import .scss files in App.scss
++ Don't write anything except imports statements in App.scss
++ Add reusable styling properties in _config.scss under src/styles
