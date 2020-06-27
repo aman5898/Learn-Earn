@@ -3,15 +3,22 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "npx nodemon -r dotenv/config app.js"
+    "start": "run-p start:dev start:api_frontend",
+    "start:dev": "webpack-dev-server --config webpack.config.dev.js --port 3000",
+    "start:api_backend": "npx nodemon -r dotenv/config app.js",
+    "start:api_frontend": "node -r dotenv/config app.js"
   },
   "dependencies": {
     "async": "^3.2.0",
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.0",
     "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "create-react-app": "^3.4.1",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "^1.6.3",
+    "immer": "^7.0.5",
     "jade": "~1.11.0",
     "joi": "^14.3.1",
     "moment": "^2.27.0",
@@ -20,10 +27,92 @@
     "passport": "^0.4.1",
     "passport-google-oauth2": "^0.2.0",
     "passport-jwt": "^4.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-toastify": "^6.0.6",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
     "validator": "^13.1.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-preset-react-app": "^9.1.2",
+    "css-loader": "^3.6.0",
+    "cssnano": "^4.1.10",
     "dotenv": "^8.2.0",
-    "nodemon": "^2.0.4"
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^7.3.1",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-react": "^7.20.0",
+    "fetch-mock": "^9.10.3",
+    "html-webpack-plugin": "^4.3.0",
+    "http-server": "^0.12.3",
+    "jest": "^26.1.0",
+    "json-server": "^0.16.1",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^2.0.4",
+    "npm-run-all": "^4.1.5",
+    "postcss-loader": "^3.0.0",
+    "react-test-renderer": "^16.13.1",
+    "react-testing-library": "^8.0.1",
+    "redux-immutable-state-invariant": "^2.1.0",
+    "redux-mock-store": "^1.5.4",
+    "rimraf": "^3.0.2",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "babel": {
+    "presets": [
+      "babel-preset-react-app"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true,
+      "jest": true
+    },
+    "rules": {
+      "no-debugger": "off",
+      "no-console": "off",
+      "no-unused-vars": "warn",
+      "react/prop-types": "warn"
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "root": true
   }
 }

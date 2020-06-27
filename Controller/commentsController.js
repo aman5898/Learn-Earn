@@ -11,7 +11,7 @@ exports.get_comments_request = function (req, res) {
 };
 
 exports.get_comments_event = function (req, res) {
-  Comments.find({ request_id: req.params.event_id }, (err, documents) => {
+  Comments.find({ event_id: req.params.event_id }, (err, documents) => {
     if (err) {
       res.status(500).send(err);
       return;

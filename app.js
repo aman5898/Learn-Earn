@@ -6,6 +6,7 @@ var logger = require("morgan");
 var passport = require("passport");
 
 var indexRouter = require("./routes/index");
+var cors = require('cors')
 
 var app = express();
 
@@ -17,6 +18,7 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
+app.use(cors())
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
