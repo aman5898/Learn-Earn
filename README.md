@@ -25,12 +25,13 @@ mongoDBConnectionString="secret"
 
 ## React and Redux is present in src folder
 
-### To run frontend and backend together use (here backend will be served via node)
+### To run frontend and backend together use 
+(here backend will be served via node)
 ```
 npm start
 ```
 
-### To run only frontend use
+### To run frontend only use
 ```
 npm run start:dev
 ```
