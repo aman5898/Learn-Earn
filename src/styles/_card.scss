@@ -1,0 +1,11 @@
+.card {
+    border-radius: $card-border-radius;
+    background-color: $card-color;
+    box-shadow: $card-shadow; 
+    padding-top: $card-padding-top;
+}
+
+.card_title{
+    color: $font-color;
+    font: $card-title-font;
+}
