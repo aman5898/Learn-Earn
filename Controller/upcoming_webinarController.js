@@ -18,8 +18,8 @@ exports.get_webinars = async function (req, res) {
           }
         } 
       }
-      res.status(204)
-      res.send(upcoming_webinar_array)
+      
+      res.status(200).send(upcoming_webinar_array);
     } catch {
       res.status(404)
       res.send("Could not fetch upcoming webinars")
