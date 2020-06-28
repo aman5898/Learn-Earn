@@ -47,6 +47,8 @@ npm run start:api_frontend
 ```
 ## Instructions regarding styling
 
++ Calculate sizes by multiplying XD sizes with 0.714px then convert result size in rem by going to https://pixelsconverter.com/px-to-rem.
++ All sizes should be in rem.
 + Make .scss files in styles folder for components
 + Import .scss files in App.scss
 + Don't write anything except imports statements in App.scss
