@@ -1,19 +1,46 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
-import HomePage from "./home/HomePage";
-import AboutPage from "./about/AboutPage";
-import Header from "./common/Header";
-import PageNotFound from "./PageNotFound";
-import "./App.scss"
+// import { Route, Switch } from "react-router-dom";
+// import HomePage from "./home/HomePage";
+// import AboutPage from "./about/AboutPage";
+// import Header from "./common/Header";
+// import PageNotFound from "./PageNotFound";
+import Navbar from "./Navbar";
+import TrendingTopics from "./TrendingTopics";
+import CreateRequest from "./CreateRequest";
+import UpcomingWebinar from "./UpcomingWebinar";
+import YourRequests from "./YourRequests";
+import Feed from './Feed';
+import "../styles/App.scss";
 
-import { ToastContainer } from "react-toastify";
+// import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
-    <div className="container-fluid">
-      <div className="card">
-        Hello it is a div.
+    <div>
+      <Navbar />
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <div className="row">
+              <TrendingTopics />
+            </div>
+            <div className="row">
+              <YourRequests />
+            </div>
+          </div>
+          <div className="col">
+            <div className="row">
+              <CreateRequest />
+            </div>
+            <div className="row">
+              <Feed />
+            </div>
+          </div>
+          <div className="col">
+            <UpcomingWebinar />
+          </div>
+        </div>
       </div>
     </div>
   );
