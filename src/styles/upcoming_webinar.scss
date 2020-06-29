@@ -9,23 +9,30 @@
 }
 
 .icon_size {
-  width: 10%;
+  width: 13%;
   height: 100%;
   margin-top: -3%;
 }
 
 .add_event_button {
   background: #005ce6 0% 0% no-repeat padding-box;
-  border-radius: 47px;
-  width: -webkit-fill-available;
+  border-radius: 1.7rem;
+  width: 100%;
 }
 
 .img_2 {
-  background: transparent;
   border-radius: 50%;
-  opacity: 1;
-  height: 33px;
-  width: 33px;
-  margin: 7px;
+  height: 3.213rem;
+  width: 3.213rem;
+  margin: 0.3rem;
   border: 3px solid #ffffff;
+}
+
+.bold {
+  font: Bold 1rem Segoe UI;
+  color: #ffffff;
+}
+
+.font_normal {
+  font: 1rem Segoe UI;
 }
