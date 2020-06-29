@@ -6,7 +6,7 @@ import React from "react";
 // import PageNotFound from "./PageNotFound";
 import Navbar from "./Navbar";
 import TrendingTopics from "./TrendingTopics";
-import CreateRequest from "./CreateRequest";
+import CreateRequest from "./Request/CreateRequest";
 import UpcomingWebinar from "./UpcomingWebinar";
 import YourRequests from "./YourRequests";
 import Feed from './Feed';
