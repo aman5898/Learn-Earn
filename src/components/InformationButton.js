@@ -5,7 +5,7 @@ import image from "../temp/info.png";
 
 function InformationButton (){
 
-    function clickHandler() {
+    var clickHandler = () => {
         console.log("Button clicked!");
     }
 
