@@ -1,0 +1,31 @@
+.img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.font_color_70 {
+  color: $font-color;
+}
+
+.icon_size {
+  width: 10%;
+  height: 100%;
+  margin-top: -3%;
+}
+
+.add_event_button {
+  background: #005ce6 0% 0% no-repeat padding-box;
+  border-radius: 47px;
+  width: -webkit-fill-available;
+}
+
+.img_2 {
+  background: transparent;
+  border-radius: 50%;
+  opacity: 1;
+  height: 33px;
+  width: 33px;
+  margin: 7px;
+  border: 3px solid #ffffff;
+}
