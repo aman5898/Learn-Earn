@@ -1,9 +1,10 @@
 import React from "react";
+import FeedCard from './FeedCard'
 
 function Feed(){
     return(
         <div>
-            Feed Component is just a conatiner for FeedCard components.
+            <FeedCard />
         </div>
     );
 }

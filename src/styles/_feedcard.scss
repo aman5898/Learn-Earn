@@ -1,0 +1,5 @@
+.feedcard{
+    @extend .card;
+    padding-top: 0;
+    width: $feedcard-width;
+}
