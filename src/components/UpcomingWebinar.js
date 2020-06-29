@@ -4,6 +4,7 @@ import { loadUpcomingWebinars } from "../redux/actions/eventActions";
 import PropTypes from "prop-types";
 import styles from "../styles/App.scss";
 import img_Aman from "../images/aman.jpg";
+import AddEventComponent from "./AddEventComponent";
 
 function UpcomingWebinar({ events, loadUpcomingWebinars }) {
   useEffect(() => {
@@ -16,8 +17,12 @@ function UpcomingWebinar({ events, loadUpcomingWebinars }) {
       <div className="col">
         <div className="row p-2 mb-2">
           <div className={`col ${styles.card_title}`}>
-          <img className={styles.icon_size} src="https://img.icons8.com/pastel-glyph/64/000000/system-task.png"/>
-            &nbsp; Upcoming Webinars</div>
+            <img
+              className={styles.icon_size}
+              src="https://img.icons8.com/pastel-glyph/64/000000/system-task.png"
+            />
+            &nbsp; Upcoming Webinars
+          </div>
         </div>
         <div className={`row p-2`}>
           <div className="col-4">
@@ -43,6 +48,10 @@ function UpcomingWebinar({ events, loadUpcomingWebinars }) {
             <div className="row">Time - 20:00</div>
           </div>
           <div className="col"></div>
+        </div>
+
+        <div className="row">
+          {/* <AddEventComponent /> */}
         </div>
       </div>
     </div>
