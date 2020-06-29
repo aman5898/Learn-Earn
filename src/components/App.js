@@ -4,13 +4,14 @@ import React from "react";
 // import AboutPage from "./about/AboutPage";
 // import Header from "./common/Header";
 // import PageNotFound from "./PageNotFound";
-import Navbar from "./Navbar";
+import MyNavbar from "./Navbar";
 import TrendingTopics from "./TrendingTopics";
 import CreateRequest from "./Request/CreateRequest";
 import UpcomingWebinar from "./UpcomingWebinar";
 import YourRequests from "./YourRequests";
-import Feed from './Feed';
-//import styles from "../styles/App.scss";
+import Feed from "./Feed";
+// import "../temp.scss";
+// import styles from "../styles/App.scss";
 
 // import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -18,7 +19,7 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <div>
-      <Navbar />
+      <MyNavbar />
       <div className="container">
         <div className="row">
           <div className="col">

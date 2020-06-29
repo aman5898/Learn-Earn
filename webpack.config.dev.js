@@ -1,7 +1,8 @@
 const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+var ImageminPlugin = require("imagemin-webpack-plugin").default;
 
 process.env.NODE_ENV = "development";
 
@@ -13,7 +14,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "build"),
     publicPath: "/",
-    filename: "bundle.js"
+    filename: "bundle.js",
   },
   devServer: {
     stats: "minimal",
@@ -21,24 +22,24 @@ module.exports = {
     historyApiFallback: true,
     disableHostCheck: true,
     headers: { "Access-Control-Allow-Origin": "*" },
-    https: false
+    https: false,
   },
   plugins: [
     new webpack.DefinePlugin({
-      "process.env.API_URL": JSON.stringify("http://localhost:5000/api")
+      "process.env.API_URL": JSON.stringify("http://localhost:5000/api"),
     }),
     new HtmlWebpackPlugin({
       template: "src/index.html",
-      favicon: "src/favicon.ico"
+      favicon: "src/favicon.ico",
     }),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
   ],
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ["babel-loader", "eslint-loader"]
+        use: ["babel-loader", "eslint-loader"],
       },
       {
         test: /\.(scss|sass|css)$/,
@@ -46,15 +47,15 @@ module.exports = {
         loaders: [
           MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               modules: true,
               sourceMap: true,
-              importLoaders: 1
-            }
+              importLoaders: 1,
+            },
           },
-        'sass-loader',
-        ]
+          "sass-loader",
+        ],
       },
       {
         test: /(\.css)$/,

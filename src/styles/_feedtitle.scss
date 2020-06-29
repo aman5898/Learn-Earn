@@ -1,4 +1,29 @@
 .feedtitle{
     color: $font-color;
     font: $title-font;
+    margin-left: $feed-title-margin-left;
+    margin-top: $feed-title-margin-top;
+    width: $feed-title-width;
+}
+
+.feedsubtitle{
+    @extend .feedtitle;
+    margin-top: 0;
+    font-weight: normal;
+    width: $feed-title-width;
+}
+
+.moreinfo{
+    @extend .feedtitle;
+    margin-top: 0;
+    font-weight: lighter;
+    font-size: $feed-moreinfo-fontsize;
+    width: $feed-title-width;
+}
+
+.plus_symbol{
+    @extend .feedtitle;
+    font-size: $feed-plussymbol-font-size;
+    margin-left: $feed-plussymbol-margin-left;
+    margin-top: $feed-plussymbol-margin-top;
 }
