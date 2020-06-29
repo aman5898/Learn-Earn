@@ -9,7 +9,7 @@ import TrendingTopics from "./TrendingTopics";
 import CreateRequest from "./CreateRequest";
 import UpcomingWebinar from "./UpcomingWebinar";
 import YourRequests from "./YourRequests";
-import Feed from './Feed';
+import Feed from "./Feed";
 //import styles from "../styles/App.scss";
 
 // import { ToastContainer } from "react-toastify";

@@ -1,12 +1,8 @@
 import { combineReducers } from "redux";
-import courses from "./courseReducer";
-import authors from "./authorReducer";
-import apiCallsInProgress from "./apiStatusReducer";
+import events from "./eventsReducer";
 
 const rootReducer = combineReducers({
-  courses,
-  authors,
-  apiCallsInProgress
+  events,
 });
 
 export default rootReducer;
