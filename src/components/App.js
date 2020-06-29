@@ -4,7 +4,7 @@ import React from "react";
 // import AboutPage from "./about/AboutPage";
 // import Header from "./common/Header";
 // import PageNotFound from "./PageNotFound";
-import Navbar from "./Navbar";
+import MyNavbar from "./Navbar";
 import TrendingTopics from "./TrendingTopics";
 import CreateRequest from "./CreateRequest";
 import UpcomingWebinar from "./UpcomingWebinar";
@@ -18,7 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <div>
-      <Navbar />
+      <MyNavbar />
       <div className="container">
         <div className="row">
           <div className="col">

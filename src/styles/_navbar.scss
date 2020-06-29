@@ -1,0 +1,19 @@
+.navbar_brand{
+    margin-top: 0.625rem;
+    margin-bottom: 0.625rem;
+    margin-left: 9.125rem;
+}
+
+.navbar_content{
+    color: #797979 0% 0% no-repeat padding-box;
+    width: $userpic-diameter;
+    height: $userpic-diameter;
+    width: 35px;
+}
+
+.navbar_userpic{
+    width: $userpic-diameter;
+    height: $userpic-diameter;
+    border-radius: $userpic-diameter / 2;
+    margin-top: $userpic-margin-top;
+}
