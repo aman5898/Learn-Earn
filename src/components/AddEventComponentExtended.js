@@ -6,7 +6,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 // import Test from "./Test";
 
-class ExampleCustomInput extends React.Component {
+class CustomInputDatePicker extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -37,7 +37,7 @@ function AddEventComponentExtended({ onClick }) {
             showPopperArrow={false}
             selected={startDate}
             onChange={(date) => setStartDate(date)}
-            customInput={<ExampleCustomInput defaultText="Add Date" />}
+            customInput={<CustomInputDatePicker defaultText="Add Date" />}
           />
         </div>
         <div className="col"></div>
@@ -50,7 +50,7 @@ function AddEventComponentExtended({ onClick }) {
             timeIntervals={15}
             timeCaption="Time"
             dateFormat="h:mm aa"
-            customInput={<ExampleCustomInput defaultText="Add Time" />}
+            customInput={<CustomInputDatePicker defaultText="Add Time" />}
           />
         </div>
       </div>
@@ -74,6 +74,12 @@ function AddEventComponentExtended({ onClick }) {
     </div>
   );
 }
+
+CustomInputDatePicker.propTypes = {
+  onClick: PropTypes.func,
+  defaultText: PropTypes.string.isRequired,
+  value: PropTypes.string,
+};
 
 AddEventComponentExtended.propTypes = {
   onClick: PropTypes.func.isRequired,
