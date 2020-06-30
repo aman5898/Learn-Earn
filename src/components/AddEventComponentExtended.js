@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "../styles/App.scss";
 import img_Aman from "../temp/aman.jpg";
+import PropTypes from "prop-types";
 
-function AddEventComponentExtended() {
+function AddEventComponentExtended({ onClick }) {
   return (
     <div className={`${styles.add_event_card} container mb-4`}>
       <div className="row">
@@ -23,11 +24,19 @@ function AddEventComponentExtended() {
           Paste Class Link
         </div>
       </div>
-      <div className={`row ml-3 mr-3 pb-3 mt-3 ${styles.text_centre} ${styles.fw_700}`}>
-        <div className={`col`}>+ ADD EVENT FOR THIS REQUEST</div>
+      <div
+        className={`row ml-3 mr-3 pb-3 mt-3 ${styles.text_centre} ${styles.fw_700}`}
+      >
+        <div className={`col ${styles.cursor_pointer}`} onClick={onClick}  >
+          + ADD EVENT FOR THIS REQUEST
+        </div>
       </div>
     </div>
   );
 }
+
+AddEventComponentExtended.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddEventComponentExtended;
