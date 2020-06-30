@@ -5,7 +5,7 @@ import UserStamp from './UserStamp'
 
 function YourRequests(){
     return(
-        <Card style={{margin : "1.25rem",textAlign:"center"}}>
+        <Card style={{margin : "1.25rem",textAlign:"center"}} className = {styles.card}>
             <Card.Body>
             <Card.Title>Your Requests</Card.Title>
             <Card>
