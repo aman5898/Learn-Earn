@@ -72,6 +72,24 @@
   font-weight: 500;
 }
 
-.cursor_pointer{
+.cursor_pointer {
   cursor: pointer;
 }
+
+.background_blue {
+  background: #005ce6 0% 0% no-repeat padding-box;
+}
+
+.font_white {
+  color: white;
+  font: 0.9rem Segoe UI;
+  font-weight: 600;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  width: inherit;
+}
+
+::placeholder { /* Firefox, Chrome, Opera */ 
+  color: white; 
+} 
