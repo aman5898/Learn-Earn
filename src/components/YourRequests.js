@@ -1,10 +1,19 @@
 import React from "react";
+import {Card,Image} from 'react-bootstrap'; 
+import styles from "../styles/App.scss";
+import UserStamp from './UserStamp'
 
 function YourRequests(){
     return(
-        <div>
-            YourRequests Component
-        </div>
+        <Card style={{margin : "1.25rem",textAlign:"center"}}>
+            <Card.Body>
+            <Card.Title>Your Requests</Card.Title>
+            <Card>
+                <UserStamp />
+            </Card>
+
+            </Card.Body>
+        </Card>
     );
 }
 
