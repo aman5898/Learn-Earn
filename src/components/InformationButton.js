@@ -10,7 +10,7 @@ function InformationButton (){
     var clickHandler = () => {
         setShowMenu(!showMenu);
     }
-    
+
     return (
         <div className={styles.infobtn} onClick={clickHandler}>
             <img src={image} alt="info button" className={styles.infobtnpic} />
@@ -18,6 +18,7 @@ function InformationButton (){
                 <div className={styles.infomenucreateditem}>
                     Created- 2 days ago
                 </div>
+                <hr />
                 <div className={styles.infomenuitems}>
                     Report this post
                 </div>
