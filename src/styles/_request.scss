@@ -1,0 +1,63 @@
+.request_card {
+    @extend .card;
+    margin-bottom: $requestcard-margin-bottom;
+    margin-top: $requestcard-margin-top;
+    padding-bottom: $requestcard-padding-bottom;
+}
+
+.request_pic {
+    @extend .feedpic;
+    margin: 0;
+}
+
+.request_title_input {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    letter-spacing: 0;
+    color: #707070;
+    opacity: 1;
+    font-size: 1.65rem;
+    width: 100%;
+}
+
+.request_title_input:focus {
+    outline: none;
+}
+
+.request_input {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    letter-spacing: 0;
+    color: #707070;
+    opacity: 1;
+    font-size: 1.14rem; 
+    width: 100%;
+    border-bottom: 0.022rem solid #a7a7a7;
+    margin-bottom: 0.93rem;
+}
+
+.request_input:focus {
+    outline: none;
+}
+
+.addDetails_container {
+    margin-right: 1.65rem !important;
+}
+
+.addDetails_btn {
+    float: right;
+    background: #005CE6 0% 0% no-repeat padding-box;
+    border-radius: $requestcard-addDetails-border-radius;
+    opacity: 1;
+    letter-spacing: 0;
+    color: #FFFFFF;
+    font: $requestcard-addDetails-font;
+}
+
+.details_container {
+    margin: 1.11rem;
+}
