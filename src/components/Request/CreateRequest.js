@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import styles from "../../styles/App.scss";
 import image from "../../temp/image.jpg";
-import { InputGroup, Button, Collapse } from 'react-bootstrap';
+import { InputGroup, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { fadeIn } from 'react-animations';
+import styled, { keyframes } from 'styled-components';
 import AddRequestDetails from "./AddRequestDetails";
+
+const fadeInAnimation = keyframes`${fadeIn}`;
+
+const FadeInDiv = styled.div`
+  animation: 1s ${fadeInAnimation};
+`;
 
 function CreateRequest(){
 
@@ -24,16 +32,18 @@ function CreateRequest(){
     }
 
     const renderDetails = (showDetails) ? 
-        <Collapse in={showDetails}>
-            <div id="request-details">
-                <AddRequestDetails 
-                    description={description} 
-                    setDescription={setDescription}
-                    validity={validity}
-                    setValidity={setValidity}
-                /> 
-            </div>
-        </Collapse>
+            <FadeInDiv>
+                <div id="request-details">
+                    <AddRequestDetails 
+                        description={description} 
+                        setDescription={setDescription}
+                        validity={validity}
+                        setValidity={setValidity}
+                        selectedTags={selectedTags}
+                        setSelectedTags={setSelectedTags}
+                    /> 
+                </div>
+            </FadeInDiv>
         : null;
 
     return(

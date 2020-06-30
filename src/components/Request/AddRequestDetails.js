@@ -5,13 +5,15 @@ import DatePicker from "react-datepicker";
 import styled from 'styled-components';
 import "react-datepicker/dist/react-datepicker.css";
 
+import ChipsComponent from './ChipsComponent';
+
 const DatePickerStyled = styled.div`
     .react-datepicker-wrapper {
         width: 100%;
     }
 `;
 
-function AddRequestDetails({ description, setDescription, validity, setValidity }){
+function AddRequestDetails({ description, setDescription, validity, setValidity, selectedTags, setSelectedTags }){
 
     const DateTimeInput = ({ value, onClick }) => (
         <div onClick={onClick}>
@@ -27,12 +29,16 @@ function AddRequestDetails({ description, setDescription, validity, setValidity 
     return(
         <div className={styles.details_container}>
             {/* Description */}
-            <input 
+            <textarea 
                 placeholder="Write Description"
+                rows={2}
                 value={description}
                 className={styles.request_input}
                 onChange={(e) => setDescription(e.target.value)}
             />
+
+            {/* Tags */}
+            <ChipsComponent setSelectedTags={setSelectedTags} selectedTags={selectedTags}/>
 
             {/* Validity */}
             <DatePickerStyled>
@@ -57,7 +63,9 @@ AddRequestDetails.propTypes = {
         PropTypes.instanceOf(Date).isRequired,
         PropTypes.string.isRequired
     ]),
-    setValidity: PropTypes.func.isRequired
+    setValidity: PropTypes.func.isRequired,
+    selectedTags: PropTypes.array.isRequired,
+    setSelectedTags: PropTypes.func.isRequired
 };
 
 export default AddRequestDetails;

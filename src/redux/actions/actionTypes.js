@@ -1,1 +1,2 @@
 export const UPCOMING_WEBINAR_SUCCESS = "CREATE_COURSE";
+export const TAGLIST_SUCCESS = "ALL_TAGS";
