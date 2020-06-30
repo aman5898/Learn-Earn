@@ -9,7 +9,7 @@ function InterestedUsers(){
             </div>
                 
             <div className="col">
-                    
+                
             </div>
         </div>    
     );

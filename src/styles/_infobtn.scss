@@ -11,3 +11,32 @@
     width: $infobtn-diameter;
     height: $infobtn-diameter;
 }
+
+.infomenu{
+    @extend .card;
+    width: 11.825rem;
+    height: 4.822rem;
+    position: absolute;
+    top: 1.879rem;
+    right: 0.624rem;
+    z-index: 3;
+    border: solid;
+    border-color: $font-color;
+    border-width: 0.044rem;
+    padding: 0;
+}
+
+.infomenucreateditem{
+    @extend .feedsubtitle;
+    font-size: 1.115rem;
+    margin-left: 0.714rem;
+    margin-top: 0.803rem;
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+.infomenuitems{
+    @extend .infomenucreateditem;
+    text-decoration: none;
+    margin-top: 0.2rem;
+}
