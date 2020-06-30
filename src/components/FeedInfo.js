@@ -25,7 +25,7 @@ function FeedInfo() {
                     <b> 30 </b>
                     comments
                 </div>
-                <hr />
+                <hr className={styles.line} />
             </div>
             <ActionButtons />
         </div>

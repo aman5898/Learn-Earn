@@ -24,6 +24,8 @@
     margin-top: $like_comments_count-margin-top;
 }
 
-hr{
+.line{
     width: 90%;
+    margin-top: $line-margin;
+    margin-bottom: $line-margin;
 }
