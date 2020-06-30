@@ -4,9 +4,37 @@
     position: absolute;
     top: $infobtn-top;
     right: $infobtn-right;
+    z-index: $infomenu-z-index;
 }
 
 .infobtnpic{
     width: $infobtn-diameter;
     height: $infobtn-diameter;
+}
+
+.infomenu{
+    @extend .card;
+    width: $infomenu-width;
+    height: $infomenu-height;
+    position: absolute;
+    top: $infomenu-top-margin;
+    right: $infomenu-right-margin;
+    z-index: $infomenu-z-index;
+    border: solid;
+    border-color: $font-color;
+    border-width: $infomenu-border-width;
+    padding: 0;
+}
+
+.infomenucreateditem{
+    @extend .feedsubtitle;
+    font-size: $infomenucreateditem-font-size;
+    margin-left: $infomenucreateditem-margin-left;
+    margin-top: $infomenucreateditem-margin-top;
+}
+
+.infomenuitems{
+    @extend .infomenucreateditem;
+    text-decoration: none;
+    margin-top: $infomenuitems-margin-top;
 }
