@@ -13,9 +13,9 @@ function UpcomingWebinar({ events, loadUpcomingWebinars }) {
     loadUpcomingWebinars();
   }, []);
   return (
-    <div className="row">
-      <div className="col"></div>
-      <div className="col-9">
+    <div className="row mt-4">
+      {/* <div className="col"></div> */}
+      <div className="col">
         <div className={`row ${styles.card}`}>
           <div className="col">
             <div className="row p-2 mb-2">
@@ -31,7 +31,9 @@ function UpcomingWebinar({ events, loadUpcomingWebinars }) {
               <div className="col-3">
                 <img src={img_Aman} className={styles.img} />
               </div>
-              <div className={`col-9 ${styles.font_color_70} ${styles.font_normal}`}>
+              <div
+                className={`col-9 ${styles.font_color_70} ${styles.font_normal}`}
+              >
                 <div className={`row ${styles.card_title}`}>Python 101</div>
                 <div className="row">Mentor - Aman Kumar</div>
                 <div className="row">Date - 26/06/2020</div>
@@ -43,7 +45,9 @@ function UpcomingWebinar({ events, loadUpcomingWebinars }) {
               <div className="col-3">
                 <img src={img_Aman} className={styles.img} />
               </div>
-              <div className={`col-9 ${styles.font_color_70} ${styles.font_normal}`}>
+              <div
+                className={`col-9 ${styles.font_color_70} ${styles.font_normal}`}
+              >
                 <div className={`row ${styles.card_title}`}>Python 101</div>
                 <div className="row">Mentor - Aman Kumar</div>
                 <div className="row">Date - 26/06/2020</div>
@@ -51,17 +55,22 @@ function UpcomingWebinar({ events, loadUpcomingWebinars }) {
               </div>
             </div>
 
-            <div className="row">
-              {/* <div className="col"></div> */}
-              <div className="col">
-                <AddEventComponent />
+            <div className={`row p-2`}>
+              <div className="col-3">
+                <img src={img_Aman} className={styles.img} />
               </div>
-              {/* <div className="col"></div> */}
+              <div
+                className={`col-9 ${styles.font_color_70} ${styles.font_normal}`}
+              >
+                <div className={`row ${styles.card_title}`}>Python 101</div>
+                <div className="row">Mentor - Aman Kumar</div>
+                <div className="row">Date - 26/06/2020</div>
+                <div className="row">Time - 20:00</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="col"></div>
     </div>
   );
 }

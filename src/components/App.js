@@ -19,7 +19,7 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <div className={styles.font_size_top}>
-      <Navbar />
+      <MyNavbar />
       <div className="container">
         <div className="row">
           <div className="col">
@@ -48,11 +48,3 @@ function App() {
 }
 
 export default App;
-
-//       <Header />
-//       <Switch>
-//         <Route exact path="/" component={HomePage} />
-//         <Route path="/about" component={AboutPage} />
-//         <Route component={PageNotFound} />
-//       </Switch>
-//       <ToastContainer autoClose={3000} hideProgressBar />
