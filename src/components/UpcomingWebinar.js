@@ -4,7 +4,6 @@ import { loadUpcomingWebinars } from "../redux/actions/eventActions";
 import PropTypes from "prop-types";
 import styles from "../styles/App.scss";
 import img_Aman from "../temp/aman.jpg";
-import AddEventComponent from "../components/AddEventComponent";
 
 function UpcomingWebinar({ events, loadUpcomingWebinars }) {
   useEffect(() => {
@@ -32,7 +31,7 @@ function UpcomingWebinar({ events, loadUpcomingWebinars }) {
                 <img src={img_Aman} className={styles.img} />
               </div>
               <div
-                className={`col-9 ${styles.font_color_70} ${styles.font_normal}`}
+                className={`col-9 ${styles.font_color_70} ${styles.font_normal} ${styles.fw_500}`}
               >
                 <div className={`row ${styles.card_title}`}>Python 101</div>
                 <div className="row">Mentor - Aman Kumar</div>
@@ -46,7 +45,7 @@ function UpcomingWebinar({ events, loadUpcomingWebinars }) {
                 <img src={img_Aman} className={styles.img} />
               </div>
               <div
-                className={`col-9 ${styles.font_color_70} ${styles.font_normal}`}
+                className={`col-9 ${styles.font_color_70} ${styles.font_normal} ${styles.fw_500}`}
               >
                 <div className={`row ${styles.card_title}`}>Python 101</div>
                 <div className="row">Mentor - Aman Kumar</div>
@@ -60,7 +59,7 @@ function UpcomingWebinar({ events, loadUpcomingWebinars }) {
                 <img src={img_Aman} className={styles.img} />
               </div>
               <div
-                className={`col-9 ${styles.font_color_70} ${styles.font_normal}`}
+                className={`col-9 ${styles.font_color_70} ${styles.font_normal} ${styles.fw_500}`}
               >
                 <div className={`row ${styles.card_title}`}>Python 101</div>
                 <div className="row">Mentor - Aman Kumar</div>

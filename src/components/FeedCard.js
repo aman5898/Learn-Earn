@@ -4,7 +4,7 @@ import InterestedUsers from "./InterestedUsers";
 import InformationButton from "./InformationButton";
 import FeedInfo from "./FeedInfo";
 import styles from "../styles/App.scss";
-import AddEventComponentExtended from "../components/AddEventComponentExtended";
+import AddEventComponent from "../components/AddEventComponent";
 
 function FeedCard() {
   return (
@@ -24,7 +24,7 @@ function FeedCard() {
         <div className="row mt-3">
           <div className="col"></div>
           <div className="col-10">
-            <AddEventComponentExtended />
+            <AddEventComponent />
           </div>
           <div className="col"></div>
         </div>
