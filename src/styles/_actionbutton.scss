@@ -1,0 +1,15 @@
+.action_button_pic{
+    width: $action_button_pic-dimension;
+    height: $action_button_pic-dimension;
+    margin-right: $action_button_pic-margin-right;
+    margin-top: 0;
+}
+
+.actionbtn{
+    @extend .feedsubtitle;
+    width: 33%;
+    text-align: center;
+    justify-content: center;
+    font-size: $actionbtn-font;
+    margin: 0;
+}

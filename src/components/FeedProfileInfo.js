@@ -4,7 +4,7 @@ import image from "../temp/image.jpg";
 
 function FeedProfileInfo(){
     return(
-        <div className="container">
+        
             <div className="row">
                 <img src={image} alt="LearnAndEarn User" className= {styles.feedpic} />
                 <div className="col">
@@ -19,7 +19,7 @@ function FeedProfileInfo(){
                     </div>
                 </div>
             </div>
-        </div>
+        
     );
 }
 

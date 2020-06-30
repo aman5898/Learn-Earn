@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../../styles/App.scss";
 import image from "../../temp/image.jpg";
-import { InputGroup, Button } from 'react-bootstrap';
+import { InputGroup, Button, Collapse } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import AddRequestDetails from "./AddRequestDetails";
@@ -24,12 +24,16 @@ function CreateRequest(){
     }
 
     const renderDetails = (showDetails) ? 
-        <AddRequestDetails 
-            description={description} 
-            setDescription={setDescription}
-            validity={validity}
-            setValidity={setValidity}
-        /> 
+        <Collapse in={showDetails}>
+            <div id="request-details">
+                <AddRequestDetails 
+                    description={description} 
+                    setDescription={setDescription}
+                    validity={validity}
+                    setValidity={setValidity}
+                /> 
+            </div>
+        </Collapse>
         : null;
 
     return(
@@ -62,6 +66,8 @@ function CreateRequest(){
                             </Button>)
                             : 
                             (<Button 
+                                aria-expanded={showDetails}
+                                aria-controls="request-details"
                                 className={styles.addDetails_btn} 
                                 disabled={title === ''} 
                                 onClick={changeShowDetails}

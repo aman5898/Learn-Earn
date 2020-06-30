@@ -2,7 +2,14 @@ import React from "react";
 import styles from "../../styles/App.scss";
 import PropTypes from "prop-types";
 import DatePicker from "react-datepicker";
+import styled from 'styled-components';
 import "react-datepicker/dist/react-datepicker.css";
+
+const DatePickerStyled = styled.div`
+    .react-datepicker-wrapper {
+        width: 100%;
+    }
+`;
 
 function AddRequestDetails({ description, setDescription, validity, setValidity }){
 
@@ -28,15 +35,16 @@ function AddRequestDetails({ description, setDescription, validity, setValidity 
             />
 
             {/* Validity */}
-            <DatePicker 
-                selected={validity}
-                onChange={date => setValidity(date)}
-                customInput={<DateTimeInput />}
-                showTimeInput
-                timeInputLabel="Time:"
-                dateFormat="dd/MM/yyyy h:mm aa"
-            />
-            
+            <DatePickerStyled>
+                <DatePicker 
+                    selected={validity}
+                    onChange={date => setValidity(date)}
+                    customInput={<DateTimeInput />}
+                    showTimeInput
+                    timeInputLabel="Time:"
+                    dateFormat="dd/MM/yyyy h:mm aa"
+                />
+            </DatePickerStyled>
 
         </div>
     );

@@ -1,0 +1,31 @@
+.request_title{
+    @extend .feedsubtitle;
+    width: 100%;
+    font-size: $request_title-font-size;
+    margin-top: $request_title-margin-top;
+    margin-left: $request_title-margin-sides;
+    margin-right: $request_title-margin-sides;
+}
+
+.request_subtitle{
+    @extend .feedsubtitle;
+    width: 100%;
+    font-size: $request_subtitle-font-size;
+    margin-top: $request_subtitle-margin-top;
+    margin-left: $request_subtitle-sides;
+    margin-right: $request_subtitle-sides;
+}
+
+.like_comments_count{
+    @extend .feedsubtitle;
+    width: 100%;
+    font-size: $like_comments_count-font-size;
+    margin-left: $like_comments_count-margin-left;
+    margin-top: $like_comments_count-margin-top;
+}
+
+.line{
+    width: 90%;
+    margin-top: $line-margin;
+    margin-bottom: $line-margin;
+}
