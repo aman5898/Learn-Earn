@@ -1,0 +1,37 @@
+.interested_count{
+    font: $interested_count-font;
+    margin-left: $interested_count-margin-left;
+    margin-top: $interested_count-margin-top;
+    width: fit-content;
+}
+
+.intUser_pic{
+    @extend .feedpic;
+    position: absolute;
+    width: $intUser_pic-dimension;
+    height: $intUser_pic-dimension;
+    margin: 0;
+    border: solid $font-color 0.044rem;
+    margin-top: 1.785rem;
+    left: 0;
+    z-index: 3;
+}
+
+.int_images{
+    width: 73px;
+    position: relative;
+}
+
+.pic_two{
+    @extend .intUser_pic;
+    position: absolute;
+    left: 1.695rem;
+    z-index: 2;
+}
+
+.pic_three{
+    @extend .intUser_pic;
+    position: absolute;
+    left: 3.257rem;
+    z-index: 1;
+}
