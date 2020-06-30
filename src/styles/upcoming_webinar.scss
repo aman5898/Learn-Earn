@@ -1,0 +1,38 @@
+.img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.font_color_70 {
+  color: $font-color;
+}
+
+.icon_size {
+  width: 13%;
+  height: 100%;
+  margin-top: -3%;
+}
+
+.add_event_button {
+  background: #005ce6 0% 0% no-repeat padding-box;
+  border-radius: 1.7rem;
+  width: 100%;
+}
+
+.img_2 {
+  border-radius: 50%;
+  height: 3.213rem;
+  width: 3.213rem;
+  margin: 0.3rem;
+  border: 3px solid #ffffff;
+}
+
+.bold {
+  font: Bold 1rem Segoe UI;
+  color: #ffffff;
+}
+
+.font_normal {
+  font: 1rem Segoe UI;
+}
