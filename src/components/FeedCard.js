@@ -10,7 +10,7 @@ function FeedCard(){
             <InformationButton />
             <div className="container">
                 <div className="row">
-                    <div className="col">
+                    <div className="col-7">
                         <FeedProfileInfo />
                     </div>
                     <div className="col">

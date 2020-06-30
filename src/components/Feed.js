@@ -3,9 +3,7 @@ import FeedCard from './FeedCard'
 
 function Feed(){
     return(
-        <div>
-            <FeedCard />
-        </div>
+        <FeedCard />
     );
 }
 
