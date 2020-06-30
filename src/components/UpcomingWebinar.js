@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { loadUpcomingWebinars } from "../redux/actions/eventActions";
 import PropTypes from "prop-types";
 import styles from "../styles/App.scss";
-import img_Aman from "../images/aman.jpg";
+import img_Aman from "../temp/aman.jpg";
 import AddEventComponent from "../components/AddEventComponent";
 
 function UpcomingWebinar({ events, loadUpcomingWebinars }) {
