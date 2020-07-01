@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import FeedProfileInfo from "./FeedProfileInfo";
 import InterestedUsers from "./InterestedUsers";
 import InformationButton from "./InformationButton";
@@ -8,6 +8,11 @@ import AddEventComponent from "../components/AddEventComponent";
 import AddEventComponentExtended from "../components/AddEventComponentExtended";
 
 function FeedCard() {
+  const [clicked, setClicked] = useState(true);
+
+  function clickFunction() {
+    setClicked(!clicked);
+  }
   return (
     <div className={`${styles.feedcard} mb-5`}>
       <InformationButton />
@@ -22,9 +27,16 @@ function FeedCard() {
         <div className="row">
           <FeedInfo />
         </div>
+
+      
         <div className="row mt-3">
-          <div className="col">
-            <AddEventComponentExtended />
+          <div className="col"></div>
+          <div className="col-10">
+            {clicked ? (
+              <AddEventComponent onClick={clickFunction} />
+            ) : (
+              <AddEventComponentExtended onClick={clickFunction} />
+            )}
           </div>
         </div>
       </div>
