@@ -1,0 +1,118 @@
+.comments_card {
+    @extend .card;
+    position: relative;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    width: $feedcard-width;
+    font-family: $golbal-font;
+}
+
+.comments_header {
+    background: #005CE6 0% 0% no-repeat padding-box;
+    border-radius: 2.097rem;
+    opacity: 1;
+    width: 100%;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+    height: 3.55rem;
+    margin-left: 1.695rem;
+    margin-right: 1.695rem;
+    display: flex;
+}
+
+.comments_btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.comments_btn__right {
+    @extend .comments_btn;
+    align-items: flex-end;
+    cursor: pointer;
+}
+
+.comments_heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1.695rem;
+    color: white;
+    font-size: 1.461rem;
+}
+
+.comment_pic {
+    @extend .feedpic;
+    margin: 0;
+}
+
+.single_comment_container {
+    margin-bottom: 0.78rem;
+    margin-top: 0.78rem;
+    margin-left: 0.625rem;
+    margin-right: 0.625rem;
+}
+
+.comment_user {
+    color: #666666;
+    font-weight: 600;
+    font-family: inherit;
+    font-size: 1.149rem;
+    margin-top: 0.3175rem;
+    letter-spacing: 0;
+}
+
+.comment_text {
+    letter-spacing: 0;
+    color: #666666;
+    font-family: inherit;
+    font-size: 1.049rem;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+
+.comment_user_tag {
+    @extend .comment_text;
+    color: #005CE6;
+    margin-right: 0.3175rem;
+}
+
+.type_comment_container {
+    border: 0.133rem solid #005CE6;
+    border-radius: 2.097rem;
+    display: flex;
+    opacity: 1;
+    width: 100%;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+    height: 3.55rem;
+    margin: auto
+}
+
+.typing_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.reply_comment {
+    cursor: pointer;
+    margin-left: 0.625rem;
+}
+
+.comment_input {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    letter-spacing: 0;
+    color: #666666;
+    opacity: 1;
+    font-size: 1.15rem;
+    width: 100%;
+}
+
+.comment_input:focus {
+    outline: none;
+}

@@ -31,7 +31,7 @@ function UpcomingWebinar({ events, loadUpcomingWebinars }) {
                 <img src={img_Aman} className={styles.img} />
               </div>
               <div
-                className={`col-9 ${styles.font_color_70} ${styles.font_normal} ${styles.fw_500}`}
+                className={`col-9 ${styles.font_color_70} ${styles.font_normal}`}
               >
                 <div className={`row ${styles.card_title}`}>Python 101</div>
                 <div className="row">Mentor - Aman Kumar</div>
@@ -45,7 +45,7 @@ function UpcomingWebinar({ events, loadUpcomingWebinars }) {
                 <img src={img_Aman} className={styles.img} />
               </div>
               <div
-                className={`col-9 ${styles.font_color_70} ${styles.font_normal} ${styles.fw_500}`}
+                className={`col-9 ${styles.font_color_70} ${styles.font_normal}`}
               >
                 <div className={`row ${styles.card_title}`}>Python 101</div>
                 <div className="row">Mentor - Aman Kumar</div>
@@ -59,7 +59,7 @@ function UpcomingWebinar({ events, loadUpcomingWebinars }) {
                 <img src={img_Aman} className={styles.img} />
               </div>
               <div
-                className={`col-9 ${styles.font_color_70} ${styles.font_normal} ${styles.fw_500}`}
+                className={`col-9 ${styles.font_color_70} ${styles.font_normal}`}
               >
                 <div className={`row ${styles.card_title}`}>Python 101</div>
                 <div className="row">Mentor - Aman Kumar</div>
