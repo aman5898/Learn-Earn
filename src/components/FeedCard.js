@@ -23,11 +23,9 @@ function FeedCard() {
           <FeedInfo />
         </div>
         <div className="row mt-3">
-          <div className="col"></div>
-          <div className="col-10">
+          <div className="col">
             <AddEventComponentExtended />
           </div>
-          <div className="col"></div>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/App.scss";
-import img_Aman from "../temp/aman.jpg";
+import img_Aman from "../temp/image.jpg";
 
 function AddEventComponentExtended() {
   return (

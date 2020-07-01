@@ -24,6 +24,7 @@
 .add_event_button_image {
   border-radius: 50%;
   height: 2.5rem;
+  width: 2.5rem;
   margin: 0.4rem;
   margin-left: 0.5rem;
   border: 3px solid #ffffff;
@@ -39,6 +40,8 @@
 }
 
 .add_event_card {
+  height: 14.771rem;
+  width: 28.739rem;
   background: #005ce6 0% 0% no-repeat padding-box;
   font: 0.9rem Segoe UI;
   font-weight: 600;
@@ -47,27 +50,30 @@
 }
 
 .add_event_card_image {
-  margin-top: 0.6rem;
+  margin-top: 0.490rem;
   margin-left: auto;
   margin-right: auto;
   display: block;
   border-radius: 50%;
-  height: 2.9rem;
-  border: 3px solid #ffffff;
+  height: 3.213rem;
+  width: 3.213rem;
+  border: 0.133rem solid #ffffff;
 }
 
 .bottom_border_white {
   border-bottom: solid 1px #ffffff;
+  margin-top: 0.223rem;
+  font-size: 1.338rem;
+  font-weight: 	425;
 }
 
 .text_centre {
   text-align: center;
+  font-size: 1.249rem;
 }
 
 .fw_700 {
   font-weight: 700;
 }
 
-.fw_500 {
-  font-weight: 500;
-}
+
