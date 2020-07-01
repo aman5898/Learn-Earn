@@ -13,19 +13,30 @@ const DatePickerStyled = styled.div`
     }
 `;
 
-function AddRequestDetails({ description, setDescription, validity, setValidity, selectedTags, setSelectedTags }){
-
-    const DateTimeInput = ({ value, onClick }) => (
-        <div onClick={onClick}>
+class DateTimeInput extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+    render() {
+      return (
+        <div onClick={this.props.onClick}>
             <input 
-                    placeholder="Validity (optional)"
-                    defaultValue={value}
-                    id="validity"
-                    className={styles.request_input}
-                />
+                placeholder="Validity (optional)"
+                defaultValue={this.props.value}
+                id="validity"
+                className={styles.request_input}
+            />
         </div>  
-    );  
+      );
+    }
+}
 
+DateTimeInput.propTypes = {
+    value: PropTypes.string,
+    onClick: PropTypes.func
+}
+
+function AddRequestDetails({ description, setDescription, validity, setValidity, selectedTags, setSelectedTags }){
     return(
         <div className={styles.details_container}>
             {/* Description */}

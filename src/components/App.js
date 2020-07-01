@@ -10,6 +10,7 @@ import CreateRequest from "./Request/CreateRequest";
 import UpcomingWebinar from "./UpcomingWebinar";
 import YourRequests from "./YourRequests";
 import Feed from "./Feed";
+import Comments from "./Comments/Comments";
 // import "../temp.scss";
 import styles from "../styles/App.scss";
 
@@ -36,6 +37,9 @@ function App() {
             </div>
             <div className="row">
               <Feed />
+            </div>
+            <div className="row">
+              <Comments />
             </div>
           </div>
           <div className="col">
