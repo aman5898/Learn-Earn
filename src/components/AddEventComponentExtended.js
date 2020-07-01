@@ -67,7 +67,7 @@ function AddEventComponentExtended({ onClick }) {
       <div
         className={`row ml-3 mr-3 pb-3 mt-3 ${styles.text_centre} ${styles.fw_700}`}
       >
-        <div className={`col ${styles.cursor_pointer}`} onClick={onClick}>
+        <div className={`col ${styles.cursor_pointer} ${styles.font_size_1}`} onClick={onClick}>
           + ADD EVENT FOR THIS REQUEST
         </div>
       </div>

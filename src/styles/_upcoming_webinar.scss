@@ -40,8 +40,6 @@
 }
 
 .add_event_card {
-  height: 14.771rem;
-  width: 28.739rem;
   background: #005ce6 0% 0% no-repeat padding-box;
   font: 0.9rem Segoe UI;
   font-weight: 600;
@@ -50,7 +48,7 @@
 }
 
 .add_event_card_image {
-  margin-top: 0.490rem;
+  margin-top: 0.49rem;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -63,8 +61,7 @@
 .bottom_border_white {
   border-bottom: solid 1px #ffffff;
   margin-top: 0.223rem;
-  font-size: 1.338rem;
-  font-weight: 	425;
+  font-weight: 500;
 }
 
 .text_centre {
@@ -98,6 +95,7 @@
   width: inherit;
 }
 
-::placeholder { /* Firefox, Chrome, Opera */ 
-  color: white; 
-} 
+::placeholder {
+  /* Firefox, Chrome, Opera */
+  color: white;
+}
