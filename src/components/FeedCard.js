@@ -30,8 +30,7 @@ function FeedCard() {
 
       
         <div className="row mt-3">
-          <div className="col"></div>
-          <div className="col-10">
+          <div className="col">
             {clicked ? (
               <AddEventComponent onClick={clickFunction} />
             ) : (

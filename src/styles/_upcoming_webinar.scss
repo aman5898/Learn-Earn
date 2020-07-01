@@ -15,18 +15,17 @@
 }
 
 .add_event_button {
-  height: 3.2rem;
+  height: 4.150rem;
   background: #005ce6 0% 0% no-repeat padding-box;
-  border-radius: 1.7rem;
+  border-radius: 2.097rem;
   width: 100%;
 }
 
 .add_event_button_image {
+  @extend .add_event_card_image;
   border-radius: 50%;
-  height: 2.5rem;
-  width: 2.5rem;
-  margin: 0.4rem;
-  margin-left: 0.5rem;
+  margin: 0;
+  padding:0;
   border: 3px solid #ffffff;
 }
 
@@ -101,3 +100,15 @@
 ::placeholder { /* Firefox, Chrome, Opera */ 
   color: white; 
 } 
+
+.img_container{
+  margin-left: 0.669rem;
+}
+
+.text_centre_addbtn{
+  @extend .text_centre;
+  margin-top: 1.149rem;
+  padding: 0;
+  text-align: left;
+  margin-left: 0.928rem;
+}
