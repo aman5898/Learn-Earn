@@ -28,7 +28,7 @@ function UpcomingWebinar({ events, loadUpcomingWebinars }) {
             </div>
             <div className={`row p-2`}>
               <div className="col-3">
-                <img src={img_Aman} className={styles.img} />
+                <img src={img_Aman} className={styles.upcoming_webinar_img} />
               </div>
               <div
                 className={`col-9 ${styles.font_color_70} ${styles.font_normal}`}
@@ -42,7 +42,7 @@ function UpcomingWebinar({ events, loadUpcomingWebinars }) {
 
             <div className={`row p-2`}>
               <div className="col-3">
-                <img src={img_Aman} className={styles.img} />
+                <img src={img_Aman} className={styles.upcoming_webinar_img} />
               </div>
               <div
                 className={`col-9 ${styles.font_color_70} ${styles.font_normal}`}
@@ -56,7 +56,7 @@ function UpcomingWebinar({ events, loadUpcomingWebinars }) {
 
             <div className={`row p-2`}>
               <div className="col-3">
-                <img src={img_Aman} className={styles.img} />
+                <img src={img_Aman} className={styles.upcoming_webinar_img} />
               </div>
               <div
                 className={`col-9 ${styles.font_color_70} ${styles.font_normal}`}
