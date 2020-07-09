@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import {Card} from 'react-bootstrap'; 
 
 import styles from "../styles/App.scss";
-import { faBell,faCommentAlt } from "@fortawesome/free-solid-svg-icons";
+import { faFireAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { auto } from "async";
 import image from "../temp/image.jpg"
@@ -25,12 +25,15 @@ function TrendingTopics(){
     }]
     
     function cardrender(obj,idx){
+        var cn = classNames(styles.font_size_1)
+
             return (
-            <Card.Body>
-                <Card.Title style={{marginBottom:'0rem'}}>
+            <Card.Body style={{padding:"0.0625rem "}}>
+                <Card.Title className={styles.card_title} style={{margin:"0.125rem"}}>
             {idx+1}. {obj.topic}
                 </Card.Title>
-                <Card.Text style = {{paddingLeft:"20px"}}>
+                <Card.Text className = {cn} style = {{font:'Regular Segoe UI',paddingLeft:"1.25rem",paddingBottom:
+            "0.9375rem"}}>
                     {obj.interesed} interested
                 </Card.Text>
             </Card.Body>
@@ -39,10 +42,10 @@ function TrendingTopics(){
     var cardItem = trendingList.map(cardrender);
 
     return(
-        <Card style={{margin : "1.25rem"}}>
-            <Card.Body>
-                <Card.Title>
-                    Trending Topics
+        <Card className={styles.card} style={{margin : "1.25rem",width:"100%"}}>
+            <Card.Body >
+                <Card.Title className={styles.card_title}>
+                   <FontAwesomeIcon icon={faFireAlt}/> Trending Topics
                 </Card.Title>
                 {cardItem}
             </Card.Body>
