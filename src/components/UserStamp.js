@@ -7,11 +7,10 @@ import image from "../temp/image.jpg";
 function UserStamp() {
   // var classNames = classNames(style.userstamp_bg)
   return (
-    <Card style={styles.add}>
+    <div style={{width:"fit-content",alignSelf:"center"}}>
       <Card.Body
-        style={{ textAlign: "center", color: "white" }}
-        className={styles.userstamp_bg}
-      >
+        style={{ textAlign: "center", color: "white"}}
+        className={styles.userstamp_bg} >
         <Image
           style={{ height: "3.25rem", border: "0.125rem solid #fff" }}
           src={image}
@@ -22,7 +21,7 @@ function UserStamp() {
         <Card.Subtitle className="mb-2 mt-1">Name Here</Card.Subtitle>
         <Card.Subtitle>Rating 5.0</Card.Subtitle>
       </Card.Body>
-    </Card>
+    </div>
   );
 }
 
