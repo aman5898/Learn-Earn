@@ -28,7 +28,7 @@ function FeedInfo() {
                 </div>
                 <hr className={styles.line} />
             </div>
-            <ActionButtons />
+            <ActionButtons isEvent={false} />
         </div>
     )
 }

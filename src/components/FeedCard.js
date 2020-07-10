@@ -7,7 +7,7 @@ import styles from "../styles/App.scss";
 import AddEventComponent from "../components/AddEventComponent";
 import AddEventComponentExtended from "../components/AddEventComponentExtended";
 import UserStamp from "./UserStamp";
-import ActionButtonsforEvent from "./ActionButtonsforEvent";
+import ActionButtons from "./ActionButtons";
 
 function FeedCard() {
   const [clicked, setClicked] = useState(true);
@@ -71,7 +71,8 @@ function FeedCard() {
                     <span
                       className={`${styles.font_color_70} ${styles.font_size_9} ${styles.font_500}`}
                     >
-                      &nbsp; Lorem Ipsum dolor sit amet, consectetur adipiscing...
+                      &nbsp; Lorem Ipsum dolor sit amet, consectetur
+                      adipiscing...
                       <a href="www.xyz.con">Read more.</a>
                     </span>
                   </span>
@@ -85,7 +86,7 @@ function FeedCard() {
                 </div>
                 <div className="row">
                   <div className="col">
-                    <ActionButtonsforEvent />
+                    <ActionButtons isEvent={true} />
                   </div>
                 </div>
               </div>
