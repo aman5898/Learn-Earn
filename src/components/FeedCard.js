@@ -3,6 +3,7 @@ import FeedProfileInfo from "./FeedProfileInfo";
 import InterestedUsers from "./InterestedUsers";
 import InformationButton from "./InformationButton";
 import FeedInfo from "./FeedInfo";
+import FeedTags from "./FeedTags";
 import styles from "../styles/App.scss";
 import AddEventComponent from "../components/AddEventComponent";
 import AddEventComponentExtended from "../components/AddEventComponentExtended";
@@ -25,7 +26,9 @@ function FeedCard() {
           </div>
           <InterestedUsers />
         </div>
-        <div className="row">{/* Tags come here */}</div>
+        <div className="row">
+          <div className="col"><FeedTags tags={[{tag_name: 'C++'}, {tag_name: 'Java'}, {tag_name: 'Interview Questions'}, {tag_name: 'Node Js Basics'}, {tag_name: 'React Js'}]}/></div>
+        </div>
         <div className="row">
           <FeedInfo />
         </div>
