@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function UserStamp() {
   // var classNames = classNames(style.userstamp_bg)
+  // Gradient function
   return (
     <div style={{width:"fit-content",alignSelf:"center"}}>
       <Card.Body

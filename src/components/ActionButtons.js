@@ -6,6 +6,7 @@ import styles from '../styles/App.scss'
 
 function ActionButtons() {
     return (
+        // Cursor: pointer
         <div className="row">
             <div className={styles.actionbtn}>
                 <img src={interested} alt="interested" className={styles.action_button_pic}/>

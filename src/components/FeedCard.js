@@ -40,6 +40,7 @@ function FeedCard() {
           </div>
         </div>
 
+        {/* Create component */}
         <div className="row mt-3">
           <div className="col-4">
             <UserStamp />
