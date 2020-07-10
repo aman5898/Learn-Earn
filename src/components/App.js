@@ -7,7 +7,7 @@ import React from "react";
 import MyNavbar from "./Navbar";
 import TrendingTopics from "./TrendingTopics";
 import CreateRequest from "./Request/CreateRequest";
-import UpcomingWebinar from "./UpcomingWebinar";
+import UpcomingWebinarCard from "./UpcomingWebinarCard";
 import YourRequests from "./YourRequests";
 import Feed from "./Feed";
 import Comments from "./Comments/Comments";
@@ -45,7 +45,7 @@ function App() {
             </div>
           </div>
           <div className="col">
-            <UpcomingWebinar />
+            <UpcomingWebinarCard />
           </div>
         </div>
       </div>

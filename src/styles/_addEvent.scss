@@ -78,7 +78,7 @@
   width: inherit;
 }
 
-::placeholder {
+.placeholder_white::placeholder {
   /* Firefox, Chrome, Opera */
   color: white;
 }
