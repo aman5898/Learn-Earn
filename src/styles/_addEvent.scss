@@ -81,6 +81,7 @@
 .placeholder_white::placeholder {
   /* Firefox, Chrome, Opera */
   color: white;
+  font-weight: 500;
 }
 
 .img_container {
@@ -94,3 +95,20 @@
   text-align: left;
   margin-left: 0.928rem;
 }
+
+.background_inherit {
+  background: inherit;
+}
+
+.width_inherit {
+  width: inherit;
+}
+
+.border_none {
+  border: none;
+}
+
+textarea:focus {
+  outline: none;
+}
+

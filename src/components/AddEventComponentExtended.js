@@ -57,12 +57,19 @@ function AddEventComponentExtended({ onClick }) {
       <div className="row ml-3 mr-3 mb-2">
         {/* Textarea input */}
         <div className={`col ${styles.bottom_border_white}`}>
-          Write Description
+          <textarea
+            placeholder="Write Description"
+            rows={1}
+            className={`${styles.cursor_pointer} ${styles.background_inherit} ${styles.placeholder_white} ${styles.font_normal} ${styles.width_inherit} ${styles.border_none} ${styles.font_white}`}
+          />
         </div>
       </div>
       <div className="row ml-3 mr-3 mb-2">
         <div className={`col ${styles.bottom_border_white}`}>
-          Paste Class Link
+          <input
+            placeholder="Paste Class Link"
+            className={`${styles.cursor_pointer} ${styles.background_inherit} ${styles.placeholder_white} ${styles.font_normal} ${styles.width_inherit} ${styles.border_none} ${styles.font_white}`}
+          />
         </div>
       </div>
       <div
