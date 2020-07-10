@@ -12,20 +12,22 @@ function YourRequests(){
         date : "10/10/2020",
         time : "12 pm"
     }
-    const cns = classNames(styles.font_color_70,styles.font_size_9)
+    const maincardcns = classNames(styles.yourrequest_main_card,styles.card)
+    const cns = classNames(styles.font_color_70,styles.font_size_9,styles.yourrequest_inner_card)
+    
     return(
-        <Card style={{margin : "1.25rem",textAlign:"center"}} className = {styles.card}>
+        <Card className = {maincardcns}>
             <Card.Body>
-            <Card.Title className={styles.card_title} style={{textAlign:"left"}}>
+            <Card.Title className={styles.card_title && styles.yourrequest_title} >
                 Your Requests
                 </Card.Title>
-            <Card style={{border:"hidden"}}>
+            <Card className={styles.hidden_border}>
                 <UserStamp />
                 {/* Px to rem */}
-                <Card.Body className = {cns} style={{padding:"1px",textAlign:"left"}}>
+                <Card.Body className = {cns} >
                 <p>
-                    <strong>{info.name}</strong> 
-                    has added an event to your request
+                    <strong>{info.name} </strong> 
+                     has added an event to your request
                     <strong>``{info.discription}``</strong>
                     <br />
                     <strong>Scheduled at - </strong><br /> 

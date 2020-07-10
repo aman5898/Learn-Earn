@@ -23,26 +23,27 @@ function TrendingTopics(){
     }]
     
     function cardrender(obj,idx){
-        var cn = classNames(styles.font_size_1)
+        var cn = classNames(styles.font_size_1,styles.trend_card_interesed_style)
             // Key in card body
+            
             return (
-            <Card.Body style={{padding:"0.0625rem "}}>
-                <Card.Title className={styles.card_title} style={{margin:"0.125rem"}}>
+            <Card.Body className={styles.trend_card_padding}>
+                <Card.Title key={idx} className={styles.card_title} style={{marginBottom:"0px"}}>
             {idx+1}. {obj.topic}
                 </Card.Title>
-                <Card.Text className = {cn} style = {{font:'Regular Segoe UI',paddingLeft:"1.25rem",paddingBottom:
-            "0.9375rem"}}>
+                <Card.Text className = {cn}>
                     {obj.interesed} interested
                 </Card.Text>
             </Card.Body>
         )
     }
     var cardItem = trendingList.map(cardrender);
+    let cns = classNames(styles.card,styles.trend_main_card)
 
     return(
-        <Card className={styles.card} style={{margin : "1.25rem",width:"100%"}}>
+        <Card className={cns} >
             <Card.Body >
-                <Card.Title className={styles.card_title}>
+                <Card.Title className={styles.card_title} >
                    <FontAwesomeIcon icon={faFireAlt}/> Trending Topics
                 </Card.Title>
                 {cardItem}
