@@ -5,8 +5,6 @@ import {Card} from 'react-bootstrap';
 import styles from "../styles/App.scss";
 import { faFireAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { auto } from "async";
-import image from "../temp/image.jpg"
 
 function TrendingTopics(){
 

@@ -3,6 +3,8 @@ import { Card, Image } from "react-bootstrap";
 // import classNames from 'classNames'
 import styles from "../styles/App.scss";
 import image from "../temp/image.jpg";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function UserStamp() {
   // var classNames = classNames(style.userstamp_bg)
@@ -19,7 +21,7 @@ function UserStamp() {
           fluid
         />
         <Card.Subtitle className="mb-2 mt-1">Name Here</Card.Subtitle>
-        <Card.Subtitle>Rating 5.0</Card.Subtitle>
+        <Card.Subtitle>5.0 <FontAwesomeIcon icon={faStar} /></Card.Subtitle>
       </Card.Body>
     </div>
   );

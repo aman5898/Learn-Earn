@@ -1,10 +1,9 @@
 import React from "react";
-import {Card,Image} from 'react-bootstrap'; 
+import {Card} from 'react-bootstrap'; 
 import styles from "../styles/App.scss";
 import UserStamp from './UserStamp'
 import classNames from 'classnames'
-import { faBroadcastTower } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 function YourRequests(){
     var info = {
