@@ -3,6 +3,7 @@ import like from "../temp/like.png";
 import interested from "../temp/interested.png";
 import comment from "../temp/comment.png";
 import styles from "../styles/App.scss";
+import PropTypes from "prop-types";
 
 function ActionButtons({ isEvent }) {
   return (
@@ -65,5 +66,9 @@ function ActionButtons({ isEvent }) {
     </div>
   );
 }
+
+ActionButtons.propTypes = {
+  isEvent: PropTypes.bool.isRequired,
+};
 
 export default ActionButtons;
