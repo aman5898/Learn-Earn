@@ -7,7 +7,7 @@ import styles from "../styles/App.scss";
 function ActionButtons({ isEvent }) {
   return (
     // Cursor: pointer
-    <div className="row">
+    <div className={`row ${isEvent && styles.margin_left_negative_1point7}`}>
       <div className={`${styles.actionbtn} `}>
         <img
           src={interested}

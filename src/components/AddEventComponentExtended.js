@@ -13,7 +13,7 @@ class CustomInputDatePicker extends React.Component {
   render() {
     return (
       <input
-        className={`${styles.background_blue} ${styles.font_white} ${styles.cursor_pointer}`}
+        className={`${styles.background_blue} ${styles.font_white} ${styles.cursor_pointer} ${styles.placeholder_white}`}
         onClick={this.props.onClick}
         placeholder={this.props.defaultText}
         defaultValue={this.props.value}
