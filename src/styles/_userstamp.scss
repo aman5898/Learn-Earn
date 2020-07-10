@@ -1,8 +1,14 @@
-.userstamp_bg {
-  background-image: linear-gradient(#ff8008, #ffc837);
+.userstamp_style {
   border-radius: 15%;
+  text-align: center;
+  color: white;
 }
 
 .font_1_25 {
   font-size: 1.25rem;
+}
+
+.userstamp_image {
+    height: 3.25rem; 
+    border: 0.125rem solid #fff;
 }
