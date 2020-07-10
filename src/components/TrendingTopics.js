@@ -24,7 +24,7 @@ function TrendingTopics(){
     
     function cardrender(obj,idx){
         var cn = classNames(styles.font_size_1)
-
+            // Key in card body
             return (
             <Card.Body style={{padding:"0.0625rem "}}>
                 <Card.Title className={styles.card_title} style={{margin:"0.125rem"}}>
