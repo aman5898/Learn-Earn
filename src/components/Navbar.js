@@ -11,6 +11,8 @@ class MyNavbar extends Component{
 
     render(){
         // const brandclass = classNames(styles.navbar_brand)
+
+        // Move styles to scss
         const style_items = {
             color:"#797979" , 
             padding : "0.3125rem 0.5rem 0.3125rem 0.5rem"

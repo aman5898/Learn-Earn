@@ -55,6 +55,7 @@ function AddEventComponentExtended({ onClick }) {
         </div>
       </div>
       <div className="row ml-3 mr-3 mb-2">
+        {/* Textarea input */}
         <div className={`col ${styles.bottom_border_white}`}>
           Write Description
         </div>

@@ -38,6 +38,8 @@ function App() {
             <div className="row">
               <Feed />
             </div>
+
+            {/* To be removed later */}
             <div className="row">
               <Comments />
             </div>

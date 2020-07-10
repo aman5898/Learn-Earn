@@ -21,6 +21,7 @@ function YourRequests(){
                 </Card.Title>
             <Card style={{border:"hidden"}}>
                 <UserStamp />
+                {/* Px to rem */}
                 <Card.Body className = {cns} style={{padding:"1px",textAlign:"left"}}>
                 <p>
                     <strong>{info.name}</strong> 
