@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../styles/App.scss";
-import img_Aman from "../temp/image.jpg";
 import PropTypes from "prop-types";
 import ActionButtons from "./ActionButtons";
 import UserStamp from "./UserStamp";
