@@ -19,8 +19,9 @@ function YourRequests(){
         <Card className = {maincardcns}>
             <Card.Body>
             <Card.Title className={styles.card_title && styles.yourrequest_title} >
+                <ion-icon name="receipt-outline"/>
                 Your Requests
-                </Card.Title>
+            </Card.Title>
             <Card className={styles.hidden_border}>
                 <UserStamp />
                 {/* Px to rem */}

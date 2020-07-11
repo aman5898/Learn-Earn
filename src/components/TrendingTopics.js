@@ -3,8 +3,6 @@ import classNames from 'classnames'
 import {Card} from 'react-bootstrap'; 
 
 import styles from "../styles/App.scss";
-import { faFireAlt } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function TrendingTopics(){
 
@@ -44,7 +42,7 @@ function TrendingTopics(){
         <Card className={cns} >
             <Card.Body >
                 <Card.Title className={styles.card_title} >
-                   <FontAwesomeIcon icon={faFireAlt}/> Trending Topics
+                    <ion-icon name="pulse"/> Trending Topics
                 </Card.Title>
                 {cardItem}
             </Card.Body>

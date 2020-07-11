@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import styles from "../../styles/App.scss";
 import image from "../../temp/image.jpg";
 import { InputGroup, Button } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { fadeIn } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
 import AddRequestDetails from "./AddRequestDetails";
@@ -81,7 +79,7 @@ function CreateRequest(){
                                 className={styles.addDetails_btn} 
                                 disabled={title === ''} 
                                 onClick={changeShowDetails}
-                                >Add Details <FontAwesomeIcon icon={faCaretDown} />
+                                >Add Details <ion-icon name="caret-down" size="small"></ion-icon>
                             </Button>)
                         }
                     </div>
