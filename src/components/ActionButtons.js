@@ -9,7 +9,7 @@ function ActionButtons({ isEvent }) {
   return (
     // Cursor: pointer
     <div className={`row ${isEvent && styles.margin_left_negative_1point7}`}>
-      <div className={`${styles.actionbtn} `}>
+      <div className={`${styles.actionbtn} ${styles.cursor_pointer}`}>
         <img
           src={interested}
           alt="interested"
@@ -27,7 +27,7 @@ function ActionButtons({ isEvent }) {
           Interested
         </span>
       </div>
-      <div className={styles.actionbtn}>
+      <div className={`${styles.actionbtn} ${styles.cursor_pointer}`}>
         <img
           src={like}
           alt="like"
@@ -45,7 +45,7 @@ function ActionButtons({ isEvent }) {
           Like
         </span>
       </div>
-      <div className={styles.actionbtn}>
+      <div className={`${styles.actionbtn} ${styles.cursor_pointer}`}>
         <img
           src={comment}
           alt="comments"

@@ -12,7 +12,7 @@ function InformationButton (){
     }
 
     return (
-        <div className={styles.infobtn} onClick={clickHandler}>
+        <div className={`${styles.infobtn} ${styles.cursor_pointer}`} onClick={clickHandler}>
             {/* Cursor: pointer */}
             <img src={image} alt="info button" className={styles.infobtnpic} />
             { showMenu && <div className={styles.infomenu}>
