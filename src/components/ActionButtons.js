@@ -1,7 +1,4 @@
 import React from "react";
-import like from "../temp/like.png";
-import interested from "../temp/interested.png";
-import comment from "../temp/comment.png";
 import styles from "../styles/App.scss";
 import PropTypes from "prop-types";
 
@@ -9,16 +6,8 @@ function ActionButtons({ isEvent }) {
   return (
     // Cursor: pointer
     <div className={`row ${isEvent && styles.margin_left_negative_1point7}`}>
-      <div className={`${styles.actionbtn} `}>
-        <img
-          src={interested}
-          alt="interested"
-          className={` ${
-            isEvent
-              ? styles.action_buttonforevent_pic
-              : styles.action_button_pic
-          } `}
-        />
+      <div className={`${styles.actionbtn} ${styles.cursor_pointer}`}>
+        <ion-icon name="add-circle" />
         <span
           className={`${isEvent && styles.font_size_1} ${
             isEvent && styles.font_color_70
@@ -27,16 +16,8 @@ function ActionButtons({ isEvent }) {
           Interested
         </span>
       </div>
-      <div className={styles.actionbtn}>
-        <img
-          src={like}
-          alt="like"
-          className={` ${
-            isEvent
-              ? styles.action_buttonforevent_pic
-              : styles.action_button_pic
-          } `}
-        />
+      <div className={`${styles.actionbtn} ${styles.cursor_pointer}`}>
+      <ion-icon name="heart" />
         <span
           className={`${isEvent && styles.font_size_1} ${
             isEvent && styles.font_color_70
@@ -45,16 +26,8 @@ function ActionButtons({ isEvent }) {
           Like
         </span>
       </div>
-      <div className={styles.actionbtn}>
-        <img
-          src={comment}
-          alt="comments"
-          className={` ${
-            isEvent
-              ? styles.action_buttonforevent_pic
-              : styles.action_button_pic
-          } `}
-        />
+      <div className={`${styles.actionbtn} ${styles.cursor_pointer}`}>
+        <ion-icon name="chatbox-ellipses" />
         <span
           className={`${isEvent && styles.font_size_1} ${
             isEvent && styles.font_color_70

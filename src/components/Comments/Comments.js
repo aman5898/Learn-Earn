@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styles from "../../styles/App.scss";
 import PropTypes from "prop-types";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleLeft, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 import Comment from "./Comment";
 
@@ -16,7 +14,7 @@ function Comments({ comments, type, type_id }) {
                 <div className="row">
                     <div className={`${styles.comments_header} col`}>
                         <div className={styles.comments_btn}>
-                            <FontAwesomeIcon icon={faArrowCircleLeft} color="white" size="3x" />
+                            <ion-icon name="arrow-back-circle" size="large"/>
                         </div>
                         <div className={styles.comments_heading} >
                             Comments
@@ -39,7 +37,7 @@ function Comments({ comments, type, type_id }) {
                     </div>
                     
                     <div className={`${styles.comments_btn__right} col-2`}>
-                        <FontAwesomeIcon icon={faPaperPlane} color="#005CE6" size="2x" />
+                        <ion-icon name="paper-plane" size="large"></ion-icon>
                     </div>
                 </div>   
 
