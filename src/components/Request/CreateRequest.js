@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../../styles/App.scss";
 import image from "../../temp/image.jpg";
-import { InputGroup, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { fadeIn } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
 import AddRequestDetails from "./AddRequestDetails";
@@ -66,7 +66,7 @@ function CreateRequest(){
                         {(showDetails) ? 
                             (<Button 
                                 className={styles.addDetails_btn} 
-                                disabled={title === '' || description === ''} 
+                                disabled={title === '' || description === '' || selectedTags.length === 0} 
                                 onClick={submitRequest}
                                 >Submit
                             </Button>)

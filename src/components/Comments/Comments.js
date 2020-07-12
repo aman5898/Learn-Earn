@@ -14,7 +14,7 @@ function Comments({ comments, type, type_id }) {
                 <div className="row">
                     <div className={`${styles.comments_header} col`}>
                         <div className={styles.comments_btn}>
-                            <ion-icon name="arrow-back-circle" size="large"/>
+                            <ion-icon name="arrow-back-circle" />
                         </div>
                         <div className={styles.comments_heading} >
                             Comments
