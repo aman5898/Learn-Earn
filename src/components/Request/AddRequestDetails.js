@@ -22,9 +22,10 @@ class DateTimeInput extends React.Component {
         <div onClick={this.props.onClick}>
             <input 
                 placeholder="Validity (optional)"
-                defaultValue={this.props.value}
+                value={this.props.value}
                 id="validity"
                 className={styles.request_input}
+                onChange={this.props.onClick}
             />
         </div>  
       );

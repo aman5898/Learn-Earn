@@ -14,9 +14,7 @@ function Comments({ comments, type, type_id }) {
         <div className={`${styles.comments_card} mb-5`}>  
             <div className="container">
                 <div className="row">
-                    {/* Add col classname */}
-                    <div className={styles.comments_header}>
-                        {/* Reuse pic diameter */}
+                    <div className={`${styles.comments_header} col`}>
                         <div className={styles.comments_btn}>
                             <FontAwesomeIcon icon={faArrowCircleLeft} color="white" size="3x" />
                         </div>
@@ -40,7 +38,6 @@ function Comments({ comments, type, type_id }) {
                         />
                     </div>
                     
-                    {/* Reuse pic diameter */}
                     <div className={`${styles.comments_btn__right} col-2`}>
                         <FontAwesomeIcon icon={faPaperPlane} color="#005CE6" size="2x" />
                     </div>
