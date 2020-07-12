@@ -52,14 +52,12 @@ function CreateRequest(){
                         <img src={image} alt="LearnAndEarn User" className= {styles.request_pic} />
                     </div>
                     <div className="col-9">
-                        <InputGroup className="mb-3">
-                            <input 
-                                placeholder="Make a request"
-                                value={title}
-                                className={styles.request_title_input}
-                                onChange={(e) => setTitle(e.target.value)}
-                            />
-                        </InputGroup>
+                        <input 
+                            placeholder="Make a request"
+                            value={title}
+                            className={styles.request_title_input}
+                            onChange={(e) => setTitle(e.target.value)}
+                        />
                     </div>
                 </div>
                 {renderDetails}

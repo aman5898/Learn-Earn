@@ -4,7 +4,7 @@ import styles from "../../styles/App.scss";
 
 function CustomChip({ tag, index,  deleteTag }) {
     return (
-        <div className={styles.tag_item} key={tag}>
+        <div className={styles.tag_item} key={index}>
             {tag.tag_name}
             <button
               type="button"
