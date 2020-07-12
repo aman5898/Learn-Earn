@@ -1,8 +1,6 @@
 import React from "react";
 import styles from "../../styles/App.scss";
 import PropTypes from "prop-types";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReply } from '@fortawesome/free-solid-svg-icons';
 
 import image from "../../temp/image.jpg";
 
@@ -16,7 +14,7 @@ function Comment({ comment }) {
                 <div className={styles.comment_user}>
                     Mike Doe 
                     <span className={styles.reply_comment}>
-                        <FontAwesomeIcon icon={faReply} color="#666" />
+                    <ion-icon name="arrow-undo-circle"/>
                     </span>
                 </div>
                 <div className={styles.comment_text}>

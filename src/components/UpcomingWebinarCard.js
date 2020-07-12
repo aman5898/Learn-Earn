@@ -19,10 +19,7 @@ function UpcomingWebinarCard({ events, loadUpcomingWebinars }) {
           <div className="col">
             <div className="row p-2 mb-2">
               <div className={`col ${styles.card_title}`}>
-                <img
-                  className={styles.icon_size}
-                  src="https://img.icons8.com/pastel-glyph/64/000000/system-task.png"
-                />
+                <ion-icon name="calendar-outline"/>
                 &nbsp; Upcoming Webinars
               </div>
             </div>

@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import styles from "../styles/App.scss";
-import image from "../temp/info.png";
-
 
 function InformationButton (){
 
@@ -12,9 +10,9 @@ function InformationButton (){
     }
 
     return (
-        <div className={styles.infobtn} onClick={clickHandler}>
+        <div className={`${styles.infobtn} ${styles.cursor_pointer}`} onClick={clickHandler}>
             {/* Cursor: pointer */}
-            <img src={image} alt="info button" className={styles.infobtnpic} />
+            <ion-icon name="information-circle" />
             { showMenu && <div className={styles.infomenu}>
                 <div className={styles.infomenucreateditem}>
                     Created- 2 days ago
