@@ -4,9 +4,9 @@ import InterestedUsers from "./InterestedUsers";
 import InformationButton from "./InformationButton";
 import FeedInfo from "./FeedInfo";
 import FeedTags from "./FeedTags";
-import styles from "../styles/App.scss";
-import AddEventComponent from "../components/AddEventComponent";
-import AddEventComponentExtended from "../components/AddEventComponentExtended";
+import styles from "../../styles/App.scss";
+import AddEventComponent from "./AddEventComponent";
+import AddEventComponentExtended from "./AddEventComponentExtended";
 
 import Events from "./Events";
 

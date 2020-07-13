@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { loadUpcomingWebinars } from "../redux/actions/eventActions";
+import { loadUpcomingWebinars } from "../../redux/actions/eventActions";
 import PropTypes from "prop-types";
-import styles from "../styles/App.scss";
+import styles from "../../styles/App.scss";
 import UpcomingWebinarInfo from "./UpcomingWebinarInfo";
 
 function UpcomingWebinarCard({ events, loadUpcomingWebinars }) {

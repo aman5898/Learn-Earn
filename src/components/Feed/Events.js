@@ -1,8 +1,7 @@
 import React from "react";
-import styles from "../styles/App.scss";
-import PropTypes from "prop-types";
+import styles from "../../styles/App.scss";
 import ActionButtons from "./ActionButtons";
-import UserStamp from "./UserStamp";
+import UserStamp from "../UserStamp";
 
 function Events() {
   return (

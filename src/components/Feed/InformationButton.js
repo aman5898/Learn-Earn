@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styles from "../styles/App.scss";
+import styles from "../../styles/App.scss";
 
 function InformationButton (){
 

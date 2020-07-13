@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/App.scss";
+import styles from "../../styles/App.scss";
 import PropTypes from "prop-types";
 
 function ActionButtons({ isEvent }) {

@@ -18,10 +18,10 @@ class MyNavbar extends Component{
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
         </Form>
         <Nav.Link href="#home" className={styles.navbar_item}>
-            <ion-icon name="notifications"/>
+            <ion-icon name="chatbox"/>
         </Nav.Link>
         <Nav.Link href="#link" className={styles.navbar_item}>
-            <ion-icon name="chatbox"/>
+            <ion-icon name="notifications"/>
         </Nav.Link>
         <Nav.Link className={styles.navbar_item}><img src={image} alt="LearnAndEarn User" className= {styles.navbar_userpic} /></Nav.Link>
         <Nav.Link className={styles.navbar_item}>Bittoo</Nav.Link>
