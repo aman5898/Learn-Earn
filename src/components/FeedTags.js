@@ -7,7 +7,7 @@ function FeedTags({ tags }) {
     return (
         <div className={styles.feed_tag_container}>
             <span className={styles.tags_heading}>Tags &#8722;</span>
-            <span className={styles.tags_container}>
+            <span className={`${styles.tags_container} ${styles.cursor_pointer}`}>
                 {(tags.length > 0) ? (
                     tags.map((tag, index) => (
                         <div className={styles.feed_tag_item} key={index}>

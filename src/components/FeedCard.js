@@ -42,7 +42,9 @@ function FeedCard() {
             )}
           </div>
         </div>
-
+        <span className={styles.eventline}>
+              Events for this request
+        </span>
         <Events />
         <Events />
       </div>

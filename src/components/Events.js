@@ -21,7 +21,7 @@ function Events() {
               </span>
 
               <span
-                className={`${styles.font_color_70} ${styles.font_size_9} ${styles.font_500}`}
+                className={`${styles.font_color_70} ${styles.font_size_9}`}
               >
                 &nbsp; 28 June 2020 @ 16:00 hrs
               </span>
@@ -34,7 +34,7 @@ function Events() {
                   Description-
                 </span>
                 <span
-                  className={`${styles.font_color_70} ${styles.font_size_9} ${styles.font_500}`}
+                  className={`${styles.font_color_70} ${styles.font_size_9}`}
                 >
                   &nbsp; Lorem Ipsum dolor sit amet, consectetur adipiscing...
                   <a href="www.xyz.con">Read more.</a>
@@ -43,9 +43,9 @@ function Events() {
             </div>
             <div className="row">
               <span
-                className={`${styles.font_color_70} ${styles.font_size_1} ${styles.font_500}`}
+                className={`${styles.font_color_70} ${styles.font_size_1}`}
               >
-                69 interested, 250 likes and 35 comments
+                <b>69</b> interested, <b>250</b> likes and <b>35</b> comments
               </span>
             </div>
             <div className="row">
