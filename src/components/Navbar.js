@@ -10,7 +10,7 @@ class MyNavbar extends Component{
     render(){
 
         return(
-        <Navbar className = "fluid-container" bg="light" expand="lg" variant="light">
+        <Navbar className = {`fluid-container ${styles.navbar}`} expand="lg">
         <Navbar.Brand href="#home" className={styles.navbar_br}>Learn&Earn</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
