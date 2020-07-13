@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../../styles/App.scss";
 import image from "../../temp/image.jpg";
-import { InputGroup, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { fadeIn } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
 import AddRequestDetails from "./AddRequestDetails";
@@ -52,14 +52,12 @@ function CreateRequest(){
                         <img src={image} alt="LearnAndEarn User" className= {styles.request_pic} />
                     </div>
                     <div className="col-9">
-                        <InputGroup className="mb-3">
-                            <input 
-                                placeholder="Make a request"
-                                value={title}
-                                className={styles.request_title_input}
-                                onChange={(e) => setTitle(e.target.value)}
-                            />
-                        </InputGroup>
+                        <input 
+                            placeholder="Make a request"
+                            value={title}
+                            className={styles.request_title_input}
+                            onChange={(e) => setTitle(e.target.value)}
+                        />
                     </div>
                 </div>
                 {renderDetails}
@@ -68,7 +66,7 @@ function CreateRequest(){
                         {(showDetails) ? 
                             (<Button 
                                 className={styles.addDetails_btn} 
-                                disabled={title === '' || description === ''} 
+                                disabled={title === '' || description === '' || selectedTags.length === 0} 
                                 onClick={submitRequest}
                                 >Submit
                             </Button>)

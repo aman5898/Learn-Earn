@@ -19,7 +19,8 @@ class CustomInputDatePicker extends React.Component {
         className={`${styles.background_blue} ${styles.font_white} ${styles.cursor_pointer} ${styles.placeholder_white}`}
         onClick={this.props.onClick}
         placeholder={this.props.defaultText}
-        defaultValue={this.props.value}
+        value={this.props.value}
+        onChange={this.props.onClick}
       />
     );
   }

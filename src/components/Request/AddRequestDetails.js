@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import styles from "../../styles/App.scss";
 import PropTypes from "prop-types";
 import DatePicker from "react-datepicker";
 import styled from 'styled-components';
+import autosize from 'autosize';
 import "react-datepicker/dist/react-datepicker.css";
 
 import ChipsComponent from './ChipsComponent';
@@ -22,9 +23,10 @@ class DateTimeInput extends React.Component {
         <div onClick={this.props.onClick}>
             <input 
                 placeholder="Validity (optional)"
-                defaultValue={this.props.value}
+                value={this.props.value}
                 id="validity"
                 className={styles.request_input}
+                onChange={this.props.onClick}
             />
         </div>  
       );
@@ -37,13 +39,21 @@ DateTimeInput.propTypes = {
 }
 
 function AddRequestDetails({ description, setDescription, validity, setValidity, selectedTags, setSelectedTags }){
+    
+    const descriptionRef = useRef(null);
+
+    useEffect(() => {    
+        autosize(descriptionRef.current);
+    }, []);
+
     return(
         <div className={styles.details_container}>
             {/* Description */}
             <textarea 
                 placeholder="Write Description"
-                rows={2}
+                rows={1}
                 value={description}
+                ref={descriptionRef}
                 className={styles.request_input}
                 onChange={(e) => setDescription(e.target.value)}
             />

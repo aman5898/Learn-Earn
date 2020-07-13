@@ -12,11 +12,9 @@ function Comments({ comments, type, type_id }) {
         <div className={`${styles.comments_card} mb-5`}>  
             <div className="container">
                 <div className="row">
-                    {/* Add col classname */}
-                    <div className={styles.comments_header}>
-                        {/* Reuse pic diameter */}
+                    <div className={`${styles.comments_header} col`}>
                         <div className={styles.comments_btn}>
-                            <ion-icon name="arrow-back-circle" size="large"/>
+                            <ion-icon name="arrow-back-circle" />
                         </div>
                         <div className={styles.comments_heading} >
                             Comments
@@ -38,7 +36,6 @@ function Comments({ comments, type, type_id }) {
                         />
                     </div>
                     
-                    {/* Reuse pic diameter */}
                     <div className={`${styles.comments_btn__right} col-2`}>
                         <ion-icon name="paper-plane" size="large"></ion-icon>
                     </div>
