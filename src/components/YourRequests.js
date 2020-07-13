@@ -3,6 +3,8 @@ import {Card} from 'react-bootstrap';
 import styles from "../styles/App.scss";
 import UserStamp from './UserStamp'
 import classNames from 'classnames'
+import { faHandshake } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 function YourRequests(){
@@ -14,7 +16,7 @@ function YourRequests(){
     }
     const maincardcns = classNames(styles.yourrequest_main_card,styles.card)
     const cns = classNames(styles.font_color_70,styles.font_size_9,styles.yourrequest_inner_card)
-    
+    const cns_title = classNames(styles.card_title , styles.yourrequest_title)
     return(
         <Card className = {maincardcns}>
             <Card.Body>
