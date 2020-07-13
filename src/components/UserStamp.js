@@ -14,7 +14,7 @@ function UserStamp() {
   let colors = random_color();
 
   return (
-    <div style={{width:"fit-content",alignSelf:"center"}}>
+    <div className={styles.userstamp_card}>
       <Card.Body
         style={{ backgroundImage: `linear-gradient(${colors[0]}, ${colors[1]})` }}
         className={styles.userstamp_style} >

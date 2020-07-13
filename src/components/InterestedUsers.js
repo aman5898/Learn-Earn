@@ -19,7 +19,7 @@ function InterestedUsers(){
                     </div>
                 </div>
                 <div className="row">
-                    <div className={styles.interested_count}>
+                    <div className={`${styles.interested_count} ${styles.feedsubtitle}`}>
                     255 others
                     </div>
                 </div>
