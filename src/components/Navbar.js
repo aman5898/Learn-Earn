@@ -11,21 +11,24 @@ class MyNavbar extends Component{
 
         return(
         <Navbar className = {`fluid-container ${styles.navbar}`} expand="lg">
-        <Navbar.Brand href="#home" className={styles.navbar_br}>Learn&Earn</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-        <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-        </Form>
-        <Nav.Link href="#home" className={styles.navbar_item}>
-            <ion-icon name="chatbox"/>
-        </Nav.Link>
-        <Nav.Link href="#link" className={styles.navbar_item}>
-            <ion-icon name="notifications"/>
-        </Nav.Link>
-        <Nav.Link className={styles.navbar_item}><img src={image} alt="LearnAndEarn User" className= {styles.navbar_userpic} /></Nav.Link>
-        <Nav.Link className={styles.navbar_item}>Bittoo</Nav.Link>
-        </Navbar.Collapse>
+            <div className="container">
+                <Navbar.Brand href="#home">Learn&Earn</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+                <Form inline className={`${styles.navbar_item}`}>
+                    <ion-icon name="search"></ion-icon>
+                    <FormControl type="text" placeholder="Search" className={styles.searchbox}/>
+                </Form>
+                <Nav.Link href="#home" className={styles.navbar_item}>
+                    <ion-icon name="chatbox"/>
+                </Nav.Link>
+                <Nav.Link href="#link" className={styles.navbar_item}>
+                    <ion-icon name="notifications"/>
+                </Nav.Link>
+                <Nav.Link className={styles.navbar_item}><img src={image} alt="LearnAndEarn User" className= {styles.navbar_userpic} /></Nav.Link>
+                <Nav.Link className={styles.navbar_item}>Bittoo</Nav.Link>
+                </Navbar.Collapse>
+            </div>
         </Navbar>
         );
     }

@@ -8,8 +8,6 @@
     color: #797979 0% 0% no-repeat padding-box;
     width: $userpic-diameter;
     height: $userpic-diameter;
-    width: 45px ;
-
 }
 
 .navbar_userpic{
@@ -21,7 +19,7 @@
 
 .navbar_item {
     color:#797979;
-    padding : 0.3125rem 0.5rem 0.3125rem 0.5rem,        
+    padding : 0.3125rem 0.5rem 0.3125rem 0.5rem;      
 }
 
 .navbar_br{
@@ -30,8 +28,11 @@
 }
 
 .navbar {
-    border-radius: $card-border-radius;
     background-color: $card-color;
     box-shadow: $card-shadow;
+}
 
-  }
+.searchbox{
+      border: 0;
+      border-radius: 0;
+}
