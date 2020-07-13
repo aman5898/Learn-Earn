@@ -26,7 +26,7 @@ class MyNavbar extends Component{
                     <ion-icon name="notifications"/>
                 </Nav.Link>
                 <Nav.Link className={styles.navbar_item}><img src={image} alt="LearnAndEarn User" className= {styles.navbar_userpic} /></Nav.Link>
-                <Nav.Link className={styles.navbar_item}>Bittoo</Nav.Link>
+                <Nav.Link className={`${styles.navbar_item} ${styles.navbar_username}`}>John Doe</Nav.Link>
                 </Navbar.Collapse>
             </div>
         </Navbar>
