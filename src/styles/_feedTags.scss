@@ -1,0 +1,40 @@
+.feed_tag_container {
+    color: hsl(0, 0%, 44%);
+    font: 1.15rem $golbal-font ;
+    margin: 0.438rem 0.919rem;
+    display: flex; 
+    white-space: nowrap;  
+    margin-bottom: 0;
+}
+ 
+.tags_container {
+    margin-left: 0.438rem;
+    // overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.tags_container:hover {
+    overflow-x: scroll;
+}
+
+.tags_heading {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+}
+
+.feed_tag_item {
+    display: inline-flex;
+    align-items: center;
+    font: 1rem $golbal-font;
+    border-radius: 1.875rem;
+    height: 1.875rem;
+    padding: 0 0.5rem 0 0.5rem;
+    border: 0.134rem solid #005CE6;
+    margin-right: 0.5rem;
+    color: #005CE6;
+}
+
+.tags_container::-webkit-scrollbar { 
+    display: none; 
+}

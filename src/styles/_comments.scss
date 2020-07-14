@@ -1,5 +1,5 @@
 .comments_card {
-    @extend .card;
+    @extend .feedcard;
     position: relative;
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
@@ -115,4 +115,14 @@
 
 .comment_input:focus {
     outline: none;
+}
+
+.comments_btn ion-icon {
+    font-size: 3.125rem;
+    color: #fff;
+}
+
+.comments_btn__right ion-icon {
+    font-size: 3.125rem;
+    color: #005CE6;
 }

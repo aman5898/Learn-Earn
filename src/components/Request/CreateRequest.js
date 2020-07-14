@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styles from "../../styles/App.scss";
 import image from "../../temp/image.jpg";
-import { InputGroup, Button } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { Button } from 'react-bootstrap';
 import { fadeIn } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
 import AddRequestDetails from "./AddRequestDetails";
+
+import API from '../../api/api';
 
 const fadeInAnimation = keyframes`${fadeIn}`;
 
@@ -27,8 +27,28 @@ function CreateRequest(){
         setShowDetails(true);
     } 
 
-    const submitRequest = (e) => {
+    const submitRequest = async (e) => {
         e.preventDefault();
+
+        const payload = {
+            title,
+            description,
+            validity,
+            tags: JSON.stringify(selectedTags)
+        }
+
+        let { response, success } = await API('POST', '/request/create', payload, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiIxMmgiLCJpZCI6IjVlZTc0ZjI3OTRlMjhkOGI3NmY5YjI1NSIsImVtYWlsIjoic2F2aXRvamphc3dhbEBnbWFpbC5jb20iLCJpYXQiOjE1OTQ2OTkxMTh9.bwVGfkuE6ThlimxRrQx2lhEiPJvvjbWRdXtOK7iXAsE');
+        
+        if(success) {
+            setTitle('');
+            setDescription('');
+            setSelectedTags([]);
+            setValidity('');
+            setShowDetails(false);
+            console.log(response);
+        }
+        
+
     }
 
     const renderDetails = (showDetails) ? 
@@ -48,20 +68,18 @@ function CreateRequest(){
 
     return(
         <div className={styles.request_card}>
-            <div className="container">
+            <div className={`container ${styles.request_card_container}`}>
                 <div className="row">
-                    <div className="col-3">
+                    <div className="col-2">
                         <img src={image} alt="LearnAndEarn User" className= {styles.request_pic} />
                     </div>
                     <div className="col-9">
-                        <InputGroup className="mb-3">
-                            <input 
-                                placeholder="Make a request"
-                                value={title}
-                                className={styles.request_title_input}
-                                onChange={(e) => setTitle(e.target.value)}
-                            />
-                        </InputGroup>
+                        <input 
+                            placeholder="Make a request"
+                            value={title}
+                            className={styles.request_title_input}
+                            onChange={(e) => setTitle(e.target.value)}
+                        />
                     </div>
                 </div>
                 {renderDetails}
@@ -70,7 +88,7 @@ function CreateRequest(){
                         {(showDetails) ? 
                             (<Button 
                                 className={styles.addDetails_btn} 
-                                disabled={title === '' || description === ''} 
+                                disabled={title === '' || description === '' || selectedTags.length === 0} 
                                 onClick={submitRequest}
                                 >Submit
                             </Button>)
@@ -81,7 +99,7 @@ function CreateRequest(){
                                 className={styles.addDetails_btn} 
                                 disabled={title === ''} 
                                 onClick={changeShowDetails}
-                                >Add Details <FontAwesomeIcon icon={faCaretDown} />
+                                >Add Details <ion-icon name="caret-down" size="small"></ion-icon>
                             </Button>)
                         }
                     </div>

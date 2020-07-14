@@ -16,4 +16,15 @@
     width: $userpic-diameter;
     height: $userpic-diameter;
     border-radius: $userpic-diameter / 2;
+    
+}
+
+.navbar_item {
+    color:#797979;
+    padding : 0.3125rem 0.5rem 0.3125rem 0.5rem,        
+}
+
+.navbar_br{
+    position: absolute;
+    left: 10%;
 }

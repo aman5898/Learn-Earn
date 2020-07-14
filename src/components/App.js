@@ -7,11 +7,11 @@ import React from "react";
 import MyNavbar from "./Navbar";
 import TrendingTopics from "./TrendingTopics";
 import CreateRequest from "./Request/CreateRequest";
-import UpcomingWebinar from "./UpcomingWebinar";
+import UpcomingWebinarCard from "./UpcomingWebinarCard";
 import YourRequests from "./YourRequests";
 import Feed from "./Feed";
 import Comments from "./Comments/Comments";
-// import "../temp.scss";
+//import "../temp.scss";
 import styles from "../styles/App.scss";
 
 // import { ToastContainer } from "react-toastify";
@@ -38,12 +38,14 @@ function App() {
             <div className="row">
               <Feed />
             </div>
+
+            {/* To be removed later */}
             <div className="row">
               <Comments />
             </div>
           </div>
           <div className="col">
-            <UpcomingWebinar />
+            <UpcomingWebinarCard />
           </div>
         </div>
       </div>

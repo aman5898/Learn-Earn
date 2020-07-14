@@ -15,6 +15,7 @@ function FeedInfo() {
                     <b>Description-</b>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
                     tempor incididunt ut labore et dolore aliqua. Lorem ipsum dolor.. 
+                    {/* Expand on read more */}
                     <a href="#">Read More</a>
                 </div>
             </div>
@@ -27,7 +28,7 @@ function FeedInfo() {
                 </div>
                 <hr className={styles.line} />
             </div>
-            <ActionButtons />
+            <ActionButtons isEvent={false} />
         </div>
     )
 }
