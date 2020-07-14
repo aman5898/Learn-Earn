@@ -17,38 +17,12 @@ import styles from "../styles/App.scss";
 // import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import SignUp from "./SignupPage/Signup";
+
 function App() {
   return (
-    <div className={styles.font_size_top}>
-      <MyNavbar />
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <div className="row">
-              <TrendingTopics />
-            </div>
-            <div className="row">
-              <YourRequests />
-            </div>
-          </div>
-          <div className="col-6">
-            <div className="row">
-              <CreateRequest />
-            </div>
-            <div className="row">
-              <Feed />
-            </div>
-
-            {/* To be removed later */}
-            <div className="row">
-              <Comments />
-            </div>
-          </div>
-          <div className="col">
-            <UpcomingWebinarCard />
-          </div>
-        </div>
-      </div>
+    <div className={`container-fluid ${styles.signUpPage}`}>
+      <SignUp/>
     </div>
   );
 }
