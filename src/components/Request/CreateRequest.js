@@ -6,6 +6,8 @@ import { fadeIn } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
 import AddRequestDetails from "./AddRequestDetails";
 
+import API from '../../api/api';
+
 const fadeInAnimation = keyframes`${fadeIn}`;
 
 const FadeInDiv = styled.div`
@@ -25,8 +27,28 @@ function CreateRequest(){
         setShowDetails(true);
     } 
 
-    const submitRequest = (e) => {
+    const submitRequest = async (e) => {
         e.preventDefault();
+
+        const payload = {
+            title,
+            description,
+            validity,
+            tags: JSON.stringify(selectedTags)
+        }
+
+        let { response, success } = await API('POST', '/request/create', payload, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiIxMmgiLCJpZCI6IjVlZTc0ZjI3OTRlMjhkOGI3NmY5YjI1NSIsImVtYWlsIjoic2F2aXRvamphc3dhbEBnbWFpbC5jb20iLCJpYXQiOjE1OTQ2OTkxMTh9.bwVGfkuE6ThlimxRrQx2lhEiPJvvjbWRdXtOK7iXAsE');
+        
+        if(success) {
+            setTitle('');
+            setDescription('');
+            setSelectedTags([]);
+            setValidity('');
+            setShowDetails(false);
+            console.log(response);
+        }
+        
+
     }
 
     const renderDetails = (showDetails) ? 

@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../../styles/App.scss";
-import image from "../../temp/image.jpg";
+import styles from "../styles/App.scss";
+import image from "../temp/image.jpg";
 
 function InterestedUsers(){
     return(
@@ -19,7 +19,7 @@ function InterestedUsers(){
                     </div>
                 </div>
                 <div className="row">
-                    <div className={`${styles.interested_count} ${styles.feedsubtitle}`}>
+                    <div className={styles.interested_count}>
                     255 others
                     </div>
                 </div>
