@@ -27,24 +27,30 @@ function FeedCard() {
           <InterestedUsers />
         </div>
         <div className="row">
-          <div className="col"><FeedTags tags={[{tag_name: 'C++'}, {tag_name: 'Java'}, {tag_name: 'Interview Questions'}, {tag_name: 'Node Js Basics'}, {tag_name: 'React Js'}]}/></div>
+          <div className="col">
+            <FeedTags
+              tags={[
+                { tag_name: "C++" },
+                { tag_name: "Java" },
+                { tag_name: "Interview Questions" },
+                { tag_name: "Node Js Basics" },
+                { tag_name: "React Js" },
+              ]}
+            />
+          </div>
         </div>
         <div className="row">
           <FeedInfo />
         </div>
 
-        <div className="row mt-3">
-          <div className="col">
-            {addEventButton ? (
-              <AddEventComponent onClick={clickAddEvent} />
-            ) : (
-              <AddEventComponentExtended onClick={clickAddEvent} />
-            )}
-          </div>
+        <div className={`row mt-3 ${styles.padding_left_right_2}`}>
+          {addEventButton ? (
+            <AddEventComponent onClick={clickAddEvent} />
+          ) : (
+            <AddEventComponentExtended onClick={clickAddEvent} />
+          )}
         </div>
-        <span className={styles.eventline}>
-              Events for this request
-        </span>
+        <span className={styles.eventline}>Events for this request</span>
         <Events />
         <Events />
       </div>

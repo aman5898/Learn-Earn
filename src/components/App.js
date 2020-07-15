@@ -12,7 +12,7 @@ import YourRequests from "./YourRequests";
 import { Route, Switch } from "react-router-dom";
 import Feed from "./Feed/Feed";
 import Comments from "./Comments/Comments";
-//import "../temp.scss";
+// import "../temp.scss";
 import styles from "../styles/App.scss";
 import PageNotFound from "./PageNotFound";
 import Signup from "./SignupPage/Signup"

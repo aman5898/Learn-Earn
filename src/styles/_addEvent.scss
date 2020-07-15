@@ -1,16 +1,27 @@
 .add_event_button {
-  height: 4.15rem;
+  height: 3.55rem;
   background: #005ce6 0% 0% no-repeat padding-box;
   border-radius: 2.097rem;
   width: 100%;
 }
 
+.padding_left_right_2 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 .add_event_button_image {
-  @extend .add_event_card_image;
+  height: 2.8rem;
+  width: 2.8rem;
+  border: 0.133rem solid #ffffff;
   border-radius: 50%;
   margin: 0;
-  padding: 0;
-  border: 3px solid #ffffff;
+  margin-top: 0.41rem;
+  margin-left: 0.7rem;
+}
+
+.margin_left4 {
+  margin-left: 0.4rem;
 }
 
 .bold {
@@ -84,13 +95,13 @@
   font-weight: 500;
 }
 
-.img_container {
-  margin-left: 0.669rem;
+.padding0 {
+  padding: 0rem;
 }
 
 .text_centre_addbtn {
   @extend .text_centre;
-  margin-top: 1.149rem;
+  margin-top: 0.849rem;
   padding: 0;
   text-align: left;
   margin-left: 0.928rem;
@@ -112,3 +123,10 @@ textarea:focus {
   outline: none;
 }
 
+.eventline {
+  font: 1rem Segoe UI;
+  letter-spacing: 0px;
+  color: #707070;
+  opacity: 1;
+  font-weight: 500;
+}
