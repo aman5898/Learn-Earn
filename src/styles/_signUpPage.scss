@@ -73,3 +73,50 @@
     top: 15.351rem;
     right: 6.247rem;
 }
+
+.outerCircle{
+    position: absolute;
+    top: 8.122rem;
+    left: 13.350rem;
+    background-color: white;
+    width: 10.621rem;
+    height: 10.621rem;
+    border-radius: 5.310rem;
+}
+
+.pictureCircle{
+    position: absolute;
+    top: 0.580rem;
+    left: 0.624rem;
+    background-color: white;
+    width: 9.416rem;
+    height: 9.416rem;
+    border-radius: 5.310rem;
+    box-shadow: 0.446rem 0.446rem 0.267rem #00000029;
+}
+
+.quote{
+    position: absolute;
+    color: white;
+    font-size: 1.785rem;
+    font-style: italic;
+    font-weight: 600;
+    width: 29.900rem;
+    left: 4.998rem;
+    bottom: 4.373rem;
+}
+
+.displayCardTitle{
+    position: absolute;
+    top: 1.918rem;
+    right: 12.540rem;
+    color: white;
+    font-size: 3.123rem;
+}
+
+.quoteBy{
+    @extend .quote;
+    font-style: normal;
+    top: 32.533rem;
+    left: 15.976rem;
+}
