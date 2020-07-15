@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../styles/App.scss";
-import image from "../temp/image.jpg";
+import styles from "../../styles/App.scss";
+import image from "../../temp/image.jpg";
 
 function InterestedUsers(){
     return(
