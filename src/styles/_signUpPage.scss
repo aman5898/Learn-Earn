@@ -1,0 +1,122 @@
+.signUpCard{
+    position: relative;
+    width: 69.885rem;
+    height: 31.238rem;
+    background-color: white;
+    border-radius: 1.829rem;
+    margin: auto;
+    margin-top: 8rem;
+    box-shadow: 0.446rem 0.446rem 0.267rem #00000029;
+}
+
+.signUpPage{
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    background-color: #D5DAE4;
+}
+
+.displayCard{
+    position: absolute;
+    left: 9.460rem;
+    top: -3.034rem;
+    background-color: #005CE6;
+    width: 37.263rem;
+    height: 37.263rem;
+    border-radius: 1.918rem;
+    box-shadow: 0.446rem 0.446rem 0.267rem #00000029;
+}
+
+.signUpButton{
+    position: absolute;
+    background-color: #4285F4;
+    width: 19.546rem;
+    height: 5.489rem;
+    right: 1.294rem;
+    bottom: 2.632rem;
+    box-shadow: 0.267rem 0.267rem 0.178rem #00000029;
+    border-radius: 2.766rem;    
+}
+
+.googleLogo{
+    position: absolute;
+    width: 4.105rem;
+    height: 4.105rem;
+    top: 0.714rem;
+    left: 1.115rem;
+}
+
+.signInText{
+    position: absolute;
+    font-size: 2.677rem;
+    color: white;
+    font-weight: bold;
+    top: 0.580rem;
+    right: 4.328rem;
+}
+
+.startLogoContainer{
+    position: absolute;
+    color: #AAAAAA;
+    top: 4.596rem;
+    right: 6.872rem;
+    width: 9.193rem;
+    height: 9.193rem;
+}
+
+
+.message{
+    position: absolute;
+    font-size: 1.785rem;
+    font-weight: bold;
+    color: #AAAAAA;
+    top: 15.351rem;
+    right: 6.247rem;
+}
+
+.outerCircle{
+    position: absolute;
+    top: 8.122rem;
+    left: 13.350rem;
+    background-color: white;
+    width: 10.621rem;
+    height: 10.621rem;
+    border-radius: 5.310rem;
+}
+
+.pictureCircle{
+    position: absolute;
+    top: 0.580rem;
+    left: 0.624rem;
+    background-color: white;
+    width: 9.416rem;
+    height: 9.416rem;
+    border-radius: 5.310rem;
+    box-shadow: 0.446rem 0.446rem 0.267rem #00000029;
+}
+
+.quote{
+    position: absolute;
+    color: white;
+    font-size: 1.785rem;
+    font-style: italic;
+    font-weight: 600;
+    width: 29.900rem;
+    left: 4.998rem;
+    bottom: 4.373rem;
+}
+
+.displayCardTitle{
+    position: absolute;
+    top: 1.918rem;
+    right: 12.540rem;
+    color: white;
+    font-size: 3.123rem;
+}
+
+.quoteBy{
+    @extend .quote;
+    font-style: normal;
+    top: 32.533rem;
+    left: 15.976rem;
+}
