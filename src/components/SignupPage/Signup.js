@@ -9,8 +9,8 @@ function Signup() {
                 
             </div>
 
-            <div className={styles.startLogo}>
-                <ion-icon name="rocket-sharp" size="large"/>
+            <div className={styles.startLogoContainer}>
+                <ion-icon name="rocket" className={styles.startLogo}/>
             </div>
 
             <div className={styles.message}>
