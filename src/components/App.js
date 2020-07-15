@@ -15,6 +15,7 @@ import Comments from "./Comments/Comments";
 //import "../temp.scss";
 import styles from "../styles/App.scss";
 import PageNotFound from "./PageNotFound";
+import Signup from "./SignupPage/Signup"
 
 // import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -58,6 +59,7 @@ function App() {
       <MyNavbar />
       <Switch>
         <Route exact path="/" component={FeedPage} />
+        <Route path="/login" component={Signup} />
         <Route component={PageNotFound} />
       </Switch>
     </div>
