@@ -1,16 +1,10 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { loadUpcomingWebinars } from "../../redux/actions/eventActions";
 import PropTypes from "prop-types";
 import styles from "../../styles/App.scss";
 import UpcomingWebinarInfo from "./UpcomingWebinarInfo";
 
-function UpcomingWebinarCard({ events, loadUpcomingWebinars }) {
-  useEffect(() => {
-    console.log(events);
-
-    loadUpcomingWebinars();
-  }, []);
+function UpcomingWebinarCard() {
+  useEffect(() => {}, []);
   return (
     <div className="row mt-4">
       {/* <div className="col"></div> */}
@@ -19,7 +13,7 @@ function UpcomingWebinarCard({ events, loadUpcomingWebinars }) {
           <div className="col">
             <div className="row p-2 mb-2">
               <div className={`col ${styles.card_title}`}>
-                <ion-icon name="calendar-outline"/>
+                <ion-icon name="calendar-outline" />
                 &nbsp; Upcoming Webinars
               </div>
             </div>
@@ -33,22 +27,6 @@ function UpcomingWebinarCard({ events, loadUpcomingWebinars }) {
   );
 }
 
-UpcomingWebinarCard.propTypes = {
-  events: PropTypes.array.isRequired,
-  loadUpcomingWebinars: PropTypes.func.isRequired,
-};
+UpcomingWebinarCard.propTypes = {};
 
-function mapStateToProps(state) {
-  return {
-    events: state.events,
-  };
-}
-
-const mapDispatchToProps = {
-  loadUpcomingWebinars,
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UpcomingWebinarCard);
+export default UpcomingWebinarCard;
