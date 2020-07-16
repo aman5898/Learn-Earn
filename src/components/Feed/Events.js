@@ -19,14 +19,12 @@ function Events() {
                 Scheduled At-
               </span>
 
-              <span
-                className={`${styles.font_color_70} ${styles.font_size_9}`}
-              >
+              <span className={`${styles.font_color_70} ${styles.font_size_9}`}>
                 &nbsp; 28 June 2020 @ 16:00 hrs
               </span>
             </div>
             <div className="row">
-              <span>
+              <p className={styles.margin_bottom0}>
                 <span
                   className={`${styles.font_bold} ${styles.font_color_70} ${styles.font_size_9}`}
                 >
@@ -38,12 +36,12 @@ function Events() {
                   &nbsp; Lorem Ipsum dolor sit amet, consectetur adipiscing...
                   <a href="www.xyz.con">Read more.</a>
                 </span>
-              </span>
+              </p>
+
+             
             </div>
             <div className="row">
-              <span
-                className={`${styles.font_color_70} ${styles.font_size_1}`}
-              >
+              <span className={`${styles.font_color_70} ${styles.font_size_1}`}>
                 <b>69</b> interested, <b>250</b> likes and <b>35</b> comments
               </span>
             </div>
