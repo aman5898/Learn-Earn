@@ -59,7 +59,7 @@ function App() {
       <MyNavbar />
       <Switch>
         <Route exact path="/" component={FeedPage} />
-        <Route path="/login" component={Signup} />
+        <Route path="/signup" component={Signup} />
         <Route component={PageNotFound} />
       </Switch>
     </div>
