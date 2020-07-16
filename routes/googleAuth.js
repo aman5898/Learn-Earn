@@ -12,7 +12,6 @@ router.get(
   })
 );
 
-
 router.get("/tokenPage", (req, res) => {
   // const token = req.user.generateJWT();
   res.send({
@@ -30,7 +29,7 @@ router.get(
   ],
   (req, res) => {
     const tokenGenerated = req.user.generateJWT();
-    res.cookie("x-auth-cookie", tokenGenerated, {httpOnly: true});
+    res.cookie("x-auth-cookie", tokenGenerated, { httpOnly: true });
     token = tokenGenerated;
     // When client side will be ready instead of redirecting to /api/auth/tokenPage which is
     // just another api to send token for server side work, we will redirect to a
@@ -38,7 +37,7 @@ router.get(
     // the res.redirect(clientUrl); will be uncommented
     //res.redirect("/api/auth/tokenPage");
     // The above written line will be replaced by the below line once client side is ready
-    // -> res.redirect(clientUrl);
+    res.redirect(clientUrl);
   }
 );
 
