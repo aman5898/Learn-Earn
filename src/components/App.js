@@ -55,7 +55,7 @@ function FeedPage() {
 
 function App() {
   return (
-    <div className={styles.font_size_top}>
+    <div>
       <MyNavbar />
       <Switch>
         <Route exact path="/" component={FeedPage} />
