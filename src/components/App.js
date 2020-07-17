@@ -9,46 +9,62 @@ import TrendingTopics from "./TrendingTopics";
 import CreateRequest from "./Request/CreateRequest";
 import UpcomingWebinarCard from "./UpcomingWebinar/UpcomingWebinarCard";
 import YourRequests from "./YourRequests";
+import { Route, Switch } from "react-router-dom";
 import Feed from "./Feed/Feed";
 import Comments from "./Comments/Comments";
-//import "../temp.scss";
+// import "../temp.scss";
 import styles from "../styles/App.scss";
+import PageNotFound from "./PageNotFound";
+import Signup from "./SignupPage/Signup"
 
 // import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function App() {
+function FeedPage() {
   return (
-    <div className={styles.font_size_top}>
-      <MyNavbar />
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <div className="row">
-              <TrendingTopics />
-            </div>
-            <div className="row">
-              <YourRequests />
-            </div>
+    <div className="container">
+      <div className="row">
+        
+        <div className="col">
+          <div className="row">
+            <TrendingTopics />
           </div>
-          <div className="col-6">
-            <div className="row">
-              <CreateRequest />
-            </div>
-            <div className="row">
-              <Feed />
-            </div>
-
-            {/* To be removed later */}
-            <div className="row">
-              <Comments type="request" type_id="5ee7d3abcd3a31603c456c19"/>
-            </div>
-          </div>
-          <div className="col">
-            <UpcomingWebinarCard />
+          <div className="row">
+            <YourRequests />
           </div>
         </div>
+
+        <div className="col-6">
+          <div className="row">
+            <CreateRequest />
+          </div>
+          <div className="row">
+            <Feed />
+          </div>
+
+          {/* To be removed later */}
+          <div className="row">
+            <Comments type="request" type_id="5ee7d3abcd3a31603c456c19"/>          
+          </div>
+        </div>
+        
+        <div className="col">
+          <UpcomingWebinarCard />
+        </div>
       </div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <MyNavbar />
+      <Switch>
+        <Route exact path="/" component={FeedPage} />
+        <Route path="/signup" component={Signup} />
+        <Route component={PageNotFound} />
+      </Switch>
     </div>
   );
 }
