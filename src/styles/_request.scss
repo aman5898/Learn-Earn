@@ -48,6 +48,17 @@
     margin-top: 0.93rem;
 }
 
+.request_input__red {
+    border-color: red;
+    color: red;
+}
+
+.validity_helper_text {
+    font-size: 0.8rem;
+    font-family: $golbal-font;
+    color: red;
+}
+
 .request_input:focus {
     outline: none;
 }

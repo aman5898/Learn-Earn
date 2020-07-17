@@ -32,6 +32,7 @@ function FeedPage() {
   return (
     <div className="container">
       <div className="row">
+        
         <div className="col">
           <div className="row">
             <TrendingTopics />
@@ -40,6 +41,7 @@ function FeedPage() {
             <YourRequests />
           </div>
         </div>
+
         <div className="col-6">
           <div className="row">
             <CreateRequest />
@@ -50,9 +52,10 @@ function FeedPage() {
 
           {/* To be removed later */}
           <div className="row">
-            <Comments />
+            <Comments type="request" type_id="5ee7d3abcd3a31603c456c19"/>          
           </div>
         </div>
+        
         <div className="col">
           <UpcomingWebinarCard />
         </div>

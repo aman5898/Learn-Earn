@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const apiEndpoint = process.env.API_URL;
 
-const API = (method, uri, payload, token, extra_headers = {}) => {
+const API = (method, uri, payload = {}, token = undefined, extra_headers = {}) => {
     return new Promise((resolve, reject) => {
         
         let custom_headers = {
