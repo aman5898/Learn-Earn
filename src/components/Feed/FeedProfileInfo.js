@@ -1,15 +1,14 @@
 import React from "react";
 import styles from "../../styles/App.scss";
-import image from "../../temp/image.jpg";
 
-function FeedProfileInfo(){
+function FeedProfileInfo({userInfo}){
     return(
         
             <div className="row">
-                <img src={image} alt="LearnAndEarn User" className= {styles.feedpic} />
+                <img src={userInfo.avatar} alt="LearnAndEarn User" className= {styles.feedpic} />
                 <div className="col">
                     <div className={styles.feedtitle}>
-                        John Doe
+                        {userInfo.name}
                     </div>
                     <div className={styles.feedsubtitle}>
                         Student CS at MAIT

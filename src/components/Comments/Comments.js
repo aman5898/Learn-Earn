@@ -5,6 +5,7 @@ import API from "../../api/api";
 import styles from "../../styles/App.scss";
 import Comment from "./Comment";
 import ReferencedChip from "./ReferencedChip";
+import Cookies from 'universal-cookie';
 
 const COMMENTS_LIMIT = 5;
 
@@ -18,7 +19,9 @@ function Comments({ type, type_id }) {
 
     useEffect(() => {
         const fetchComments = async () => {
-            const { response, success } = await API('GET', `comments/${type}/${type_id}?skip=${counter}&count=${COMMENTS_LIMIT}`, {}, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiIxMmgiLCJpZCI6IjVlZTc0ZjI3OTRlMjhkOGI3NmY5YjI1NSIsImVtYWlsIjoic2F2aXRvamphc3dhbEBnbWFpbC5jb20iLCJpYXQiOjE1OTQ2OTkxMTh9.bwVGfkuE6ThlimxRrQx2lhEiPJvvjbWRdXtOK7iXAsE');
+            const cookies = new Cookies();
+            const header = cookies.get("x-auth-cookie");
+            const { response, success } = await API('GET', `comments/${type}/${type_id}?skip=${counter}&count=${COMMENTS_LIMIT}`, {}, header);
             if(success) {
                 setComments(response == null ? [] : response);
                 setHideViewBtn(response.length < COMMENTS_LIMIT);

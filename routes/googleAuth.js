@@ -29,7 +29,7 @@ router.get(
   ],
   (req, res) => {
     const tokenGenerated = req.user.generateJWT();
-    res.cookie("x-auth-cookie", tokenGenerated, { httpOnly: true });
+    res.cookie("x-auth-cookie", tokenGenerated);
     token = tokenGenerated;
     // When client side will be ready instead of redirecting to /api/auth/tokenPage which is
     // just another api to send token for server side work, we will redirect to a

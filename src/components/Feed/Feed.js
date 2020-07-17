@@ -1,9 +1,9 @@
 import React from "react";
 import FeedCard from './FeedCard'
 
-function Feed(){
+function Feed({userInfo}){
     return(
-        <FeedCard />
+        <FeedCard userInfo={userInfo}/>
     );
 }
 

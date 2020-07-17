@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useState, useEffect } from "react";
 import MyNavbar from "./Navbar";
 import TrendingTopics from "./TrendingTopics";
 import CreateRequest from "./Request/CreateRequest";
@@ -10,29 +10,31 @@ import Comments from "./Comments/Comments";
 import PageNotFound from "./PageNotFound";
 import Signup from "./SignupPage/Signup"
 import "react-toastify/dist/ReactToastify.css";
+import Cookies from 'universal-cookie';
 import API from '../api/api';
 
 // import "../temp.scss";
 
 function FeedPage() {
 
-  const profile = async () => {
 
-    const payload = {}
+  const [profileInfo, setProfileInfo] = useState({});
 
-    let { response, success } = await API('GET', '/profile', payload, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiIxMmgiLCJpZCI6IjVlZTc0ZjI3OTRlMjhkOGI3NmY5YjI1NSIsImVtYWlsIjoic2F2aXRvamphc3dhbEBnbWFpbC5jb20iLCJpYXQiOjE1OTQ2OTkxMTh9.bwVGfkuE6ThlimxRrQx2lhEiPJvvjbWRdXtOK7iXAsE');
-        
-      if(success) {
-        console.log(response);
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const cookies = new Cookies();
+      const header = cookies.get("x-auth-cookie");
+      const { response, success } = await API('GET', '/profile', {}, header);
+      if(success){
+        setProfileInfo(response == null ? [] : response);
       }
-
-    return response;
-  };
+    };
+    fetchProfile();
+  }, []);
 
   return (
     <div className="container">
       <div className="row">
-        
         <div className="col">
           <div className="row">
             <TrendingTopics />
@@ -47,7 +49,7 @@ function FeedPage() {
             <CreateRequest />
           </div>
           <div className="row">
-            <Feed />
+            <Feed userInfo={profileInfo}/>
           </div>
 
           {/* To be removed later */}
