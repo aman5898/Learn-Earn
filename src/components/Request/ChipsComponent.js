@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { loadAllTags } from "../../redux/actions/tagActions";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "../../styles/App.scss";
 import CustomChip from './CustomChip';
 
-function ChipsComponent({ selectedTags, setSelectedTags, tags, loadAllTags }) {
+function ChipsComponent({ selectedTags, setSelectedTags, tags }) {
 
     const [tagText, setTagText] = useState('');
     const [cursor, setCursor] = useState(0);
     const [matchingTags, setMatchingTags] = useState([]); 
-
-    useEffect(() => {    
-        loadAllTags();
-    }, []);
 
     const tagTextChange = (e) => {
 
@@ -100,17 +94,6 @@ ChipsComponent.propTypes = {
     selectedTags: PropTypes.array.isRequired,
     setSelectedTags: PropTypes.func.isRequired,
     tags: PropTypes.array.isRequired,
-    loadAllTags: PropTypes.func.isRequired,
 };
 
-function mapStateToProps(state) {
-    return {
-      tags: state.tags,
-    };
-}
-  
-const mapDispatchToProps = {
-    loadAllTags,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ChipsComponent);
+export default ChipsComponent;

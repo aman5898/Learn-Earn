@@ -2,23 +2,28 @@ import React from "react";
 import styles from "../../styles/App.scss";
 import PropTypes from "prop-types";
 
-import image from "../../temp/image.jpg";
-
-function Comment({ comment }) {
+function Comment({ comment, replyHandler }) {
     return (
         <div className={`${styles.single_comment_container} row`}>
             <div className="col-2">
-                <img src={image} alt="LearnAndEarn User" className= {styles.comment_pic} />
+                <img src={comment.created_by.avatar} alt="LearnAndEarn User" className= {styles.comment_pic} />
             </div>
             <div className="col-10">
                 <div className={styles.comment_user}>
-                    Mike Doe 
-                    <span className={styles.reply_comment}>
-                    <ion-icon name="arrow-undo-circle"/>
+                    <a href="#" className={styles.commenter_user_name}>{comment.created_by.name}</a>
+                    <span className={styles.reply_comment} onClick={() => replyHandler(comment.created_by)}>
+                        <ion-icon name="arrow-undo-circle"/>
                     </span>
                 </div>
                 <div className={styles.comment_text}>
-                    <span className={styles.comment_user_tag}>@Jenny Doe</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam risus turpis, molestie nec tempus a, finibus sit amet nunc. Mauris iaculis tortor a velit dapibus, non faucibus magna blandit. 
+                    {(comment.referenced_to) ? 
+                        <a href="#">
+                            <span className={styles.comment_user_tag}>
+                                @{comment.referenced_to.name}
+                            </span>
+                        </a> 
+                    : null}
+                    {comment.text} 
                 </div>
             </div>
         </div>
@@ -27,6 +32,7 @@ function Comment({ comment }) {
 
 Comment.propTypes = {
     comment: PropTypes.object,
+    replyHandler: PropTypes.func
 }
 
 export default Comment;

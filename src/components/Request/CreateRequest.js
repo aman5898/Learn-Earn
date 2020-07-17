@@ -47,8 +47,6 @@ function CreateRequest(){
             setShowDetails(false);
             console.log(response);
         }
-        
-
     }
 
     const renderDetails = (showDetails) ? 
@@ -88,7 +86,7 @@ function CreateRequest(){
                         {(showDetails) ? 
                             (<Button 
                                 className={styles.addDetails_btn} 
-                                disabled={title === '' || description === '' || selectedTags.length === 0} 
+                                disabled={title === '' || description === '' || selectedTags.length === 0 || (validity && new Date() > new Date(validity))} 
                                 onClick={submitRequest}
                                 >Submit
                             </Button>)

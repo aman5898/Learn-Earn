@@ -58,7 +58,7 @@ exports.create_request = async function (req, res) {
 		return;
 	}
 
-	if(!req.body.validity || new Date() > new Date(req.body.validity)) {
+	if(req.body.validity && new Date() > new Date(req.body.validity)) {
 		res.status(400).send({ message: 'Invalid Date' });
 		return;
 	}

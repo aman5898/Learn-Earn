@@ -1,73 +1,157 @@
 let Comments = require("../models/comments");
 
 exports.get_comments_request = function (req, res) {
-  Comments.find({ request_id: req.params.request_id }, (err, documents) => {
-    if (err) {
-      res.status(500).send(err);
+
+	let skip = parseInt(req.query.skip);
+	let limit = parseInt(req.query.count);
+
+	Comments.find({ request_id: req.params.request_id }).populate('created_by').populate('referenced_to').sort({ created_at: -1 }).limit(limit).skip(skip).exec((err, comments) => {
+		if(err) {
+			console.log(err);
+      res.status(400).send({message: 'Error Occured, cannot fetch comments'});
       return;
-    }
-    res.send(documents);
-  });
+		}
+
+		res.send(comments.map(comment => {
+			return {
+				_id: comment.id,
+				created_by: {
+					avatar: comment.created_by.avatar,
+					_id: comment.created_by._id,
+					name: comment.created_by.name
+				},
+				text: comment.text,
+				created_at: comment.created_at,
+				referenced_to: (comment.referenced_to) ? {
+					_id: comment.referenced_to._id,
+					name: comment.referenced_to.name
+				} : null
+			}
+		}));
+
+	});
+
 };
 
 exports.get_comments_event = function (req, res) {
-  Comments.find({ event_id: req.params.event_id }, (err, documents) => {
-    if (err) {
-      res.status(500).send(err);
+
+	let skip = parseInt(req.query.skip);
+	let limit = parseInt(req.query.count);
+
+	Comments.find({ event_id: req.params.event_id }).populate('created_by').populate('referenced_to').sort({ created_at: -1 }).limit(limit).skip(skip).exec((err, comments) => {
+		if(err) {
+			console.log(err);
+      res.status(400).send({message: 'Error Occured, cannot fetch comments'});
       return;
-    }
-    res.send(documents);
-  });
+		}
+
+		res.send(comments.map(comment => {
+			return {
+				_id: comment.id,
+				created_by: {
+					avatar: comment.created_by.avatar,
+					_id: comment.created_by._id,
+					name: comment.created_by.name
+				},
+				text: comment.text,
+				created_at: comment.created_at,
+				referenced_to: (comment.referenced_to) ? {
+					_id: comment.referenced_to._id,
+					name: comment.referenced_to.name
+				} : null
+			}
+		}));
+
+	});
 };
 
 exports.create_comments_request = function (req, res) {
-  const me = req.user.toJSON();
+	const me = req.user.toJSON();
 
-  let commentDetail = {
-    created_by: me._id,
-    text: req.body.text,
-    type: "request",
-    event_id: null,
-    request_id: req.body.request_id,
-  };
+	let commentDetail = {
+		created_by: me._id,
+		text: req.body.text,
+		type: "request",
+		event_id: null,
+		request_id: req.body.request_id,
+		referenced_to: req.body.referenced_to
+	};
 
-  let comment = new Comments(commentDetail);
+	let comment = new Comments(commentDetail);
 
-  comment.save(function (err, obj) {
-    if (err) {
-      res.status(500).send(err);
-      return;
-    }
-    res.send({
-      message: "Comment has been created",
-      comment_id: obj._id,
-    });
-  });
+	comment.save(function (err, obj) {
+		if (err) {
+			res.status(500).send(err);
+			return;
+		}
+		Comments.findOne({ _id: obj._id }).populate('created_by').populate('referenced_to').then(comment => {
+			res.send({
+				message: "Comment has been created",
+				comment: {
+					_id: comment.id,
+					created_by: {
+						avatar: comment.created_by.avatar,
+						_id: comment.created_by._id,
+						name: comment.created_by.name
+					},
+					text: comment.text,
+					created_at: comment.created_at,
+					referenced_to: (comment.referenced_to) ? {
+						_id: comment.referenced_to._id,
+						name: comment.referenced_to.name
+					} : null
+				}
+			});
+		}).catch(err => {
+			res.status(500).send(err);
+			return;
+		})
+		
+	});
 };
 
 exports.create_comments_event = function (req, res) {
-  const me = req.user.toJSON();
+	const me = req.user.toJSON();
 
-  let commentDetail = {
-    created_by: me._id,
-    text: req.body.text,
-    type: "event",
-    event_id: req.body.event_id,
-    request_id: null,
-  };
+	let commentDetail = {
+		created_by: me._id,
+		text: req.body.text,
+		type: "event",
+		event_id: req.body.event_id,
+		request_id: null,
+		referenced_to: req.body.referenced_to
+	};
 
-  let comment = new Comments(commentDetail);
+	let comment = new Comments(commentDetail);
 
-  comment.save(function (err, obj) {
-    if (err) {
-      res.status(500).send(err);
-      return;
-    }
-    res.send({
-      message: "Comment has been created",
-      comment_id: obj._id,
-    });
-  });
+	comment.save(function (err, obj) {
+		if (err) {
+			res.status(500).send(err);
+			return;
+		}
+		Comments.findOne({ _id: obj._id }).populate('created_by').populate('referenced_to').then(comment => {
+			res.send({
+				message: "Comment has been created",
+				comment: {
+					_id: comment.id,
+					created_by: {
+						avatar: comment.created_by.avatar,
+						_id: comment.created_by._id,
+						name: comment.created_by.name
+					},
+					text: comment.text,
+					created_at: comment.created_at,
+					referenced_to: (comment.referenced_to) ? {
+						_id: comment.referenced_to._id,
+						name: comment.referenced_to.name
+					} : null
+				}
+			});
+		}).catch(err => {
+			res.status(500).send(err);
+			return;
+		})
+	});
 };
 
 exports.update_comments = function (req, res) {

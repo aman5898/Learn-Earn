@@ -20,6 +20,10 @@ var CommentSchema = new mongoose.Schema({
     request_id: {
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Requests'
+    },
+    referenced_to: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Users'
     }
 }, {
     timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
