@@ -10,7 +10,7 @@ import AddEventComponentExtended from "./AddEventComponentExtended";
 
 import Events from "./Events";
 
-function FeedCard({userInfo}) {
+function FeedCard() {
   const [addEventButton, flipAddEventButton] = useState(true);
 
   function clickAddEvent() {
@@ -22,7 +22,7 @@ function FeedCard({userInfo}) {
       <div className="container">
         <div className="row">
           <div className="col-8">
-            <FeedProfileInfo userInfo={userInfo}/>
+            <FeedProfileInfo />
           </div>
           <InterestedUsers />
         </div>

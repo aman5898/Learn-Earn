@@ -14,7 +14,7 @@ const FadeInDiv = styled.div`
   animation: 1s ${fadeInAnimation};
 `;
 
-function CreateRequest(){
+function CreateRequest({userInfo}){
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -69,7 +69,7 @@ function CreateRequest(){
             <div className={`container ${styles.request_card_container}`}>
                 <div className="row">
                     <div className="col-2">
-                        <img src={image} alt="LearnAndEarn User" className= {styles.request_pic} />
+                        <img src={userInfo.avatar} alt="LearnAndEarn User" className= {styles.request_pic} />
                     </div>
                     <div className="col-9">
                         <input 

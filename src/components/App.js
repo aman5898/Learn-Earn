@@ -46,10 +46,10 @@ function FeedPage() {
 
         <div className="col-6">
           <div className="row">
-            <CreateRequest />
+            <CreateRequest userInfo={profileInfo}/>
           </div>
           <div className="row">
-            <Feed userInfo={profileInfo}/>
+            <Feed />
           </div>
 
           {/* To be removed later */}
