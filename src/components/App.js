@@ -1,9 +1,4 @@
 import React from "react";
-// import { Route, Switch } from "react-router-dom";
-// import HomePage from "./home/HomePage";
-// import AboutPage from "./about/AboutPage";
-// import Header from "./common/Header";
-// import PageNotFound from "./PageNotFound";
 import MyNavbar from "./Navbar";
 import TrendingTopics from "./TrendingTopics";
 import CreateRequest from "./Request/CreateRequest";
@@ -12,15 +7,28 @@ import YourRequests from "./YourRequests";
 import { Route, Switch } from "react-router-dom";
 import Feed from "./Feed/Feed";
 import Comments from "./Comments/Comments";
-// import "../temp.scss";
-import styles from "../styles/App.scss";
 import PageNotFound from "./PageNotFound";
 import Signup from "./SignupPage/Signup"
-
-// import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import API from '../api/api';
+
+// import "../temp.scss";
 
 function FeedPage() {
+
+  const profile = async () => {
+
+    const payload = {}
+
+    let { response, success } = await API('GET', '/profile', payload, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiIxMmgiLCJpZCI6IjVlZTc0ZjI3OTRlMjhkOGI3NmY5YjI1NSIsImVtYWlsIjoic2F2aXRvamphc3dhbEBnbWFpbC5jb20iLCJpYXQiOjE1OTQ2OTkxMTh9.bwVGfkuE6ThlimxRrQx2lhEiPJvvjbWRdXtOK7iXAsE');
+        
+      if(success) {
+        console.log(response);
+      }
+
+    return response;
+  };
+
   return (
     <div className="container">
       <div className="row">

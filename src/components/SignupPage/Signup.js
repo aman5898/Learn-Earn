@@ -2,22 +2,10 @@ import React from "react";
 import styles from "../../styles/App.scss";
 import GoogleLogo from "../../temp/google.png";
 import image from "../../temp/image.jpg";
-
-import API from "../../api/api";
 import { Button } from "react-bootstrap";
-
 import { GOOGLE_AUTH_LINK } from "../../constants";
 
 function Signup() {
-  const signIn = async (e) => {
-    e.preventDefault();
-
-    let { response, success } = await API("GET", "/auth/google");
-
-    if (success) {
-      console.log(response);
-    }
-  };
 
   return (
     <div className={styles.signUpCard}>
@@ -50,13 +38,10 @@ function Signup() {
 
       <Button
         className={`${styles.signUpButton} ${styles.cursor_pointer}`}
-        onClick={signIn}
       >
         <img src={GoogleLogo} alt="Google Logo" className={styles.googleLogo} />
-        <div className={styles.signInText}>Sign In</div>
+        <a href={GOOGLE_AUTH_LINK} className={styles.signInText}> Sign in</a>
       </Button>
-
-      <a href={GOOGLE_AUTH_LINK}> Login via this</a>
     </div>
   );
 }
