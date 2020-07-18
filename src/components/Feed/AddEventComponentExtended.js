@@ -41,6 +41,7 @@ class AddEventComponentExtended extends React.Component {
   componentDidMount() {
     this.textarea.focus();
     autosize(this.textarea);
+    console.log(this.props.userInfo);
   }
 
   handleDateChange = (date) => {
@@ -90,7 +91,10 @@ class AddEventComponentExtended extends React.Component {
     return (
       <div className={`${styles.add_event_card} container mb-4`}>
         <div className="row">
-          <img src={img_Aman} className={styles.add_event_card_image} />
+          <img
+            src={this.props.userInfo.avatar}
+            className={styles.add_event_card_image}
+          />
         </div>
         <div className="row ml-3 mr-3 mb-2">
           <div className={`col ${styles.bottom_border_white}`}>

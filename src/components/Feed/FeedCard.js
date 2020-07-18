@@ -11,7 +11,7 @@ import PropTypes from "prop-types";
 
 import Events from "./Events";
 
-function FeedCard({ feed }) {
+function FeedCard({ feed, userInfo }) {
   const [addEventButton, flipAddEventButton] = useState(true);
 
   function clickAddEvent() {
@@ -48,6 +48,7 @@ function FeedCard({ feed }) {
             <AddEventComponentExtended
               onClick={clickAddEvent}
               requestId={feed.id}
+              userInfo={userInfo}
             />
           )}
         </div>

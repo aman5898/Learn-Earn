@@ -5,7 +5,7 @@ import API from '../../api/api';
 
 const FEED_LIMIT = 5;
 
-function Feed(){
+function Feed({userInfo}){
 
     const [feeds, setFeeds] = useState([]);
     const [counter, setCounter] = useState(0);
@@ -36,7 +36,7 @@ function Feed(){
 
     return(
         <>
-            {feeds.map((feed, idx) => <FeedCard  key={idx} feed={feed}/>)}
+            {feeds.map((feed, idx) => <FeedCard  key={idx} feed={feed} userInfo={userInfo}/>)}
             {(hideViewBtn) ? null : <button 
                 type="button" 
                 className="btn btn-outline-primary" 

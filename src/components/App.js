@@ -1,4 +1,4 @@
-import React,{ useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import MyNavbar from "./Navbar";
 import TrendingTopics from "./TrendingTopics";
 import CreateRequest from "./Request/CreateRequest";
@@ -8,24 +8,22 @@ import Comments from "./Comments/Comments";
 import { Route, Switch } from "react-router-dom";
 import Feed from "./Feed/Feed";
 import PageNotFound from "./PageNotFound";
-import Signup from "./SignupPage/Signup"
+import Signup from "./SignupPage/Signup";
 import "react-toastify/dist/ReactToastify.css";
-import Cookies from 'universal-cookie';
-import API from '../api/api';
+import Cookies from "universal-cookie";
+import API from "../api/api";
 
 // import "../temp.scss";
 
 function FeedPage() {
-
-
   const [profileInfo, setProfileInfo] = useState({});
 
   useEffect(() => {
     const fetchProfile = async () => {
       const cookies = new Cookies();
       const header = cookies.get("x-auth-cookie");
-      const { response, success } = await API('GET', '/profile', {}, header);
-      if(success){
+      const { response, success } = await API("GET", "/profile", {}, header);
+      if (success) {
         setProfileInfo(response == null ? [] : response);
       }
     };
@@ -46,18 +44,18 @@ function FeedPage() {
 
         <div className="col-6">
           <div className="row">
-            <CreateRequest userInfo={profileInfo}/>
+            <CreateRequest userInfo={profileInfo} />
           </div>
           <div className="row">
-            <Feed />
+            <Feed userInfo={profileInfo} />
           </div>
 
           {/* To be removed later */}
           <div className="row">
-            <Comments type="request" type_id="5ee7d3abcd3a31603c456c19"/>          
+            <Comments type="request" type_id="5ee7d3abcd3a31603c456c19" />
           </div>
         </div>
-        
+
         <div className="col">
           <UpcomingWebinarCard />
         </div>
