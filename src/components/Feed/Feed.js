@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import FeedCard from './FeedCard'
 import Cookies from 'universal-cookie';
 import API from '../../api/api';
-import { auto } from "async";
 
-const FEED_LIMIT = 2;
+const FEED_LIMIT = 5;
 
 function Feed(){
 
