@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "../../styles/App.scss";
 import image from "../../temp/image.jpg";
+import PropTypes from "prop-types";
 
-function InterestedUsers(){
+function InterestedUsers({interested}){
     return(
         <div className="row">
             <div className="col">
@@ -20,12 +21,16 @@ function InterestedUsers(){
                 </div>
                 <div className="row">
                     <div className={styles.interested_count}>
-                    255 others
+                    {interested} others
                     </div>
                 </div>
             </div>
         </div>    
     );
+}
+
+InterestedUsers.propTypes = {
+    interested: PropTypes.number
 }
 
 export default InterestedUsers;

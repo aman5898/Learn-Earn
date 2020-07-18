@@ -1,29 +1,29 @@
 import React from 'react';
 import styles from '../../styles/App.scss'
 import ActionButtons from "./ActionButtons"
+import PropTypes from "prop-types";
 
-function FeedInfo() {
+function FeedInfo({title, description, likes, comments}) {
     return (
         <div className="container">
             <div className="row">
                 <div className={styles.request_title}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit?
+                    {title}
                 </div>
             </div>
             <div className="row">
                 <div className={styles.request_subtitle}>
                     <b>Description-</b>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                    tempor incididunt ut labore et dolore aliqua. Lorem ipsum dolor.. 
+                    {description}
                     {/* Expand on read more */}
                     <a href="#">Read More</a>
                 </div>
             </div>
             <div className="row">
                 <div className={styles.like_comments_count}>
-                    <b>400 </b>
+                    <b>{likes} </b>
                     likes and
-                    <b> 30 </b>
+                    <b> {comments} </b>
                     comments
                 </div>
                 <hr className={styles.line} />
@@ -31,6 +31,13 @@ function FeedInfo() {
             <ActionButtons isEvent={false} />
         </div>
     )
+}
+
+FeedInfo.propTypes = {
+    title: PropTypes.string,
+    description: PropTypes.string,
+    likes: PropTypes.number,
+    comments: PropTypes.number
 }
 
 export default FeedInfo;

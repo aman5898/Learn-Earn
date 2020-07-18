@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "../../styles/App.scss";
-import image from "../../temp/image.jpg";
+import PropTypes from "prop-types";
 import { Button } from 'react-bootstrap';
 import { fadeIn } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
@@ -105,6 +105,10 @@ function CreateRequest({userInfo}){
             </div> 
         </div>
     );
+}
+
+CreateRequest.propTypes = {
+    userInfo: PropTypes.object
 }
 
 export default CreateRequest;

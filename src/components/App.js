@@ -4,9 +4,9 @@ import TrendingTopics from "./TrendingTopics";
 import CreateRequest from "./Request/CreateRequest";
 import UpcomingWebinarCard from "./UpcomingWebinar/UpcomingWebinarCard";
 import YourRequests from "./YourRequests";
+import Comments from "./Comments/Comments";
 import { Route, Switch } from "react-router-dom";
 import Feed from "./Feed/Feed";
-import Comments from "./Comments/Comments";
 import PageNotFound from "./PageNotFound";
 import Signup from "./SignupPage/Signup"
 import "react-toastify/dist/ReactToastify.css";

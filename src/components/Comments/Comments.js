@@ -28,7 +28,7 @@ function Comments({ type, type_id }) {
             }
         }; 
         fetchComments();
-    }, []);
+    },[]);
 
     const addNewComment = async () => {
         let type_key = `${type}_id`;

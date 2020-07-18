@@ -1,15 +1,15 @@
 import React from "react";
 import styles from "../../styles/App.scss";
-import image from "../../temp/image.jpg"
+import PropTypes from "prop-types";
 
-function FeedProfileInfo(){
+function FeedProfileInfo({creator}){
     return(
         
             <div className="row">
-                <img src={image} alt="LearnAndEarn User" className= {styles.feedpic} />
+                <img src={creator.avatar} alt="LearnAndEarn User" className= {styles.feedpic} />
                 <div className="col">
                     <div className={styles.feedtitle}>
-                        John Doe
+                        {creator.name}
                     </div>
                     <div className={styles.feedsubtitle}>
                         Student CS at MAIT
@@ -21,6 +21,10 @@ function FeedProfileInfo(){
             </div>
         
     );
+}
+
+FeedProfileInfo.propTypes = {
+    creator: PropTypes.object
 }
 
 export default FeedProfileInfo;
