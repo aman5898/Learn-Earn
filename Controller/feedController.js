@@ -20,6 +20,7 @@ exports.get_feed = function (req, res) {
 		}
 		res.status(200).send(requests.map(request => { 
 			return {
+				"id": request._id,
 				"comments": request.comments.length,
 				"likes": request.likes.length,
 				"interested": request.interested.length,

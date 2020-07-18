@@ -29,15 +29,7 @@ function FeedCard({ feed }) {
         </div>
         <div className="row">
           <div className="col">
-            <FeedTags
-              tags={[
-                { tag_name: "C++" },
-                { tag_name: "Java" },
-                { tag_name: "Interview Questions" },
-                { tag_name: "Node Js Basics" },
-                { tag_name: "React Js" },
-              ]}
-            />
+            <FeedTags tags={feed.tags} />
           </div>
         </div>
         <div className="row">
@@ -53,7 +45,10 @@ function FeedCard({ feed }) {
           {addEventButton ? (
             <AddEventComponent onClick={clickAddEvent} />
           ) : (
-            <AddEventComponentExtended />
+            <AddEventComponentExtended
+              onClick={clickAddEvent}
+              requestId={feed.id}
+            />
           )}
         </div>
         <span className={styles.eventline}>Events for this request</span>

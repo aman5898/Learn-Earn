@@ -60,7 +60,7 @@ class AddEventComponentExtended extends React.Component {
       description: this.state.description,
       class_link: this.state.classLink,
       event_datetime: "2345",
-      request: "5ee76024d17a0f2069bf1ddb",
+      request: this.props.requestId,
       title: this.state.description,
       recording_link: "234",
       tags: "[]",
@@ -167,6 +167,7 @@ CustomInputDatePicker.propTypes = {
 
 AddEventComponentExtended.propTypes = {
   createEventFunc: PropTypes.func,
+  requestId: PropTypes.string,
 };
 
 export default AddEventComponentExtended;
