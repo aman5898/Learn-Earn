@@ -11,12 +11,11 @@ import PropTypes from "prop-types";
 
 import Events from "./Events";
 
-function FeedCard({feed}) {
+function FeedCard({ feed }) {
   const [addEventButton, flipAddEventButton] = useState(true);
 
   function clickAddEvent() {
     flipAddEventButton(!addEventButton);
-    console.log(feed);
   }
   return (
     <div className={`${styles.feedcard} mb-5`}>
@@ -24,9 +23,9 @@ function FeedCard({feed}) {
       <div className="container">
         <div className="row">
           <div className="col-8">
-            <FeedProfileInfo creator={feed.created_by}/>
+            <FeedProfileInfo creator={feed.created_by} />
           </div>
-          <InterestedUsers interested={feed.interested}/>
+          <InterestedUsers interested={feed.interested} />
         </div>
         <div className="row">
           <div className="col">
@@ -42,14 +41,19 @@ function FeedCard({feed}) {
           </div>
         </div>
         <div className="row">
-          <FeedInfo title={feed.title} description={feed.description} likes={feed.likes} comments={feed.comments}/>
+          <FeedInfo
+            title={feed.title}
+            description={feed.description}
+            likes={feed.likes}
+            comments={feed.comments}
+          />
         </div>
 
         <div className={`row mt-3 ${styles.padding_left_right_2}`}>
           {addEventButton ? (
             <AddEventComponent onClick={clickAddEvent} />
           ) : (
-            <AddEventComponentExtended onClick={clickAddEvent} />
+            <AddEventComponentExtended />
           )}
         </div>
         <span className={styles.eventline}>Events for this request</span>
@@ -61,7 +65,7 @@ function FeedCard({feed}) {
 }
 
 FeedCard.propTypes = {
-  feed: PropTypes.object
-}
+  feed: PropTypes.object,
+};
 
 export default FeedCard;

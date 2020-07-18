@@ -4,7 +4,8 @@ import img_Aman from "../../temp/image.jpg";
 import PropTypes from "prop-types";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import autosize from 'autosize';
+import autosize from "autosize";
+import API from "../../api/api";
 
 // import Test from "./Test";
 
@@ -32,6 +33,8 @@ class AddEventComponentExtended extends React.Component {
     this.state = {
       startDate: null,
       startTime: null,
+      description: null,
+      classLink: null,
     };
   }
 
@@ -50,6 +53,37 @@ class AddEventComponentExtended extends React.Component {
     this.setState({
       startTime: time,
     });
+  };
+
+  createEventFunc = async () => {
+    const payload = {
+      description: this.state.description,
+      class_link: this.state.classLink,
+      event_datetime: "2345",
+      request: "5ee76024d17a0f2069bf1ddb",
+      title: this.state.description,
+      recording_link: "234",
+      tags: "[]",
+      prerequisites: "[]",
+    };
+
+    let { response, success } = await API(
+      "POST",
+      "/event/create",
+      payload,
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiIxMmgiLCJpZCI6IjVlZTVlOGI2ODBkODMwMjA4OGE1Nzc2OCIsImVtYWlsIjoiYW1hbmtyc2luZ2guMjAxMkBnbWFpbC5jb20iLCJpYXQiOjE1OTUwNjY5MDV9.sU1Z3DZjqh2zs9OkBj3jsWqXxibbXf4gg8-Gx5KoBpY"
+    );
+
+    if (success) {
+      alert("Event Has Been Created");
+      console.log(response);
+    } else {
+      alert("Unable to Create Event");
+    }
+  };
+
+  handleChange = () => {
+    console.log("Aman");
   };
 
   render() {
@@ -88,6 +122,11 @@ class AddEventComponentExtended extends React.Component {
               placeholder="Write Description"
               rows={1}
               ref={(c) => (this.textarea = c)}
+              onChange={(e) => {
+                this.setState({
+                  description: e.target.value,
+                });
+              }}
               className={`${styles.cursor_pointer} ${styles.background_inherit} ${styles.placeholder_white} ${styles.font_normal} ${styles.width_inherit} ${styles.border_none} ${styles.font_white}`}
             />
           </div>
@@ -97,6 +136,11 @@ class AddEventComponentExtended extends React.Component {
             <input
               placeholder="Paste Class Link"
               className={`${styles.cursor_pointer} ${styles.background_inherit} ${styles.placeholder_white} ${styles.font_normal} ${styles.width_inherit} ${styles.border_none} ${styles.font_white}`}
+              onChange={(e) => {
+                this.setState({
+                  classLink: e.target.value,
+                });
+              }}
             />
           </div>
         </div>
@@ -105,7 +149,7 @@ class AddEventComponentExtended extends React.Component {
         >
           <div
             className={`col ${styles.cursor_pointer}`}
-            onClick={this.props.onClick}
+            onClick={this.createEventFunc}
           >
             + ADD EVENT FOR THIS REQUEST
           </div>
@@ -122,7 +166,7 @@ CustomInputDatePicker.propTypes = {
 };
 
 AddEventComponentExtended.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  createEventFunc: PropTypes.func,
 };
 
 export default AddEventComponentExtended;

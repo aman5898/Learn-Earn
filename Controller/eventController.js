@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 //If redirection is needed use 'next'
 
 exports.create_event = async function (req, res) {
+  console.log(req.body);
   const me = req.user.toJSON();
   let user_id = me._id;
 try {
@@ -59,7 +60,6 @@ let user_id = me._id;
 
 try {
   let event = await Events.findOne({ _id: event_Id }).exec();
-  console.log(event)
   res.send({
     "created_by": user_id,
     "request":event.request,
