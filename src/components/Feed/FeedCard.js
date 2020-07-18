@@ -31,13 +31,7 @@ function FeedCard({feed}) {
         <div className="row">
           <div className="col">
             <FeedTags
-              tags={[
-                { tag_name: "C++" },
-                { tag_name: "Java" },
-                { tag_name: "Interview Questions" },
-                { tag_name: "Node Js Basics" },
-                { tag_name: "React Js" },
-              ]}
+              tags={feed.tags}
             />
           </div>
         </div>
