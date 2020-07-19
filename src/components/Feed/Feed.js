@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import FeedCard from './FeedCard'
+import FeedSwitch from './FeedSwitch'
 import Cookies from 'universal-cookie';
 import API from '../../api/api';
 
@@ -36,7 +36,7 @@ function Feed(){
 
     return(
         <>
-            {feeds.map((feed, idx) => <FeedCard  key={idx} feed={feed}/>)}
+            {feeds.map((feed, idx) => <FeedSwitch  key={idx} feed={feed}/>)}
             {(hideViewBtn) ? null : <button 
                 type="button" 
                 className="btn btn-outline-primary" 

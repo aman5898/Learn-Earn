@@ -2,7 +2,13 @@ import React from "react";
 import styles from "../../styles/App.scss";
 import PropTypes from "prop-types";
 
-function ActionButtons({ isEvent }) {
+function ActionButtons({ isEvent, eventId, displayFeedComments, displayEventComments }) {
+
+  const showComments = () => {
+    if(!isEvent) displayFeedComments(true); 
+    else displayEventComments(true, eventId);
+  }
+
   return (
     // Cursor: pointer
     <div className={`row ${isEvent && styles.margin_left_negative_1point7}`}>
@@ -26,7 +32,7 @@ function ActionButtons({ isEvent }) {
           Like
         </span>
       </div>
-      <div className={`${styles.actionbtn} ${styles.cursor_pointer}`}>
+      <div className={`${styles.actionbtn} ${styles.cursor_pointer}`} onClick={showComments}>
         <ion-icon name="chatbox-ellipses" />
         <span
           className={`${isEvent && styles.font_size_1} ${
@@ -42,6 +48,9 @@ function ActionButtons({ isEvent }) {
 
 ActionButtons.propTypes = {
   isEvent: PropTypes.bool.isRequired,
+  eventId: PropTypes.string,
+  displayFeedComments: PropTypes.func,
+  displayEventComments: PropTypes.func,
 };
 
 export default ActionButtons;

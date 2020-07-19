@@ -3,7 +3,7 @@ import styles from '../../styles/App.scss'
 import ActionButtons from "./ActionButtons"
 import PropTypes from "prop-types";
 
-function FeedInfo({title, description, likes, comments}) {
+function FeedInfo({title, description, likes, comments, displayFeedComments}) {
     return (
         <div className="container">
             <div className="row">
@@ -28,7 +28,7 @@ function FeedInfo({title, description, likes, comments}) {
                 </div>
                 <hr className={styles.line} />
             </div>
-            <ActionButtons isEvent={false} />
+            <ActionButtons isEvent={false} displayFeedComments={displayFeedComments}/>
         </div>
     )
 }
@@ -37,7 +37,8 @@ FeedInfo.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     likes: PropTypes.number,
-    comments: PropTypes.number
+    comments: PropTypes.number,
+    displayFeedComments: PropTypes.func
 }
 
 export default FeedInfo;
