@@ -9,26 +9,31 @@ import Cookies from 'universal-cookie';
 
 const COMMENTS_LIMIT = 5;
 
-function Comments({ type, type_id }) {
+function Comments({ type, type_id, displayFeedComments, displayEventComments }) {
 
     const [newComment, setNewComment] = useState('');
     const [hideViewBtn, setHideViewBtn] = useState(false);
     const [comments, setComments] = useState([]);
     const [counter, setCounter] = useState(0);
     const [referenced, setReferenced] = useState({});
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+
         const fetchComments = async () => {
             const cookies = new Cookies();
             const header = cookies.get("x-auth-cookie");
-            const { response, success } = await API('GET', `comments/${type}/${type_id}?skip=${counter}&count=${COMMENTS_LIMIT}`, {}, header);
+            const { response, success } = await API('GET', `comments/${type}/${type_id}?skip=${0}&count=${COMMENTS_LIMIT}`, {}, header);
             if(success) {
                 setComments(response == null ? [] : response);
                 setHideViewBtn(response.length < COMMENTS_LIMIT);
             }
         }; 
         fetchComments();
-    },[]);
+        setCounter(0);
+        setReferenced({});
+        setNewComment('');
+    }, [type_id]);
 
     const addNewComment = async () => {
         let type_key = `${type}_id`;
@@ -74,7 +79,7 @@ function Comments({ type, type_id }) {
             <div className="container">
                 <div className="row">
                     <div className={`${styles.comments_header} col`}>
-                        <div className={styles.comments_btn}>
+                        <div className={styles.comments_btn} onClick={() => (type === 'event') ? displayEventComments(false) :displayFeedComments(false)}>
                             <ion-icon name="arrow-back-circle" />
                         </div>
                         <div className={styles.comments_heading} >
@@ -123,7 +128,9 @@ function Comments({ type, type_id }) {
 
 Comments.propTypes = {
     type: PropTypes.string,
-    type_id: PropTypes.string
+    type_id: PropTypes.string,
+    displayFeedComments: PropTypes.func,
+    displayEventComments: PropTypes.func
 }
 
 export default Comments;

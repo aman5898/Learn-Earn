@@ -53,7 +53,7 @@ function ChipsComponent({ selectedTags, setSelectedTags, tags }) {
             <input 
                 placeholder="Choose Tags"
                 value={tagText}
-                className={styles.request_input}
+                className={styles.tag_input}
                 onChange={tagTextChange}
                 onKeyDown={handleKeyDown}
             />

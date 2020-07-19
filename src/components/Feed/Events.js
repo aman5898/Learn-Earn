@@ -1,9 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import styles from "../../styles/App.scss";
 import ActionButtons from "./ActionButtons";
 import UserStamp from "../UserStamp";
 
-function Events() {
+function Events({ id, displayEventComments }) {
   return (
     <div className="row mt-3">
       <div className="col-4">
@@ -47,7 +49,7 @@ function Events() {
             </div>
             <div className="row">
               <div className="col">
-                <ActionButtons isEvent={true} />
+                <ActionButtons isEvent={true} eventId={id} displayEventComments={displayEventComments}/>
               </div>
             </div>
           </div>
@@ -58,6 +60,9 @@ function Events() {
   );
 }
 
-Events.propTypes = {};
+Events.propTypes = {
+  id: PropTypes.string.isRequired,
+  displayEventComments: PropTypes.func.isRequired
+};
 
 export default Events;

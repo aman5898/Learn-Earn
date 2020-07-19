@@ -1,18 +1,11 @@
 import React, { useState } from "react";
 import styles from "../../styles/App.scss";
 import PropTypes from "prop-types";
-import { Button } from 'react-bootstrap';
-import { fadeIn } from 'react-animations';
-import styled, { keyframes } from 'styled-components';
+import { Button, Collapse } from 'react-bootstrap';
 import AddRequestDetails from "./AddRequestDetails";
 
 import API from '../../api/api';
 
-const fadeInAnimation = keyframes`${fadeIn}`;
-
-const FadeInDiv = styled.div`
-  animation: 1s ${fadeInAnimation};
-`;
 
 function CreateRequest({userInfo}){
 
@@ -49,8 +42,8 @@ function CreateRequest({userInfo}){
         }
     }
 
-    const renderDetails = (showDetails) ? 
-            <FadeInDiv>
+    const renderDetails = (
+            <Collapse in={showDetails}>
                 <div id="request-details">
                     <AddRequestDetails 
                         description={description} 
@@ -61,8 +54,9 @@ function CreateRequest({userInfo}){
                         setSelectedTags={setSelectedTags}
                     /> 
                 </div>
-            </FadeInDiv>
-        : null;
+            </Collapse>
+    );
+       
 
     return(
         <div className={styles.request_card}>
@@ -84,21 +78,30 @@ function CreateRequest({userInfo}){
                 <div className="row">
                     <div className={`col ${styles.addDetails_container}`}>
                         {(showDetails) ? 
-                            (<Button 
-                                className={styles.addDetails_btn} 
-                                disabled={title === '' || description === '' || selectedTags.length === 0 || (validity && new Date() > new Date(validity))} 
-                                onClick={submitRequest}
-                                >Submit
-                            </Button>)
+                            (<div>
+                                <Button 
+                                    className={styles.addDetails_btn} 
+                                    disabled={title === '' || description === '' || selectedTags.length === 0 || (validity && new Date() > new Date(validity))} 
+                                    onClick={submitRequest}
+                                    >Submit
+                                </Button>
+                                <Button 
+                                    className={styles.addDetails_btn} 
+                                    onClick={() => setShowDetails(prevShowDetails => !prevShowDetails)}
+                                    >Close
+                                </Button>
+                            </div>)
                             : 
-                            (<Button 
-                                aria-expanded={showDetails}
-                                aria-controls="request-details"
-                                className={styles.addDetails_btn} 
-                                disabled={title === ''} 
-                                onClick={changeShowDetails}
-                                >Add Details <ion-icon name="caret-down" size="small"></ion-icon>
-                            </Button>)
+                            (<div>
+                                <Button 
+                                    aria-expanded={showDetails}
+                                    aria-controls="request-details"
+                                    className={styles.addDetails_btn} 
+                                    disabled={title === ''} 
+                                    onClick={changeShowDetails}
+                                    >Add Details <ion-icon name="caret-down" size="small"></ion-icon>
+                                </Button>
+                            </div>)
                         }
                     </div>
                 </div>

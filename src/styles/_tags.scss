@@ -1,0 +1,62 @@
+.tag_input {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    letter-spacing: 0;
+    color: #707070;
+    opacity: 1;
+    font-size: 1.14rem; 
+    width: 100%;
+    border-bottom: 0.022rem solid #a7a7a7;
+    margin-top: 0.93rem;
+}
+
+.suggestions {
+    background-color: #fbfbfb;
+    cursor: pointer;
+    padding-left: 0.625rem;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    border-bottom: 0.0625rem solid lightgray;
+}
+
+.suggestions:hover, .suggestions_focus {
+    background-color:  #ececec;
+}
+
+.tag_item {
+    display: inline-flex;
+    align-items: center;
+    font: 1rem $golbal-font;
+    border-radius: 1.875rem;
+    height: 1.875rem;
+    padding: 0 0.1rem 0 0.5rem;
+    border: 0.134rem solid #005CE6;
+    margin-right: 0.5rem;
+    color: #005CE6;
+    margin: 0.3rem 0.3rem 0.3rem 0.3rem;
+    background-color: white;
+}
+
+.tag_item_button {
+    background-color: white;
+    width: 1.375rem;
+    height: 1.375rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font: $golbal-font;
+    margin-left: 0.325rem;
+    font-weight: bold;
+    padding: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #005CE6;
+}
+
+.tag_input:focus, .tag_item_button:focus {
+    outline: none;
+}

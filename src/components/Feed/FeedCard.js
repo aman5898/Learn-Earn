@@ -11,7 +11,7 @@ import PropTypes from "prop-types";
 
 import Events from "./Events";
 
-function FeedCard({feed}) {
+function FeedCard({ feed, displayFeedComments, displayEventComments }) {
   const [addEventButton, flipAddEventButton] = useState(true);
 
   function clickAddEvent() {
@@ -36,7 +36,7 @@ function FeedCard({feed}) {
           </div>
         </div>
         <div className="row">
-          <FeedInfo title={feed.title} description={feed.description} likes={feed.likes} comments={feed.comments}/>
+          <FeedInfo title={feed.title} description={feed.description} likes={feed.likes} comments={feed.comments} displayFeedComments={displayFeedComments}/>
         </div>
 
         <div className={`row mt-3 ${styles.padding_left_right_2}`}>
@@ -47,15 +47,17 @@ function FeedCard({feed}) {
           )}
         </div>
         <span className={styles.eventline}>Events for this request</span>
-        <Events />
-        <Events />
+        <Events id={'5ef1c7e4c439970176d62fba'} displayEventComments={displayEventComments}/>
+        <Events id={'5ef1c7e4c439970176d62fba'} displayEventComments={displayEventComments}/>
       </div>
     </div>
   );
 }
 
 FeedCard.propTypes = {
-  feed: PropTypes.object
+  feed: PropTypes.object,
+  displayFeedComments: PropTypes.func,
+  displayEventComments: PropTypes.func
 }
 
 export default FeedCard;
