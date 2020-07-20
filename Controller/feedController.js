@@ -24,6 +24,7 @@ exports.get_feed = function (req, res) {
 				"comments": request.comments.length,
 				"likes": request.likes.length,
 				"interested": request.interested.length,
+				"interested_users": request.interested,
 				"tags": request.tags,
 				"events": request.events,
 				"created_by": request.created_by,

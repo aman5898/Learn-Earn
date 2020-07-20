@@ -19,7 +19,6 @@ function Comments({ type, type_id, displayFeedComments, displayEventComments }) 
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-
         const fetchComments = async () => {
             const cookies = new Cookies();
             const header = cookies.get("x-auth-cookie");

@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from '../../styles/App.scss'
 import ActionButtons from "./ActionButtons"
 import PropTypes from "prop-types";
 
 function FeedInfo({title, description, likes, comments, displayFeedComments}) {
+
+    const [collapsed, setCollapsed] = useState(true);
+
     return (
         <div className="container">
             <div className="row">
@@ -13,10 +16,11 @@ function FeedInfo({title, description, likes, comments, displayFeedComments}) {
             </div>
             <div className="row">
                 <div className={styles.request_subtitle}>
-                    <b>Description-</b>
-                    {description}
-                    {/* Expand on read more */}
-                    <a href="#">Read More</a>
+                    <b>Description-</b> 
+                    {collapsed && description.substring( 0, 140)}
+                    {collapsed && description.length > 140 && <span style={{color: "blue"}} className={styles.cursor_pointer} onClick={ () => setCollapsed(!collapsed)}>...Read More</span>}
+                    {!collapsed && description}
+                    {!collapsed && <span style={{color: "blue"}} className={styles.cursor_pointer} onClick={ () => setCollapsed(!collapsed)}> Show Less</span>}
                 </div>
             </div>
             <div className="row">

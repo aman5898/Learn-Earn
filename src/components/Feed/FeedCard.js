@@ -16,8 +16,9 @@ function FeedCard({ feed, displayFeedComments, displayEventComments }) {
 
   function clickAddEvent() {
     flipAddEventButton(!addEventButton);
-    console.log(feed);
+    console.log(feed)
   }
+  
   return (
     <div className={`${styles.feedcard} mb-5`}>
       <InformationButton />

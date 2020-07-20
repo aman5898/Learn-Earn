@@ -4,7 +4,6 @@ var mongoose = require('mongoose');
 exports.get_tags = async function (req, res) {
     try{
       var tag_list = await Tags.find().sort({ tag_count : -1 })
-      console.log(tag_list)
       res.send(tag_list)
       res.status(204)
     } catch {
