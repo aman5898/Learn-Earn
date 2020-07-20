@@ -17,11 +17,11 @@ function Comments({ type, type_id, displayFeedComments, displayEventComments }) 
     const [counter, setCounter] = useState(0);
     const [referenced, setReferenced] = useState({});
     const [loading, setLoading] = useState(true);
+    const cookies = new Cookies();
+    const header = cookies.get("x-auth-cookie");
 
     useEffect(() => {
         const fetchComments = async () => {
-            const cookies = new Cookies();
-            const header = cookies.get("x-auth-cookie");
             const { response, success } = await API('GET', `comments/${type}/${type_id}?skip=${0}&count=${COMMENTS_LIMIT}`, {}, header);
             if(success) {
                 setComments(response == null ? [] : response);
@@ -41,7 +41,7 @@ function Comments({ type, type_id, displayFeedComments, displayEventComments }) 
             [type_key]: type_id,
             "referenced_to": (Object.keys(referenced).length === 0) ? null : referenced._id 
         }
-        const { response, success } = await API('POST', `comments/${type}`, payload, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiIxMmgiLCJpZCI6IjVlZTc0ZjI3OTRlMjhkOGI3NmY5YjI1NSIsImVtYWlsIjoic2F2aXRvamphc3dhbEBnbWFpbC5jb20iLCJpYXQiOjE1OTQ2OTkxMTh9.bwVGfkuE6ThlimxRrQx2lhEiPJvvjbWRdXtOK7iXAsE');
+        const { response, success } = await API('POST', `comments/${type}`, payload, header);
         if(success) {
             setNewComment('');
             setReferenced({});
@@ -56,7 +56,7 @@ function Comments({ type, type_id, displayFeedComments, displayEventComments }) 
 
     const getMoreComments = async (e) => {
         e.preventDefault();
-        const { response, success } = await API('GET', `comments/${type}/${type_id}?skip=${counter + COMMENTS_LIMIT}&count=${COMMENTS_LIMIT}`, {}, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiIxMmgiLCJpZCI6IjVlZTc0ZjI3OTRlMjhkOGI3NmY5YjI1NSIsImVtYWlsIjoic2F2aXRvamphc3dhbEBnbWFpbC5jb20iLCJpYXQiOjE1OTQ2OTkxMTh9.bwVGfkuE6ThlimxRrQx2lhEiPJvvjbWRdXtOK7iXAsE');
+        const { response, success } = await API('GET', `comments/${type}/${type_id}?skip=${counter + COMMENTS_LIMIT}&count=${COMMENTS_LIMIT}`, {}, header);
         if(success) {
             setComments(prevComments => [...prevComments, ...response]);
             setCounter(prevCounter => prevCounter + COMMENTS_LIMIT);
