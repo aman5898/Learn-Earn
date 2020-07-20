@@ -3,7 +3,7 @@ import styles from '../../styles/App.scss'
 import ActionButtons from "./ActionButtons"
 import PropTypes from "prop-types";
 
-function FeedInfo({title, description, likes, comments, displayFeedComments}) {
+function FeedInfo({id, title, description, likes, likes_users, comments, displayFeedComments, userInfo}) {
 
     const [collapsed, setCollapsed] = useState(true);
 
@@ -32,12 +32,13 @@ function FeedInfo({title, description, likes, comments, displayFeedComments}) {
                 </div>
                 <hr className={styles.line} />
             </div>
-            <ActionButtons isEvent={false} displayFeedComments={displayFeedComments}/>
+            <ActionButtons requestId={id} isEvent={false} displayFeedComments={displayFeedComments} likes_users={likes_users} userInfo={userInfo}/>
         </div>
     )
 }
 
 FeedInfo.propTypes = {
+    id: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,
     likes: PropTypes.number,

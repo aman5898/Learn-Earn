@@ -1,29 +1,34 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styles from "../../styles/App.scss";
 import PropTypes from "prop-types";
+import Cookies from "universal-cookie";
+import API from "../../api/api";
 
-function ActionButtons({ isEvent, eventId, displayFeedComments, displayEventComments }) {
+function ActionButtons({ isEvent, eventId, requestId, likes_users, displayFeedComments, displayEventComments, userInfo }) {
 
   const [likeActive, setLike] = useState(false);
   const [interestedActive, setInterested] = useState(false);
+  const cookies = new Cookies();
+  const header = cookies.get("x-auth-cookie");
 
   const like_req_evn = async (e) => {
     e.preventDefault();
-    setLike(!likeActive);
 
-    // const type = (isEvent) ? 'evn' : 'req';
+    const type = (isEvent) ? 'evn' : 'req';
+    const action = likeActive ? 'dislike' : 'like';
+    const id = isEvent ? eventId : requestId;
 
-    // const payload = {
-    //   "text": newComment,
-    //   [type_key]: type_id,
-    //   "referenced_to": (Object.keys(referenced).length === 0) ? null : referenced._id 
-    // }
+    const payload = {
+      "type": type,
+      "action": action,
+      "er_id": id 
+    }
 
-    // const { response, success } = await API('PATCH', `like/${type}`, payload, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiIxMmgiLCJpZCI6IjVlZTc0ZjI3OTRlMjhkOGI3NmY5YjI1NSIsImVtYWlsIjoic2F2aXRvamphc3dhbEBnbWFpbC5jb20iLCJpYXQiOjE1OTQ2OTkxMTh9.bwVGfkuE6ThlimxRrQx2lhEiPJvvjbWRdXtOK7iXAsE');
+    const { response, success } = await API('PATCH', `like/`, payload, header);
     
-    // if(success) {
-
-    // }
+    if(success) {
+      setLike(!likeActive);
+    }
   }
 
   const showComments = () => {

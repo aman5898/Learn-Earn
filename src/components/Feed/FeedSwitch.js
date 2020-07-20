@@ -6,7 +6,7 @@ import styles from "../../styles/App.scss";
 import FeedCard from './FeedCard'
 import Comments from '../Comments/Comments';
 
-function FeedSwitch({ feed }) {
+function FeedSwitch({ feed, userInfo }) {
 
     const [showFeedComments, setShowFeedComments] = useState(false);
     const [showEventComments, setShowEventComments] = useState(false);
@@ -24,7 +24,7 @@ function FeedSwitch({ feed }) {
     return(
         <div className={styles.feed_switch_container}>
             <ReactCardFlip isFlipped={showFeedComments || showEventComments} flipDirection="horizontal">
-                <FeedCard feed={feed} displayFeedComments={displayFeedComments} displayEventComments={displayEventComments} />
+                <FeedCard feed={feed} displayFeedComments={displayFeedComments} displayEventComments={displayEventComments} userInfo={userInfo}/>
                 {showEventComments ? 
                     <Comments type={'event'} type_id={eventId} displayFeedComments={displayFeedComments} displayEventComments={displayEventComments}/>
                 : 

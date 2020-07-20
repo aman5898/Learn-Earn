@@ -49,7 +49,7 @@ function FeedPage() {
             <CreateRequest userInfo={profileInfo}/>
           </div>
           <div className="row">
-            <Feed />
+            <Feed userInfo={profileInfo}/>
           </div>
         </div>
         
