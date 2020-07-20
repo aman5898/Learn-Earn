@@ -4,12 +4,22 @@ import PropTypes from "prop-types";
 import Cookies from "universal-cookie";
 import API from "../../api/api";
 
-function ActionButtons({ isEvent, eventId, requestId, likes_users, displayFeedComments, displayEventComments, userInfo }) {
+function ActionButtons({ isEvent, eventId, requestId, likes_users, displayFeedComments, displayEventComments, userInfo, userLikeFunc }) {
 
   const [likeActive, setLike] = useState(false);
   const [interestedActive, setInterested] = useState(false);
+  const [userLiked, setUserLiked] = useState(false);
   const cookies = new Cookies();
   const header = cookies.get("x-auth-cookie");
+
+  useEffect(() => {
+    if(likes_users){
+      if(likes_users.indexOf(userInfo._id) !== -1){
+        setLike(true);
+        setUserLiked(true);
+      }
+    }
+  }, []);
 
   const like_req_evn = async (e) => {
     e.preventDefault();
@@ -28,6 +38,7 @@ function ActionButtons({ isEvent, eventId, requestId, likes_users, displayFeedCo
     
     if(success) {
       setLike(!likeActive);
+      userLikeFunc(userLiked, likeActive);
     }
   }
 
