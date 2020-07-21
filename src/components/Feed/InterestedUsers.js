@@ -1,9 +1,30 @@
-import React from "react";
+import React, {useEffect, useContext} from "react";
 import styles from "../../styles/App.scss";
 import image from "../../temp/image.jpg";
 import PropTypes from "prop-types";
+import Cookies from "universal-cookie";
+import API from "../../api/api";
 
 function InterestedUsers({interested}){
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const cookies = new Cookies();
+            const header = cookies.get("x-auth-cookie");
+            var imageArr = [];
+
+            for(var i = 0; i < 3 && i < interested.length; i++){
+                let { response, success } = await API('GET', `user/${interested[i]}`, {}, header);
+                if(success) {
+                    imageArr.push(response.avatar);
+                }
+            }
+
+            console.log(imageArr);
+        }
+        fetchUser();
+    },[]);
+
     return(
         <div className="row">
             <div className="col">
@@ -21,7 +42,7 @@ function InterestedUsers({interested}){
                 </div>
                 <div className="row">
                     <div className={styles.interested_count}>
-                    {interested} others
+                    {interested.length} others
                     </div>
                 </div>
             </div>

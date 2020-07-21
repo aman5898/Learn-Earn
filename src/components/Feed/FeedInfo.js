@@ -3,16 +3,25 @@ import styles from '../../styles/App.scss'
 import ActionButtons from "./ActionButtons"
 import PropTypes from "prop-types";
 
-function FeedInfo({id, title, description, likes, likes_users, comments, displayFeedComments, userInfo}) {
+function FeedInfo({id, title, description, likes_users, comments, displayFeedComments, userInfo}) {
 
     const [collapsed, setCollapsed] = useState(true);
     const [userLike, setUserLike] = useState(0);
+    const [userInterested, setUserInterested] = useState(0);
 
     function userLikeFunc(userLiked, likeActive) {
         if(userLiked){
             likeActive == false ? setUserLike(0) : setUserLike(-1);
         }else{
             likeActive == false ? setUserLike(1) : setUserLike(0);
+        }
+    }
+
+    function userInterestedFunc(userInterested, interestActive) {
+        if(userInterested){
+            interestActive == false ? setUserInterested(0) : setUserInterested(-1);
+        }else{
+            interestActive == false ? setUserInterested(1) : setUserInterested(0);
         }
     }
 
@@ -34,14 +43,22 @@ function FeedInfo({id, title, description, likes, likes_users, comments, display
             </div>
             <div className="row">
                 <div className={styles.like_comments_count}>
-                    <b>{likes + userLike} </b>
+                    <b>{likes_users.length + userLike} </b>
                     likes and
                     <b> {comments} </b>
                     comments
                 </div>
                 <hr className={styles.line} />
             </div>
-            <ActionButtons requestId={id} isEvent={false} displayFeedComments={displayFeedComments} likes_users={likes_users} userInfo={userInfo} userLikeFunc={userLikeFunc}/>
+            <ActionButtons 
+                requestId={id} 
+                isEvent={false} 
+                displayFeedComments={displayFeedComments} 
+                likes_users={likes_users} 
+                userInfo={userInfo} 
+                userLikeFunc={userLikeFunc} 
+                userInterestedFunc={userInterestedFunc}
+            />
         </div>
     )
 }

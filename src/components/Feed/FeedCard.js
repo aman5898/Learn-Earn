@@ -27,7 +27,7 @@ function FeedCard({ feed, displayFeedComments, displayEventComments, userInfo })
           <div className="col-8">
             <FeedProfileInfo creator={feed.created_by}/>
           </div>
-          <InterestedUsers interested={feed.interested}/>
+          <InterestedUsers interested={feed.interested_users}/>
         </div>
         <div className="row">
           <div className="col">
@@ -41,7 +41,6 @@ function FeedCard({ feed, displayFeedComments, displayEventComments, userInfo })
             id={feed.id} 
             title={feed.title} 
             description={feed.description} 
-            likes={feed.likes} 
             likes_users={feed.likes_users} 
             comments={feed.comments} 
             displayFeedComments={displayFeedComments} 
