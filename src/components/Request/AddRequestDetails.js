@@ -7,7 +7,7 @@ import autosize from 'autosize';
 import "react-datepicker/dist/react-datepicker.css";
 
 import API from '../../api/api';
-import ChipsComponent from './ChipsComponent';
+import ChipsComponent from '../Chips/ChipsComponent';
 
 const DatePickerStyled = styled.div`
     .react-datepicker-wrapper {
@@ -55,6 +55,7 @@ function AddRequestDetails({ description, setDescription, validity, setValidity,
     useEffect(() => {    
         autosize(descriptionRef.current);
 
+        // Redundant info - call only once from root/use redux
         const getAllTags = async () => {
             const { response, success } = await API('GET', 'tag/', {},  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiIxMmgiLCJpZCI6IjVlZTc0ZjI3OTRlMjhkOGI3NmY5YjI1NSIsImVtYWlsIjoic2F2aXRvamphc3dhbEBnbWFpbC5jb20iLCJpYXQiOjE1OTQ2OTkxMTh9.bwVGfkuE6ThlimxRrQx2lhEiPJvvjbWRdXtOK7iXAsE');
             if(success) setAllTags(response);

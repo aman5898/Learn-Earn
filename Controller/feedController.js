@@ -22,8 +22,10 @@ exports.get_feed = function (req, res) {
 			return {
 				"id": request._id,
 				"comments": request.comments.length,
+				"likes_users": request.likes,
 				"likes": request.likes.length,
 				"interested": request.interested.length,
+				"interested_users": request.interested,
 				"tags": request.tags,
 				"events": request.events,
 				"created_by": request.created_by,

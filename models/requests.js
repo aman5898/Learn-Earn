@@ -23,7 +23,7 @@ var RequestSchema = new mongoose.Schema({
     }],
     interested: [{
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Users'
+        ref: 'Interested'
     }],
     tags: [{
         type: mongoose.Schema.Types.ObjectId, 

@@ -54,12 +54,13 @@ exports.likeReqEvn = async function(req, res){
                 likedReqEvn.likes.splice(index, 1);
             }
         }
-        await likedEvnReq.save()
+        await likedReqEvn.save();
         
         res.send("Request/Event has been liked/disliked successfully!!")
         res.status(204)
-    } catch {
-        res.status(404)
+    } catch(err) {
+        res.status(404);
+        console.log(err);
         res.send({ error: "Request/Event doesn't exist!" })
     }
 }

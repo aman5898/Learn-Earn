@@ -11,12 +11,14 @@ import PropTypes from "prop-types";
 
 import Events from "./Events";
 
-function FeedCard({ feed }) {
+function FeedCard({ feed, displayFeedComments, displayEventComments, userInfo }) {
   const [addEventButton, flipAddEventButton] = useState(true);
 
   function clickAddEvent() {
     flipAddEventButton(!addEventButton);
+    console.log(feed)
   }
+  
   return (
     <div className={`${styles.feedcard} mb-5`}>
       <InformationButton />
@@ -33,11 +35,15 @@ function FeedCard({ feed }) {
           </div>
         </div>
         <div className="row">
-          <FeedInfo
-            title={feed.title}
-            description={feed.description}
-            likes={feed.likes}
-            comments={feed.comments}
+          <FeedInfo 
+            id={feed.id} 
+            title={feed.title} 
+            description={feed.description} 
+            likes={feed.likes} 
+            likes_users={feed.likes_users} 
+            comments={feed.comments} 
+            displayFeedComments={displayFeedComments} 
+            userInfo={userInfo}
           />
         </div>
 
@@ -52,8 +58,8 @@ function FeedCard({ feed }) {
           )}
         </div>
         <span className={styles.eventline}>Events for this request</span>
-        <Events />
-        <Events />
+        <Events id={'5ef1c7e4c439970176d62fba'} displayEventComments={displayEventComments}/>
+        <Events id={'5ef1c7e4c439970176d62fba'} displayEventComments={displayEventComments}/>
       </div>
     </div>
   );
@@ -61,6 +67,8 @@ function FeedCard({ feed }) {
 
 FeedCard.propTypes = {
   feed: PropTypes.object,
-};
+  displayFeedComments: PropTypes.func,
+  displayEventComments: PropTypes.func
+}
 
 export default FeedCard;

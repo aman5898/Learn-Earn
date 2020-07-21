@@ -1,12 +1,55 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styles from "../../styles/App.scss";
 import PropTypes from "prop-types";
+import Cookies from "universal-cookie";
+import API from "../../api/api";
 
-function ActionButtons({ isEvent }) {
+function ActionButtons({ isEvent, eventId, requestId, likes_users, displayFeedComments, displayEventComments, userInfo, userLikeFunc }) {
+
+  const [likeActive, setLike] = useState(false);
+  const [interestedActive, setInterested] = useState(false);
+  const [userLiked, setUserLiked] = useState(false);
+  const cookies = new Cookies();
+  const header = cookies.get("x-auth-cookie");
+
+  useEffect(() => {
+    if(likes_users){
+      if(likes_users.indexOf(userInfo._id) !== -1){
+        setLike(true);
+        setUserLiked(true);
+      }
+    }
+  }, []);
+
+  const like_req_evn = async (e) => {
+    e.preventDefault();
+
+    const type = (isEvent) ? 'evn' : 'req';
+    const action = likeActive ? 'dislike' : 'like';
+    const id = isEvent ? eventId : requestId;
+
+    const payload = {
+      "type": type,
+      "action": action,
+      "er_id": id 
+    }
+
+    const { response, success } = await API('PATCH', `like/`, payload, header);
+    
+    if(success) {
+      setLike(!likeActive);
+      userLikeFunc(userLiked, likeActive);
+    }
+  }
+
+  const showComments = () => {
+    if(!isEvent) displayFeedComments(true); 
+    else displayEventComments(true, eventId);
+  }
+
   return (
-    // Cursor: pointer
     <div className={`row ${isEvent && styles.margin_left_negative_1point7}`}>
-      <div className={`${styles.actionbtn} ${styles.cursor_pointer}`}>
+      <div className={`${styles.actionbtn} ${styles.cursor_pointer} ${interestedActive && styles.interest_active}`}  onClick={ () => setInterested(!interestedActive)}>
         <ion-icon name="add-circle" />
         <span
           className={`${isEvent && styles.font_size_1} ${
@@ -16,7 +59,7 @@ function ActionButtons({ isEvent }) {
           Interested
         </span>
       </div>
-      <div className={`${styles.actionbtn} ${styles.cursor_pointer}`}>
+      <div className={`${styles.actionbtn} ${styles.cursor_pointer} ${likeActive && styles.like_active}`} onClick={like_req_evn}>
       <ion-icon name="heart" />
         <span
           className={`${isEvent && styles.font_size_1} ${
@@ -26,7 +69,7 @@ function ActionButtons({ isEvent }) {
           Like
         </span>
       </div>
-      <div className={`${styles.actionbtn} ${styles.cursor_pointer}`}>
+      <div className={`${styles.actionbtn} ${styles.cursor_pointer}`} onClick={showComments}>
         <ion-icon name="chatbox-ellipses" />
         <span
           className={`${isEvent && styles.font_size_1} ${
@@ -42,6 +85,9 @@ function ActionButtons({ isEvent }) {
 
 ActionButtons.propTypes = {
   isEvent: PropTypes.bool.isRequired,
+  eventId: PropTypes.string,
+  displayFeedComments: PropTypes.func,
+  displayEventComments: PropTypes.func,
 };
 
 export default ActionButtons;

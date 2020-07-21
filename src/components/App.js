@@ -49,12 +49,7 @@ function FeedPage() {
             <CreateRequest userInfo={profileInfo}/>
           </div>
           <div className="row">
-            <Feed />
-          </div>
-
-          {/* To be removed later */}
-          <div className="row">
-            <Comments type="request" type_id="5ee7d3abcd3a31603c456c19"/>          
+            <Feed userInfo={profileInfo}/>
           </div>
         </div>
         
