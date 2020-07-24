@@ -25,8 +25,8 @@ function TrendingTopics(){
             // Key in card body
             
             return (
-            <Card.Body className={styles.trend_card_padding}>
-                <Card.Title key={idx} className={styles.card_title} style={{marginBottom:"0px"}}>
+            <Card.Body key={idx} className={styles.trend_card_padding}>
+                <Card.Title  className={styles.card_title} style={{marginBottom:"0px"}}>
             {idx+1}. {obj.topic}
                 </Card.Title>
                 <Card.Text className = {cn}>
