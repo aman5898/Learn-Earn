@@ -3,6 +3,8 @@ import {Card} from 'react-bootstrap';
 import styles from "../styles/App.scss";
 import UserStamp from './UserStamp'
 import classNames from 'classnames'
+import image from "../temp/image.jpg";
+
 
 function YourRequests(){
     var info = {
@@ -22,7 +24,7 @@ function YourRequests(){
                 Your Requests
             </Card.Title>
             <Card className={styles.hidden_border}>
-                <UserStamp />
+                <UserStamp stampinfo= {{"image":image, "name":"xyzzz","rating":"3.0"}} />
                 {/* Px to rem */}
                 <Card.Body className = {cns} >
                 <p>

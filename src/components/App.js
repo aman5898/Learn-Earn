@@ -25,39 +25,44 @@ function FeedPage() {
       const { response, success } = await API("GET", "/profile", {}, header);
       if (success) {
         setProfileInfo(response == null ? [] : response);
+        console.log(response)
       }
     };
     fetchProfile();
   }, []);
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col">
-          <div className="row">
-            <TrendingTopics />
-          </div>
-          <div className="row">
-            <YourRequests />
-          </div>
-        </div>
+    <div>
+      <MyNavbar userinfo={profileInfo}/>
 
-        <div className="col-6">
-          <div className="row">
-            <CreateRequest userInfo={profileInfo} />
-          </div>
-          <div className="row">
-            <Feed userInfo={profileInfo} />
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <div className="row">
+              <TrendingTopics userinfo={profileInfo}/>
+            </div>
+            <div className="row">
+              <YourRequests />
+            </div>
           </div>
 
-          {/* To be removed later */}
-          <div className="row">
-            <Comments type="request" type_id="5ee7d3abcd3a31603c456c19" />
-          </div>
-        </div>
+          <div className="col-6">
+            <div className="row">
+              <CreateRequest userInfo={profileInfo} />
+            </div>
+            <div className="row">
+              <Feed userInfo={profileInfo} />
+            </div>
 
-        <div className="col">
-          <UpcomingWebinarCard />
+            {/* To be removed later */}
+            <div className="row">
+              <Comments type="request" type_id="5ee7d3abcd3a31603c456c19" />
+            </div>
+          </div>
+
+          <div className="col">
+            <UpcomingWebinarCard />
+          </div>
         </div>
       </div>
     </div>
@@ -67,7 +72,6 @@ function FeedPage() {
 function App() {
   return (
     <div>
-      <MyNavbar />
       <Switch>
         <Route exact path="/" component={FeedPage} />
         <Route path="/signup" component={Signup} />

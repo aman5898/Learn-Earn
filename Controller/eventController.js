@@ -60,6 +60,7 @@ let user_id = me._id;
 
 try {
   let event = await Events.findOne({ _id: event_Id }).exec();
+  console.log(event)
   res.send({
     "created_by": user_id,
     "request":event.request,
