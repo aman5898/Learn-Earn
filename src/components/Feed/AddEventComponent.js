@@ -1,9 +1,8 @@
 import React from "react";
 import styles from "../../styles/App.scss";
-import img_Aman from "../../temp/image.jpg";
 import PropTypes from "prop-types";
 
-function AddEventComponent({ onClick }) {
+function AddEventComponent({ onClick, userInfo }) {
   return (
     <div
       className={`${styles.bold} ${styles.add_event_button} ${styles.cursor_pointer} mb-2 col`}
@@ -11,7 +10,10 @@ function AddEventComponent({ onClick }) {
     >
       <div className={`row`}>
         <div className={`col-2 ${styles.padding0}`}>
-          <img src={img_Aman} className={`${styles.add_event_button_image}`} />
+          <img
+            src={userInfo.avatar}
+            className={`${styles.add_event_button_image}`}
+          />
         </div>
         <div className={`col ${styles.text_centre_addbtn}`}>
           + ADD EVENT FOR THIS REQUEST

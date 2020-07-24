@@ -43,7 +43,7 @@ function FeedCard({ feed, userInfo }) {
 
         <div className={`row mt-3 ${styles.padding_left_right_2}`}>
           {addEventButton ? (
-            <AddEventComponent onClick={clickAddEvent} />
+            <AddEventComponent onClick={clickAddEvent} userInfo={userInfo} />
           ) : (
             <AddEventComponentExtended
               onClick={clickAddEvent}
