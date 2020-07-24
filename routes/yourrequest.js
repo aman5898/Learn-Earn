@@ -7,4 +7,6 @@ var requireJwtAuth = require("../middleware/requireJwtAuth");
 var yourRequestsController = require("../Controller/yourRequestController");
 
 
-router.post("/", requireJwtAuth,yourRequestsController.yourrequest);
+router.post("/",requireJwtAuth,yourRequestsController.yourrequest);
+
+module.exports = router;

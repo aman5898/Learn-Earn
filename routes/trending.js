@@ -8,3 +8,5 @@ var trendingController = require("../Controller/trendingController");
 
 
 router.post("/", requireJwtAuth,trendingController.trending);
+
+module.exports = router;
