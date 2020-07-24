@@ -33,39 +33,38 @@ function FeedPage() {
 
   return (
     <div>
-    <MyNavbar userinfo={profileInfo}/>
+      <MyNavbar userinfo={profileInfo}/>
 
-    <div className="container">
-      {/* <MyNavbar userinfo = {profileInfo}/> */}
-      <div className="row">
-        <div className="col">
-          <div className="row">
-            <TrendingTopics userinfo={profileInfo}/>
-          </div>
-          <div className="row">
-            <YourRequests />
-          </div>
-        </div>
-
-        <div className="col-6">
-          <div className="row">
-            <CreateRequest userInfo={profileInfo} />
-          </div>
-          <div className="row">
-            <Feed userInfo={profileInfo} />
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <div className="row">
+              <TrendingTopics userinfo={profileInfo}/>
+            </div>
+            <div className="row">
+              <YourRequests />
+            </div>
           </div>
 
-          {/* To be removed later */}
-          <div className="row">
-            <Comments type="request" type_id="5ee7d3abcd3a31603c456c19" />
-          </div>
-        </div>
+          <div className="col-6">
+            <div className="row">
+              <CreateRequest userInfo={profileInfo} />
+            </div>
+            <div className="row">
+              <Feed userInfo={profileInfo} />
+            </div>
 
-        <div className="col">
-          <UpcomingWebinarCard />
+            {/* To be removed later */}
+            <div className="row">
+              <Comments type="request" type_id="5ee7d3abcd3a31603c456c19" />
+            </div>
+          </div>
+
+          <div className="col">
+            <UpcomingWebinarCard />
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }

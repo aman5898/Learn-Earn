@@ -13,7 +13,9 @@ var tag = require("./tag");
 var notifications = require("./notifications");
 var googleAuthRoutes = require("./googleAuth");
 var like = require("./like")
-var interested = require("./interested")
+var interested = require("./interested");
+var yourrequest = require("./yourrequest");
+var trending = require("./trending")
 
 var router = express.Router();
 
@@ -32,5 +34,8 @@ router.use("/tag", tag);
 router.use("/notifications", notifications);
 router.use("/like", like);
 router.use("/interested", interested)
+router.use("/yourrequest",yourrequest)
+router.use("/trending",trending);
+
 
 module.exports = router;
