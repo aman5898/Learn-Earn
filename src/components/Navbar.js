@@ -4,11 +4,15 @@ import {Navbar,Nav,Form,FormControl} from 'react-bootstrap';
 import styles from "../styles/App.scss";
 import image from "../temp/image.jpg"
 
+// userInfo
+//     - name
+//     - email
+//     -avatar
+
 
 class MyNavbar extends Component{
-
-    render(){
-
+    
+    render(){        
         return(
         <Navbar className = {`fluid-container ${styles.navbar}`} expand="lg">
             <div className="container">
@@ -25,8 +29,8 @@ class MyNavbar extends Component{
                 <Nav.Link href="#link" className={styles.navbar_item}>
                     <ion-icon name="notifications"/>
                 </Nav.Link>
-                <Nav.Link className={styles.navbar_item}><img src={image} alt="LearnAndEarn User" className= {styles.navbar_userpic} /></Nav.Link>
-                <Nav.Link className={`${styles.navbar_item} ${styles.navbar_username}`}>John Doe</Nav.Link>
+                <Nav.Link className={styles.navbar_item}><img src={this.props.userinfo.avatar} alt="LearnAndEarn User" className= {styles.navbar_userpic} /></Nav.Link>
+        <Nav.Link className={`${styles.navbar_item} ${styles.navbar_username}`}>{this.props.userinfo.name}</Nav.Link>
                 </Navbar.Collapse>
             </div>
         </Navbar>

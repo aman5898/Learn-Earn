@@ -25,17 +25,22 @@ function FeedPage() {
       const { response, success } = await API("GET", "/profile", {}, header);
       if (success) {
         setProfileInfo(response == null ? [] : response);
+        console.log(response)
       }
     };
     fetchProfile();
   }, []);
 
   return (
+    <div>
+    <MyNavbar userinfo={profileInfo}/>
+
     <div className="container">
+      {/* <MyNavbar userinfo = {profileInfo}/> */}
       <div className="row">
         <div className="col">
           <div className="row">
-            <TrendingTopics />
+            <TrendingTopics userinfo={profileInfo}/>
           </div>
           <div className="row">
             <YourRequests />
@@ -61,13 +66,13 @@ function FeedPage() {
         </div>
       </div>
     </div>
+    </div>
   );
 }
 
 function App() {
   return (
     <div>
-      <MyNavbar />
       <Switch>
         <Route exact path="/" component={FeedPage} />
         <Route path="/signup" component={Signup} />
