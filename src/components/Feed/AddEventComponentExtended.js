@@ -147,6 +147,22 @@ class AddEventComponentExtended extends React.Component {
             />
           </div>
         </div>
+        <div className="row ml-3 mr-3 mb-2">
+          <div className={`col ${styles.bottom_border_white}`}>
+            <input
+              placeholder="PreRequisites"
+              className={`${styles.cursor_pointer} ${styles.background_inherit} ${styles.placeholder_white} ${styles.font_normal} ${styles.width_inherit} ${styles.border_none} ${styles.font_white}`}
+            />
+          </div>
+        </div>
+        <div className="row ml-3 mr-3 mb-2">
+          <div className={`col ${styles.bottom_border_white}`}>
+            <input
+              placeholder="Tags"
+              className={`${styles.cursor_pointer} ${styles.background_inherit} ${styles.placeholder_white} ${styles.font_normal} ${styles.width_inherit} ${styles.border_none} ${styles.font_white}`}
+            />
+          </div>
+        </div>
         <div
           className={`row ml-3 mr-3 pb-3 mt-3 ${styles.text_centre} ${styles.fw_700}`}
         >

@@ -2,12 +2,13 @@ import React from "react";
 import styles from "../../styles/App.scss";
 import ActionButtons from "./ActionButtons";
 import UserStamp from "../UserStamp";
+import img from "../../temp/image.jpg"
 
 function Events() {
   return (
     <div className="row mt-3">
       <div className="col-4">
-        <UserStamp />
+        <UserStamp stampinfo={{ image: img, name: "Rakesh", rating: "3.0" }} />
       </div>
       <div className="col-8">
         <div className="row">
@@ -37,8 +38,6 @@ function Events() {
                   <a href="www.xyz.con">Read more.</a>
                 </span>
               </p>
-
-             
             </div>
             <div className="row">
               <span className={`${styles.font_color_70} ${styles.font_size_1}`}>
