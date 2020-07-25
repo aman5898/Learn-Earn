@@ -6,6 +6,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import autosize from "autosize";
 import API from "../../api/api";
 
+import ChipsComponent from "../Request/ChipsComponent";
+
 // import Test from "./Test";
 
 class CustomInputDatePicker extends React.Component {
@@ -40,7 +42,6 @@ class AddEventComponentExtended extends React.Component {
   componentDidMount() {
     this.textarea.focus();
     autosize(this.textarea);
-    console.log(this.props.userInfo);
   }
 
   handleDateChange = (date) => {
@@ -149,17 +150,23 @@ class AddEventComponentExtended extends React.Component {
         </div>
         <div className="row ml-3 mr-3 mb-2">
           <div className={`col ${styles.bottom_border_white}`}>
-            <input
-              placeholder="PreRequisites"
-              className={`${styles.cursor_pointer} ${styles.background_inherit} ${styles.placeholder_white} ${styles.font_normal} ${styles.width_inherit} ${styles.border_none} ${styles.font_white}`}
+            <ChipsComponent
+              setSelectedTags={this.props.setSelectedTagsPreReq}
+              selectedTags={this.props.selectedTagsPreReq}
+              tags={this.props.tags}
+              isEvent={true}
+              placeholderText="Prerequisite Tags"
             />
           </div>
         </div>
         <div className="row ml-3 mr-3 mb-2">
           <div className={`col ${styles.bottom_border_white}`}>
-            <input
-              placeholder="Tags"
-              className={`${styles.cursor_pointer} ${styles.background_inherit} ${styles.placeholder_white} ${styles.font_normal} ${styles.width_inherit} ${styles.border_none} ${styles.font_white}`}
+            <ChipsComponent
+              setSelectedTags={this.props.setSelectedTagsEventTag}
+              selectedTags={this.props.selectedTagsEventTag}
+              tags={this.props.tags}
+              isEvent={true}
+              placeholderText="Event Tags"
             />
           </div>
         </div>
