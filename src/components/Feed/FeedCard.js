@@ -25,15 +25,13 @@ function FeedCard({ feed, displayFeedComments, displayEventComments, userInfo })
       <div className="container">
         <div className="row">
           <div className="col-8">
-            <FeedProfileInfo creator={feed.created_by}/>
+            <FeedProfileInfo creator={feed.created_by} />
           </div>
           <InterestedUsers interested={feed.interested_users}/>
         </div>
         <div className="row">
           <div className="col">
-            <FeedTags
-              tags={feed.tags}
-            />
+            <FeedTags tags={feed.tags} />
           </div>
         </div>
         <div className="row">
@@ -52,7 +50,10 @@ function FeedCard({ feed, displayFeedComments, displayEventComments, userInfo })
           {addEventButton ? (
             <AddEventComponent onClick={clickAddEvent} />
           ) : (
-            <AddEventComponentExtended onClick={clickAddEvent} />
+            <AddEventComponentExtended
+              onClick={clickAddEvent}
+              requestId={feed.id}
+            />
           )}
         </div>
         <span className={styles.eventline}>Events for this request</span>
