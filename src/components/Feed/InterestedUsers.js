@@ -12,10 +12,10 @@ function InterestedUsers({interested}){
             const cookies = new Cookies();
             const header = cookies.get("x-auth-cookie");
             var imageArr = [];
-
+            console.log("Post:" + interested);
             for(var i = 0; i < 3 && i < interested.length; i++){
                 let { response, success } = await API('GET', `user/${interested[i]}`, {}, header);
-                if(success) {
+                if(success && typeof response.avatar != "undefined") {
                     imageArr.push(response.avatar);
                 }
             }
@@ -35,9 +35,9 @@ function InterestedUsers({interested}){
             <div className="col-8">
                 <div className="row">
                     <div className={styles.int_images}>
-                         <img src={image} alt="interested users" className={styles.intUser_pic} />
-                         <img src={image} alt="interested users" className={styles.intUser_pic && styles.pic_two} />
-                         <img src={image} alt="interested users" className={styles.intUser_pic && styles.pic_three} />
+                        <img src={image} alt="interested users" className={styles.intUser_pic} />
+                        <img src={image} alt="interested users" className={styles.intUser_pic && styles.pic_two} />
+                        <img src={image} alt="interested users" className={styles.intUser_pic && styles.pic_three} />
                     </div>
                 </div>
                 <div className="row">
@@ -51,7 +51,7 @@ function InterestedUsers({interested}){
 }
 
 InterestedUsers.propTypes = {
-    interested: PropTypes.number
+    interested: PropTypes.object
 }
 
 export default InterestedUsers;
